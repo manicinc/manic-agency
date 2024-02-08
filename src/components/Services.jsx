@@ -33,7 +33,6 @@ const Services = () => {
                 sizes="(min-width: 1024px) 41rem, 31rem" 
                 className="justify-center lg:justify-end"
               />
-             
             </div>
           </div>
           {/* List item */}
