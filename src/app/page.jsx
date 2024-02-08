@@ -2,6 +2,7 @@ import ContactSection from "@/components/ContactSection";
 import Container from "@/components/Container";
 import Intro from "@/components/Intro";
 import Clients from "@/components/Clients";
+import Services from "@/components/Services";
 import Work from "@/components/Work";
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
         </div>
       </Container>
       <Intro/>
-      {/* <Services /> */}
+      <Services />
       <Clients />
       <Work/>
       {/* <Testimonials
