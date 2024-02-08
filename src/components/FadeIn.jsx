@@ -41,8 +41,10 @@ const FadeInLong = (props) => {
       {...(isInStaggerGroup
         ? {}
         : {
-            initial: "hidden",
-            whileInView: "visible",
+            // initial: "hidden",
+            // whileInView: "visible",
+            initial: "initial",
+            whileInView: "animate",
             viewport,
           })}
       {...props}
@@ -54,8 +56,10 @@ export const FadeInStagger = ({ faster = false, ...props }) => {
   return (
     <FadeInStaggerContext.Provider value={true}>
       <motion.div
-        initial="hidden"
-        whileInView="visible"
+        // initial="hidden"
+        // whileInView="visible"
+        initial="initial"
+        whileInView="animate"
         viewport={viewport}
         transition={{ staggerChildren: faster ? 0.72 : 0.7 }}
         {...props}
