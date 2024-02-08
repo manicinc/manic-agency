@@ -19,8 +19,8 @@ const FadeIn = (props) => {
       {...(isInStaggerGroup
         ? {}
         : {
-            initial: "hidden",
-            whileInView: "visible",
+          initial: "visible",
+          whileInView: "animate",
             viewport,
           })}
       {...props}
@@ -43,7 +43,7 @@ const FadeInLong = (props) => {
         : {
             // initial: "hidden",
             // whileInView: "visible",
-            initial: "initial",
+            initial: "visible",
             whileInView: "animate",
             viewport,
           })}
