@@ -1,4 +1,3 @@
-import FadeIn from "./FadeIn";
 import TextInput from "./TextInput";
 import RadioInput from "./RadioInput";
 import Button from "./Button";
@@ -10,7 +9,7 @@ const ContactForm = () => {
     <Script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" />
     <Script src="./email.js"/>
     <Script src="./send.js"/>
-    <FadeIn>
+    <div>
       <div className="messageSuccess text-1xl text-slate-800 tracking-wider hidden">
         <h2>Thank you for submitting your proposal! We will be in touch soon.</h2>
       </div>
@@ -53,7 +52,7 @@ const ContactForm = () => {
           Let’s work together
         </Button>
       </form>
-    </FadeIn>
+    </div>
     </>
   );
 };

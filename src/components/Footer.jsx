@@ -52,7 +52,7 @@ const NewsletterForm = () => {
 const Footer = () => {
   return (
     <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40 rounded-2xl">
-      {/* <FadeIn className=""> */}
+      {/* <div className=""> */}
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
           <FooterNavigation />
           <div className="flex lg:justify-end">
@@ -73,7 +73,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="pb-20"></div>
-      {/* </FadeIn> */}
+      {/* </div> */}
     </Container>
   );
 };

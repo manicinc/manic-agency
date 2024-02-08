@@ -1,4 +1,3 @@
-import FadeIn from "./FadeIn";
 import Offices from "./Offices";
 import Border from "./Border";
 import Link from "next/link";
@@ -6,7 +5,7 @@ import SocialMedia from "./SocialMedia";
 
 const ContactDetails = () => {
   return (
-    <FadeIn>
+    <div>
       <h2 className="font-display text-base font-semibold text-neutral-950">
         Our team locations
       </h2>
@@ -51,7 +50,7 @@ const ContactDetails = () => {
           team@manic.agency
         </Link> */}
       </Border>
-    </FadeIn>
+    </div>
   );
 };
 

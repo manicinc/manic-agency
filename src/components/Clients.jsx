@@ -6,7 +6,6 @@
 // import logoNorthAdventures from "../images/clients/north-adventures/logo-light.svg";
 // import logoUnseal from "../images/clients/unseal/logo-light.svg";
 import Container from "./Container";
-import FadeIn from "./FadeIn";
 
 const clients = [
   ["Edelman", ""],
@@ -24,8 +23,8 @@ const Clients = () => {
   return (
     <div className="mt-24 rounded-4xl bg-slate-800 py-2 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
-        {/* <FadeIn className="flex items-center gap-x-8"> */}
-        <FadeIn className="max-w-3xl py-4">
+        {/* <div className="flex items-center gap-x-8"> */}
+        <div className="max-w-3xl py-4">
           <h2 className="font-display text-3xl font-medium text-white [text-wrap:balance] sm:text-4xl">
             Our clients
           </h2>
@@ -36,8 +35,8 @@ const Clients = () => {
           We have built with hundreds of amazing people across all industries
           </p>
           {/* <div className="h-px flex-auto bg-neutral-800" /> */}
-        </FadeIn>
-        {/* <FadeInStagger faster> */}
+        </div>
+        {/* <divStagger faster> */}
           <ul
             role="list"
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
@@ -46,24 +45,24 @@ const Clients = () => {
               // If logo is not ""
               // logo !== "" && (
               <li key={client}>
-                {/* <FadeIn> */}
+                {/* <div> */}
                 <p className="text-slate-50">{client}</p>
                   {/* <Image src={logo} alt={client} unoptimized /> */}
-                {/* </FadeIn> */}
+                {/* </div> */}
               </li>
               // ) 
               // (logo == "" && (
               //   <li key={client}>
-              //   <FadeIn>
+              //   <div>
               //     <p>{client}</p>
               //     {/* <Image src={logo} alt={client} unoptimized /> */}
-              //   </FadeIn>
+              //   </div>
               // </li>
               // )
               // )
             ))}
           </ul>
-        {/* </FadeInStagger> */}
+        {/* </divStagger> */}
       </Container>
     </div>
   );

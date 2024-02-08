@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import { MotionConfig, useReducedMotion } from "framer-motion";
 import Container from "./Container";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -137,7 +137,7 @@ const RootLayoutInner = ({ children }) => {
             }}
           />
         </div>
-        <motion.div
+        <div
           layout
           id={panelId}
           style={{ height: expanded ? "auto" : "0.5rem" }}
@@ -145,7 +145,7 @@ const RootLayoutInner = ({ children }) => {
           aria-hidden={expanded ? undefined : "true"}
           inert={expanded ? undefined : ""}
         >
-          <motion.div layout className="bg-slate-500">
+          <div layout className="bg-slate-500">
             <div ref={navRef} className="bg-slate-500 pb-16 pt-14">
               <Header
                 invert
@@ -190,23 +190,23 @@ const RootLayoutInner = ({ children }) => {
                 </div>
               </Container>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </header>
-      <motion.div
+      <div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
         className="relative flex flex-auto overflow-hidden bg-white pt-14"
       >
-        <motion.div
+        <div
           layout
           className="relative isolate flex w-full flex-col pt-9"
         >
           <main className="w-full flex-auto">{children}</main>
           {/* Footer */}
           <Footer />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </MotionConfig>
   );
 };
