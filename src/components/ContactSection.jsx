@@ -1,4 +1,3 @@
-import FadeIn from "./FadeIn";
 import Button from "./Button";
 import Offices from "./Offices";
 import Link from 'next/link';
@@ -6,7 +5,7 @@ import Link from 'next/link';
 const ContactSection = () => {
   return (
     <div className="mt-24 rounded-4xl bg-slate-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
-      <FadeIn className="">
+      {/* <FadeIn className=""> */}
         <div className="max-w-4xl mx-auto px-4 sm:ml-20">
           <h2 className="font-display text-3xl font-medium text-white [text-wrap:balance] sm:text-4xl">
             Tell us about your project
@@ -31,7 +30,7 @@ const ContactSection = () => {
         >team@manic.agency
         </Link>
         </div>
-      </FadeIn>
+      {/* </FadeIn> */}
       </div>
   );
 };

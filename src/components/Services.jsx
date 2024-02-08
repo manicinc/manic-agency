@@ -1,6 +1,5 @@
 import SectionIntro from "./SectionIntro";
 import Container from "./Container";
-import FadeIn from "./FadeIn";
 // import StylizedImage from "./StylizedImage";
 // import imageLaptop from "../images/laptop.jpg";
 import List, { ListItem } from "./List";
@@ -20,12 +19,13 @@ const Services = () => {
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+            {/* <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]"> */}
               {/* <StylizedImage */}
                 {/* src={imageLaptop} */}
                 {/* sizes="(min-width: 1024px) 41rem, 31rem" */}
                 {/* className="justify-center lg:justify-end" */}
               {/* /> */}
+              <div className="w-[33.75rem] flex-none lg:w-[45rem]">
               <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
                 <defs>
                   <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
@@ -43,7 +43,8 @@ const Services = () => {
                 </defs>
                 <image x="0%" y="0%" width="50" height="100" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" id="my-image"></image>
               </svg>
-            </FadeIn>
+              </div>
+            {/* </FadeIn> */}
           </div>
           {/* List item */}
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">

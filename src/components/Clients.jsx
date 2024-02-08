@@ -46,10 +46,10 @@ const Clients = () => {
               // If logo is not ""
               // logo !== "" && (
               <li key={client}>
-                <FadeIn>
+                {/* <FadeIn> */}
                 <p className="text-slate-50">{client}</p>
                   {/* <Image src={logo} alt={client} unoptimized /> */}
-                </FadeIn>
+                {/* </FadeIn> */}
               </li>
               // ) 
               // (logo == "" && (

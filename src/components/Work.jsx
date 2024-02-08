@@ -1,6 +1,5 @@
 import SectionIntro from "./SectionIntro";
 import Container from "./Container";
-import FadeIn from "./FadeIn";
 
 const Work = () => {
   return (
@@ -15,8 +14,8 @@ const Work = () => {
         </p>
       </SectionIntro>
       <Container className="mt-16">
-      <FadeIn className="w-4/4">
-        <div className="wrap">
+      {/* <FadeIn className="w-4/4"> */}
+        <div className="wrap w-4/4">
           <div className="expand1">
             <div className="info-block w-full">
               <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">Quire.work</h2>
@@ -42,7 +41,7 @@ const Work = () => {
             <div className="overlay"></div>
           </div>
         </div>
-        </FadeIn>
+        {/* </FadeIn> */}
 
         {/* <div className="expand4">
           <div className="info-block">
