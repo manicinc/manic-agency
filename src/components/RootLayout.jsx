@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { MotionConfig, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import Container from "./Container";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -116,7 +116,8 @@ const RootLayoutInner = ({ children }) => {
     };
   }, []);
   return (
-    <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
+    // <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
+      <>
       <header>
         <div
           className="absolute left-0 right-0 top-2 z-40 pt-14"
@@ -207,7 +208,8 @@ const RootLayoutInner = ({ children }) => {
           <Footer />
         </div>
       </div>
-    </MotionConfig>
+    {/* </MotionConfig> */}
+    </>
   );
 };
 
