@@ -33,36 +33,7 @@ const Services = () => {
                 sizes="(min-width: 1024px) 41rem, 31rem" 
                 className="justify-center lg:justify-end"
               />
-              {/* If isSafari */}
-              {/* {is_safari && (
-                <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
-                <image x="0%" y="0%" width="50" height="100" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" id="my-image"></image>
-                  <div className="glitch-layers">
-                    <div className="glitch-layer"><img src="https://play-lh.googleusercontent.com/i1qvljmS0nE43vtDhNKeGYtNlujcFxq72WAsyD2htUHOac57Z9Oiew0FrpGKlEehOvo=w240-h480-rw" alt="Image"/></div>
-                    <div className="glitch-layer"><img src="https://play-lh.googleusercontent.com/i1qvljmS0nE43vtDhNKeGYtNlujcFxq72WAsyD2htUHOac57Z9Oiew0FrpGKlEehOvo=w240-h480-rw" alt="Image"/></div>
-                    <div className="glitch-layer"><img src="https://play-lh.googleusercontent.com/i1qvljmS0nE43vtDhNKeGYtNlujcFxq72WAsyD2htUHOac57Z9Oiew0FrpGKlEehOvo=w240-h480-rw" alt="Image"/></div>
-                  </div>
-              </svg>
-              )} */}
-              {/* If not isSafari */}
-              {/* {!is_safari && (
-                <>
-                <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
-                  <defs>
-                    <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" filterRes="1">
-                      <feMorphology operator="dilate" radius="10 0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology1"></feMorphology>
-                    </filter>
-                    <filter id="filter-2" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" filterRes="1">
-                      <feMorphology operator="dilate" radius="10 2" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology1"></feMorphology>
-                    </filter>
-                    <filter id="filter-3" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" filterRes="1">
-                      <feMorphology operator="dilate" radius="15 0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology1" filterRes="1"></feMorphology>
-                    </filter>
-                  </defs>
-                  <image x="0%" y="0%" width="50" height="100" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" id="my-image"></image>
-                </svg>
-                </>
-              )} */}
+             
             </div>
           </div>
           {/* List item */}
