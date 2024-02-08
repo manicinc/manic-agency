@@ -25,7 +25,7 @@ const Logo = ({ invert, href, className, children, ...props }) => {
     // >
     //   {inner}
     // </h2>
-    <h4 class="glitch text-1xl max-w-full">
+    <h4 className="glitch text-1xl max-w-full">
       <span aria-hidden="true">
         {inner}
         </span>

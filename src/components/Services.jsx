@@ -27,15 +27,15 @@ const Services = () => {
               {/* /> */}
               <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
                 <defs>
-                  <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                  <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="linearRGB">
 
                     <feMorphology operator="dilate" radius="10 0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology1"></feMorphology>
                   </filter>
-                  <filter id="filter-2" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                  <filter id="filter-2" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="linearRGB">
 
                     <feMorphology operator="dilate" radius="10 2" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology1"></feMorphology>
                   </filter>
-                  <filter id="filter-3" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                  <filter id="filter-3" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="linearRGB">
 
                     <feMorphology operator="dilate" radius="15 0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology1"></feMorphology>
                   </filter>
