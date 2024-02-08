@@ -1,6 +1,7 @@
 import ContactSection from "@/components/ContactSection";
 import Container from "@/components/Container";
 import Intro from "@/components/Intro";
+import Clients from "@/components/Clients";
 import Work from "@/components/Work";
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
       </Container>
       <Intro/>
       {/* <Services /> */}
-      {/* <Clients /> */}
+      <Clients />
       <Work/>
       {/* <Testimonials
         className="mt-24 sm:mt-32 lg:mt-40"
