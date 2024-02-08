@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import Container from "./Container";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -116,7 +116,8 @@ const RootLayoutInner = ({ children }) => {
     };
   }, []);
   return (
-    <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
+    // <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
+      <>
       <header>
         <div
           className="absolute left-0 right-0 top-2 z-40 pt-14"
@@ -137,15 +138,21 @@ const RootLayoutInner = ({ children }) => {
             }}
           />
         </div>
-        <motion.div
+        <div
+              style={{ height: expanded ? "auto" : "0.5rem" }}
+              className="relative z-50 overflow-hidden bg-slate-500 pt-2"
+              aria-hidden={expanded ? undefined : "true"}
+        >
+          <div className="bg-slate-500">
+       {/* <motion.div
           layout
           id={panelId}
           style={{ height: expanded ? "auto" : "0.5rem" }}
           className="relative z-50 overflow-hidden bg-slate-500 pt-2"
           aria-hidden={expanded ? undefined : "true"}
           inert={expanded ? undefined : ""}
-        >
-          <motion.div layout className="bg-slate-500">
+        >  */}
+          {/* <motion.div layout className="bg-slate-500"> */}
             <div ref={navRef} className="bg-slate-500 pb-16 pt-14">
               <Header
                 invert
@@ -190,24 +197,36 @@ const RootLayoutInner = ({ children }) => {
                 </div>
               </Container>
             </div>
-          </motion.div>
-        </motion.div>
+            </div>
+            </div>
+          {/* </motion.div> */}
+        {/* </motion.div> */}
       </header>
-      <motion.div
+      {/* <motion.div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
         className="relative flex flex-auto overflow-hidden bg-white pt-14"
-      >
-        <motion.div
+      > */}
+        {/* <motion.div
           layout
           className="relative isolate flex w-full flex-col pt-9"
-        >
+        > */}
+              <div
+        style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
+        className="relative flex flex-auto overflow-hidden bg-white pt-14"
+      >
+        <div className="relative isolate flex w-full flex-col pt-9">
           <main className="w-full flex-auto">{children}</main>
           {/* Footer */}
+            {/* </motion.div> */}
+            {/* </motion.div> */}
+          {/* </MotionConfig> */}
           <Footer />
-        </motion.div>
-      </motion.div>
-    </MotionConfig>
+          </div>
+          </div>
+
+          </>
+
   );
 };
 

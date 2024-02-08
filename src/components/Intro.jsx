@@ -6,7 +6,6 @@
 // import logoNorthAdventures from "../images/clients/north-adventures/logo-light.svg";
 // import logoUnseal from "../images/clients/unseal/logo-light.svg";
 import Container from "./Container";
-import FadeInLong from "./FadeIn";
 
 const clients = [
   ["Edelman", ""],
@@ -30,12 +29,12 @@ const Intro = () => {
     }}
     >
       <Container>
-        <FadeInLong className="flex items-center gap-x-8 w-full">
+        {/* <FadeInLong className="flex items-center gap-x-8 w-full"> */}
         {/* <FadeIn className="max-w-full"> */}
           <div className="logoNeon text-1xl w-full">
             <div className="logoNeonText w-full"> <b><span></span>We&apos;re <span> </span>all<span> m</span>ad here</b></div>
           </div>
-        </FadeInLong>
+        {/* </FadeInLong> */}
         {/* <FadeInStagger faster> */}
         {/* </FadeInStagger> */}
       </Container>

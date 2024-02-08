@@ -1,14 +1,13 @@
-import { FadeInStagger } from "./FadeIn";
 import Border from "./Border";
 import clsx from "clsx";
 
 const List = ({ className, children }) => {
   return (
-    <FadeInStagger>
+    // <FadeInStagger>
       <ul role="list" className={clsx("text-base text-neutral-600", className)}>
         {children}
       </ul>
-    </FadeInStagger>
+    // </FadeInStagger>
   );
 };
 
