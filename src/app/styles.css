@@ -1,4 +1,4 @@
-body {
+html, body {
   /* Prevents overflow on the x-axis */
   overflow-x: hidden !important;
 }

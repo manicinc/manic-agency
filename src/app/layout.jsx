@@ -14,6 +14,7 @@ export default function Layout({ children }) {
       lang="en"
       className="h-full bg-slate-500 text-base antialiased text-neutral-100"
     >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta name="msapplication-TileColor" content="#FFF" />
       <meta name="theme-color" content="#FFF" />
       <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
