@@ -7,7 +7,7 @@ import Work from "@/components/Work";
 
 export default function Home() {
   return (
-    <main className="text-slate-850">
+    <main className="text-slate-850 text-base">
       <Container className="mt-24 sm:mt-32">
         <div className="max-w-3xl">
           {/* <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
