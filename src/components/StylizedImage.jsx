@@ -37,7 +37,7 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
     <div
       className={clsx(
         className,
-        "relative flex aspect-[719/680 w-full "
+        "relative flex aspect-[719/680 w-full"
       )}
     >
       <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
@@ -45,15 +45,15 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
           <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
             <foreignObject width={width} height={height}>
               {/* If isSafari */}
-              {!is_safari && (
-              <svg className="Playground__svg ml-20 image-glitch" viewBox="0 0 100 120">
-                  <image x="0%" y="0%" height="120" class="image-distorion" id="base" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" className="glitch-image"></image>
-                  <image x="0%" y="0%" height="120" class="image-distorion" id="red" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" className="glitch-image"></image>
-                  <image x="0%" y="0%" height="120" class="image-distorion" id="cyan" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" className="glitch-image"></image>
+              {is_safari && (
+              <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
+                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion base" id="base" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
+                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion red" id="red" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
+                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion cyan" id="cyan" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
               </svg>
               )}
               {/* If not isSafari */}
-              {/* {!is_safari && (
+              {!is_safari && (
                 <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
                   <defs>
                     <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" filterRes="1">
@@ -68,7 +68,7 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
                   </defs>
                   <image x="0%" y="0%" height="120" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" id="my-image"></image>
               </svg>
-              )} */}
+              )}
             </foreignObject>
           </g>
           <use

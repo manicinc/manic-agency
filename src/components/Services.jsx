@@ -1,5 +1,4 @@
-"use client";
-import { useEffect } from "react";
+"use client";;
 import SectionIntro from "./SectionIntro";
 import Container from "./Container";
 import StylizedImage from "./StylizedImage";
@@ -7,11 +6,6 @@ import imageLaptop from "../images/laptop.jpg";
 import List, { ListItem } from "./List";
 
 const Services = () => {
-  let is_safari = false;
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    is_safari = window.navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
-  }, [is_safari]);
 
   return (
     <>
@@ -33,6 +27,7 @@ const Services = () => {
                 sizes="(min-width: 1024px) 41rem, 31rem" 
                 className="justify-center lg:justify-end"
               />
+             
             </div>
           </div>
           {/* List item */}

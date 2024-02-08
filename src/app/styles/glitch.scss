@@ -2,19 +2,19 @@
 /* Image glitch */
 
 
-#red {
+.red {
     background-color: rgba(0, 128, 0, 0.16);
     background-blend-mode: hue;
     animation: img-glitch-red 1s infinite linear alternate-reverse both;
   }
   
-  #cyan {
+.cyan {
     background-color: rgba(0, 255, 158, 0.25);
     background-blend-mode: darken;
     animation: img-glitch-cyan 2s infinite linear alternate both;
   }
   
-  #transparent {
+.transparent {
     background-color: transparent;
     background-blend-mode: unset;
     animation: img-glitch-transparent 4s infinite linear alternate-reverse both;
