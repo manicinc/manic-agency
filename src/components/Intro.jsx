@@ -33,7 +33,7 @@ const Intro = () => {
         <FadeInLong className="flex items-center gap-x-8 w-full">
         {/* <FadeIn className="max-w-full"> */}
           <div className="logoNeon text-1xl w-full">
-            <div className="logoNeonText w-full"> <b><span></span>We're <span> </span>all<span> m</span>ad here</b></div>
+            <div className="logoNeonText w-full"> <b><span></span>We&apos;re <span> </span>all<span> m</span>ad here</b></div>
           </div>
         </FadeInLong>
         {/* <FadeInStagger faster> */}

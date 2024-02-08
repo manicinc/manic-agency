@@ -9,7 +9,7 @@ const MissionPage = () => {
       >
         <p>
           To exist with clarity means reading between the lines while doing what you can to blur and erase
-          the crooked and harmonize with the curved. Then you can build something that doesn't just meet a need,
+          the crooked and harmonize with the curved. Then you can build something that doesn&apos;t just meet a need,
           but assuages an urge. 
           <br></br>
           <br></br>

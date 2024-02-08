@@ -49,7 +49,7 @@ const Services = () => {
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Development and deployments on every platform">
             Each of our devs is full-stack with at least one
-            specialization in a particular area, whether that's frontend, SEO, 
+            specialization in a particular area, whether that&apos;s frontend, SEO, 
             mobile, VR / AR, deep learning, databases, web scraping, 
             smart contracts, or devops and the cloud.
             </ListItem>
