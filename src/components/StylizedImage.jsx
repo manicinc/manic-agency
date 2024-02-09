@@ -24,11 +24,11 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
   const id = useId();
   const { width, height, path } = shapes[shape];
 
-  // let is_safari = false;
-  // useEffect(() => {
-  //   if (typeof window === "undefined") return;
-  //   is_safari = window.navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
-  // }, [is_safari]);
+  let is_safari = false;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    is_safari = window.navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
+  }, [is_safari]);
 
 
   return (
@@ -44,16 +44,16 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
             <foreignObject width={width} height={height}>
               {/* If isSafari */}
 
-                {/* {!is_safari && ( */}
+                {is_safari && (
                    <div className="image-glitch"> 
                     <div className="image-distortion" id="base"></div>
                     <div className="image-distortion" id="red"></div>
                     <div className="image-distortion" id="cyan"></div>
                     <div className="image-distortion" id="transparent"></div>
                    </div> 
-              {/* )} */}
+              )}
               {/* If not isSafari */}
-              {/* {!is_safari && (
+              {!is_safari && (
                 <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
                   <defs>
                     <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" filterRes="1">
@@ -68,7 +68,7 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
                   </defs>
                   <image x="0%" y="0%" height="120" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" id="my-image"></image>
               </svg>
-              )} */}
+              )}
             </foreignObject>
           </g>
           <use
