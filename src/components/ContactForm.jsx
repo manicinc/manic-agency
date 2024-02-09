@@ -10,8 +10,8 @@ const ContactForm = () => {
     <Script src="./email.js"/>
     <Script src="./send.js"/>
     <div>
-      <div className="messageSuccess text-1xl text-slate-800 tracking-wider hidden">
-        <h2>Thank you for submitting your proposal! We will be in touch soon.</h2>
+      <div className="messageSuccess text-1xl text-slate-800 tracking-wider hidden w-full">
+        <h2 className="w-full">Thank you for submitting your proposal! We will be in touch soon.</h2>
       </div>
       <form id="contact-form">
         <h2 className="font-display text-base font-semibold text-neutral-950">
