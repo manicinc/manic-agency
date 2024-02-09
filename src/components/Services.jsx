@@ -3,6 +3,7 @@ import SectionIntro from "./SectionIntro";
 import Container from "./Container";
 import List, { ListItem } from "./List";
 import StylizedImage from "./StylizedImage";
+import imageLaptop from "../images/laptop.jpg";
 
 const Services = () => {
 
