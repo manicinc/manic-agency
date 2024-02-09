@@ -1,6 +1,7 @@
 "use client";;
 import clsx from "clsx";
 import { useId } from "react";
+import { useEffect } from "react";
 import "../app/styles/glitch.scss";
 
 const shapes = [
