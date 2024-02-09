@@ -14,7 +14,7 @@ const Work = () => {
         </p>
       </SectionIntro>
       <Container className="mt-16">
-      {/* <div className="w-4/4"> */}
+      {/* <FadeIn className="w-4/4"> */}
         <div className="wrap w-4/4">
           <div className="expand1">
             <div className="info-block w-full">
@@ -41,7 +41,7 @@ const Work = () => {
             <div className="overlay"></div>
           </div>
         </div>
-        {/* </div> */}
+        {/* </FadeIn> */}
 
         {/* <div className="expand4">
           <div className="info-block">
@@ -53,13 +53,13 @@ const Work = () => {
         </div> */}
         {/* <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <div className="w-[33.75rem] flex-none lg:w-[45rem]">
+            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
               <StylizedImage 
                 src={imageLaptop} 
                 sizes="(min-width: 1024px) 41rem, 31rem" 
                 className="justify-center lg:justify-end"
               />
-            </div>
+            </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Web development">
