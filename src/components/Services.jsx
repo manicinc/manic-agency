@@ -1,8 +1,6 @@
 "use client";;
 import SectionIntro from "./SectionIntro";
 import Container from "./Container";
-import StylizedImage from "./StylizedImage";
-import imageLaptop from "../images/laptop.jpg";
 import List, { ListItem } from "./List";
 
 const Services = () => {
@@ -22,11 +20,11 @@ const Services = () => {
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <div className="w-[33.75rem] flex-none lg:w-[45rem]">
-              <StylizedImage 
+              {/* <StylizedImage 
                 src={imageLaptop}
                 sizes="(min-width: 1024px) 41rem, 31rem" 
                 className="justify-center lg:justify-end"
-              />
+              /> */}
               <p>ASDASDASDASD</p>
             </div>
           </div>
