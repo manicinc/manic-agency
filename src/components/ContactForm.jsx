@@ -39,10 +39,10 @@ const ContactForm = () => {
               <legend className="text-base/6 text-neutral-500">Budget</legend>
             </fieldset>
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <RadioInput label="$5K – $10K" name="budget" value="25" />
-              <RadioInput label="$10K – $25K" name="budget" value="50" />
-              <RadioInput label="$25K – $100K" name="budget" value="100" />
-              <RadioInput label="More than $100K" name="budget" value="150" />
+              <RadioInput label="$5K – $10K" name="budget" value="5-10" />
+              <RadioInput label="$10K – $25K" name="budget" value="10-25" />
+              <RadioInput label="$25K – $100K" name="budget" value="25-100" />
+              <RadioInput label="More than $100K" name="budget" value="100+" />
             </div>
           </div>
         </div>

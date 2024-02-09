@@ -21,13 +21,12 @@ const Services = () => {
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <div className="w-[33.75rem] flex-none lg:w-[45rem]">
+            <div className="w-[33.75rem] lg:w-[45rem]">
               <StylizedImage 
                 src={imageLaptop}
                 sizes="(min-width: 1024px) 41rem, 31rem" 
                 className="justify-center lg:justify-end"
               />
-             
             </div>
           </div>
           {/* List item */}

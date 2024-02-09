@@ -379,7 +379,9 @@ svg {
     padding: 40px;
     background: grey;
     left: 0;
-    position: absolute;
+    /* Put it in the center of the page */
+    position: fixed;
+    top: 50%;
     font-size: 2.8em;
   }
 
