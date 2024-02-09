@@ -1,22 +1,52 @@
-
-/* Image glitch */
-
-
-.red {
+.image-glitch {
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+  }
+  
+  .image-distortion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  
+  #base {
+    z-index: 0;
+  }
+  
+  #red {
     background-color: rgba(0, 128, 0, 0.16);
     background-blend-mode: hue;
-    animation: img-glitch-red 1s infinite linear alternate-reverse both;
   }
   
-.cyan {
+  #cyan {
     background-color: rgba(0, 255, 158, 0.25);
     background-blend-mode: darken;
-    animation: img-glitch-cyan 2s infinite linear alternate both;
   }
   
-.transparent {
+  #transparent {
     background-color: transparent;
     background-blend-mode: unset;
+  }
+  
+  #red {
+    animation: img-glitch-red 4s infinite linear alternate-reverse both;
+  }
+  
+  #cyan {
+    animation: img-glitch-cyan 5s infinite linear alternate both;
+  }
+  
+    #transparent {
     animation: img-glitch-transparent 4s infinite linear alternate-reverse both;
   }
   

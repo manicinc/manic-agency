@@ -26,7 +26,7 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
   const id = useId();
   const { width, height, path } = shapes[shape];
 
-  let is_safari = false;
+  let is_safari = true;
   useEffect(() => {
     if (typeof window === "undefined") return;
     is_safari = window.navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
@@ -45,14 +45,14 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
           <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
             <foreignObject width={width} height={height}>
               {/* If isSafari */}
-              {is_safari && (
-              <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
-                  <defs>
-                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion base" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
-                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion red" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
-                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion cyan" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
-                  </defs>
-              </svg>
+
+                {is_safari && (
+                    <>
+                    <div className="image-distortion" id="base"></div>
+                    <div className="image-distortion" id="red"></div>
+                    <div className="image-distortion" id="cyan"></div>
+                    <div className="image-distortion" id="transparent"></div>
+                    </>
               )}
               {/* If not isSafari */}
               {!is_safari && (
