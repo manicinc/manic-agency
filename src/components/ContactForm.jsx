@@ -18,17 +18,19 @@ const ContactForm = () => {
           Work inquiries
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput label="Name" name="name" autoComplete="name" />
+          <TextInput label="Name" name="name" autoComplete="name" required={true}/>
           <TextInput
             label="Email"
             type="email"
             name="email"
             autoComplete="email"
+            required={true}
           />
           <TextInput
             label="Company"
             name="company"
             autoComplete="organization"
+            required={false}
           />
           <TextInput label="Phone (Optional)" type="tel" name="phone" autoComplete="tel" required={false}/>
           <TextInput label="Message" name="message" required={true}
