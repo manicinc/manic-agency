@@ -2,9 +2,14 @@
 import SectionIntro from "./SectionIntro";
 import Container from "./Container";
 import List, { ListItem } from "./List";
+import { useEffect } from "react";
 
 const Services = () => {
-
+  let is_safari = false;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    is_safari = window.navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
+  }, [is_safari]);
   return (
     <>
       <SectionIntro
@@ -25,7 +30,24 @@ const Services = () => {
                 sizes="(min-width: 1024px) 41rem, 31rem" 
                 className="justify-center lg:justify-end"
               /> */}
-                  <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
+
+        <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
+        <g clipPath={`url(#${id}-clip)`} className="group">
+          <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
+            <foreignObject width={width} height={height}>
+              {/* If isSafari */}
+              {is_safari && (
+              <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
+                  <defs>
+                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion base" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
+                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion red" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
+                  <image x="0%" y="0%" height="120" id="my-image" className="image-distorion cyan" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" ></image>
+                  </defs>
+              </svg>
+              )}
+              {/* If not isSafari */}
+              {!is_safari && (
+                <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
                   <defs>
                     <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" filterRes="1">
                       <feMorphology operator="dilate" radius="10 0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology1"></feMorphology>
@@ -39,7 +61,27 @@ const Services = () => {
                   </defs>
                   <image x="0%" y="0%" height="120" preserveAspectRatio="xMidYMid slice" xlinkHref="https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" id="my-image"></image>
               </svg>
-            </div>
+              )}
+            </foreignObject>
+              </g>
+              <use
+                href={`#${id}-shape`}
+                strokeWidth="2"
+                className="stroke-neutral-950/10"
+              />
+            </g>
+            <defs>
+              <clipPath id={`${id}-clip`}>
+                <path
+                  id={`${id}-shape`}
+                  d={path}
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+          </div>
           </div>
           {/* List item */}
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
