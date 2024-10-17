@@ -1,12 +1,22 @@
+import { ReactNode } from "react";
 import { SocialMediaProfiles } from "@/components/SocialMedia";
 
-export const navigation = [
+interface NavigationLink {
+  title: string | ReactNode;
+  href: string;
+}
+
+interface NavigationSection {
+  title: string;
+  links: NavigationLink[];
+}
+
+export const navigation: NavigationSection[] = [
   {
     title: "Products",
     links: [
       { title: "Fortune.day", href: "https://fortune.day" },
       { title: "Quire.work", href: "https://quire.work" },
-      // { title: "AH MANA3RAF", href: "/work/blog101" },
       {
         title: (
           <>
