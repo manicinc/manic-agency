@@ -1,7 +1,7 @@
 "use client";;
 import clsx from "clsx";
 import { useId } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../app/styles/glitch.scss";
 
 const shapes = [
@@ -25,11 +25,11 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
   const id = useId();
   const { width, height, path } = shapes[shape];
 
-  let is_safari = false;
+  const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
-    is_safari = window.navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
-  }, [is_safari]);
+    setIsSafari(window.navigator.userAgent.toLowerCase().indexOf('safari/') > -1);
+  }, []);
 
 
   return (
@@ -45,7 +45,7 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
             <foreignObject width={width} height={height}>
               {/* If isSafari */}
 
-                {is_safari && (
+                {isSafari && (
                    <div className="image-glitch"> 
                     <div className="image-distortion" id="base"></div>
                     <div className="image-distortion" id="red"></div>
@@ -54,7 +54,7 @@ const StylizedImage = ({ shape = 0, className, ...props }) => {
                    </div> 
               )}
               {/* If not isSafari */}
-              {!is_safari && (
+              {!isSafari && (
                 <svg className="Playground__svg ml-20" viewBox="0 0 100 120">
                   <defs>
                     <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" filterRes="1">
