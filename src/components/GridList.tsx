@@ -14,7 +14,7 @@ interface GridListItemProps {
   invert?: boolean;
 }
 
-export const GridList: React.FC<GridListItemProps> = ({
+export const GridList: React.FC<GridListProps> = ({
   className,
   children,
 }) => {
