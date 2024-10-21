@@ -5,21 +5,21 @@
 // import logoMailSmirk from "../images/clients/mail-smirk/logo-light.svg";
 // import logoNorthAdventures from "../images/clients/north-adventures/logo-light.svg";
 // import logoUnseal from "../images/clients/unseal/logo-light.svg";
-import Container from "./Container";
+import Container from './Container';
 
 const clients = [
-  ["Edelman", ""],
-  ["Hereafterlegacy.ai", ""],
-  ["The Specter", ""],
-  ["Grapple Media", ""],
-  ["NuBloom NFTs", ""],
-  ["Smurf Finance", ""],
+  ['Edelman', ''],
+  ['Hereafterlegacy.ai', ''],
+  ['The Specter', ''],
+  ['Grapple Media', ''],
+  ['NuBloom NFTs', ''],
+  ['Smurf Finance', ''],
   // ["", ""],
   // ["Bright Path", ""],
   // ["North Adventures", ""],
 ];
 
-const Clients = () => {
+const Clients: React.FC = () => {
   return (
     <div className="mt-24 rounded-4xl bg-slate-800 py-2 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
@@ -32,36 +32,35 @@ const Clients = () => {
             We have worked with hundreds of amazing people across all industries
           </h2> */}
           <p className="mt-4">
-          We have built with hundreds of amazing people across all industries
+            We have built with hundreds of amazing people across all industries
           </p>
           {/* <div className="h-px flex-auto bg-neutral-800" /> */}
         </div>
         {/* <divStagger faster> */}
-          <ul
-            role="list"
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
-          >
-            {clients.map(([client, logo]) => (
-              // If logo is not ""
-              // logo !== "" && (
-              <li key={client}>
-                {/* <div> */}
-                <p className="text-slate-50">{client}</p>
-                  {/* <Image src={logo} alt={client} unoptimized /> */}
-                {/* </div> */}
-              </li>
-              // ) 
-              // (logo == "" && (
-              //   <li key={client}>
-              //   <div>
-              //     <p>{client}</p>
-              //     {/* <Image src={logo} alt={client} unoptimized /> */}
-              //   </div>
-              // </li>
-              // )
-              // )
-            ))}
-          </ul>
+        <ul
+          role="list"
+          className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+          {clients.map(([client, logo]) => (
+            // If logo is not ""
+            // logo !== "" && (
+            <li key={client}>
+              {/* <div> */}
+              <p className="text-slate-50">{client}</p>
+              {/* <Image src={logo} alt={client} unoptimized /> */}
+              {/* </div> */}
+            </li>
+            // )
+            // (logo == "" && (
+            //   <li key={client}>
+            //   <div>
+            //     <p>{client}</p>
+            //     {/* <Image src={logo} alt={client} unoptimized /> */}
+            //   </div>
+            // </li>
+            // )
+            // )
+          ))}
+        </ul>
         {/* </divStagger> */}
       </Container>
     </div>

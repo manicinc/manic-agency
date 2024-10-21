@@ -1,11 +1,24 @@
-import clsx from "clsx";
-import Link from "next/link";
+import clsx from 'clsx';
+import Link from 'next/link';
 
-const Logo = ({ invert, href, className, children, ...props }) => {
+interface LogoProps {
+  invert?: boolean;
+  href?: string;
+  className?: string;
+  children: React.ReactNode;
+}
+
+const Logo: React.FC<LogoProps> = ({
+  invert,
+  href,
+  className,
+  children,
+  ...props
+}): JSX.Element => {
   className = clsx(
     className,
-    "black",
-    invert ? "text-white hover:text-pink-600" : "text-black hover:text-pink-600"
+    'black',
+    invert ? 'text-white hover:text-pink-600' : 'text-black hover:text-pink-600'
   );
   const inner = <span className="relative">{children}</span>;
   if (href) {
@@ -26,13 +39,9 @@ const Logo = ({ invert, href, className, children, ...props }) => {
     //   {inner}
     // </h2>
     <h4 className="glitch text-1xl max-w-full">
-      <span aria-hidden="true">
-        {inner}
-        </span>
-        {inner}
-        <span aria-hidden="true">
-        {inner}
-      </span>
+      <span aria-hidden="true">{inner}</span>
+      {inner}
+      <span aria-hidden="true">{inner}</span>
     </h4>
   );
 };

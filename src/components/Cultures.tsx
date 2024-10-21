@@ -1,7 +1,7 @@
-import React from "react";
-import SectionIntro from "./SectionIntro";
-import Container from "./Container";
-import { GridList, GridListItem } from "./GridList";
+import React from 'react';
+import SectionIntro from './SectionIntro';
+import Container from './Container';
+import { GridList, GridListItem } from './GridList';
 
 const Cultures = () => {
   return (
@@ -9,8 +9,7 @@ const Cultures = () => {
       <SectionIntro
         eyebrow="Our culture"
         title="Balance your passion with your passion for life."
-        invert
-      >
+        invert>
         <p>
           We are a group of like-minded people who share the same core values.
         </p>
