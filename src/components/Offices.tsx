@@ -23,7 +23,7 @@ function Office({ name, children, invert = false }: OfficeProps) {
   );
 }
 
-const Offices: React.FC<{ invert?: boolean }> = ({ invert = false, ...props }) => {
+const Offices: React.FC<React.PropsWithChildren<{ invert?: boolean }>> = ({ invert = false, ...props }) => {
   return (
     <ul role="list" {...props}>
       <li>

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import FadeIn from './FadeIn';
 import FadeInStagger from './FadeIn';
 
-const List: React.FC<{ className?: string }> = ({ className, children }) => {
+const List: React.FC<React.PropsWithChildren<{ className?: string }>> = ({ className, children }) => {
   return (
     <FadeInStagger>
       <ul role="list" className={clsx("text-base text-neutral-600", className)}>
@@ -14,7 +14,7 @@ const List: React.FC<{ className?: string }> = ({ className, children }) => {
   );
 };
 
-export const ListItem: React.FC<{ title?: string }> = ({ title, children }) => {
+export const ListItem: React.FC<React.PropsWithChildren<{ title?: string }>> = ({ title, children }) => {
   return (
     <li className="group mt-10 first:mt-0">
       <FadeIn>
