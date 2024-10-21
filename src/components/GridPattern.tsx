@@ -1,8 +1,13 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useId, useRef, useState, SVGProps } from "react";
 import { motion } from "framer-motion";
-function Block({ x, y, ...props }) {
+interface BlockProps extends SVGProps<SVGPathElement> {
+  x: number;
+  y: number;
+}
+
+function Block({ x, y, ...props }: BlockProps) {
   return (
     <motion.path
       transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
@@ -12,12 +17,17 @@ function Block({ x, y, ...props }) {
   );
 }
 
-const GridPattern = ({ yOffset = 0, interactive = false, ...props }) => {
+interface GridPatternProps extends SVGProps<SVGSVGElement> {
+  yOffset?: number;
+  interactive?: boolean;
+}
+
+const GridPattern = ({ yOffset = 0, interactive = false, ...props }: GridPatternProps) => {
   let id = useId();
-  let ref = useRef();
-  let currentBlock = useRef();
-  let counter = useRef(0);
-  let [hoveredBlocks, setHoveredBlocks] = useState([]);
+  let ref = useRef<SVGSVGElement | null>(null);
+  let currentBlock = useRef<SVGPathElement | null>(null);
+  let counter = useRef<number>(0);
+  let [hoveredBlocks, setHoveredBlocks] = useState<[number, number, number][]>([]);
   let staticBlocks = [
     [1, 1],
     [2, 2],
