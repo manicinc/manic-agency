@@ -1,8 +1,8 @@
 "use client";
 
 import { useId, useRef, useState, SVGProps } from "react";
-import { motion } from "framer-motion";
-interface BlockProps extends SVGProps<SVGPathElement> {
+import { motion, SVGMotionProps } from "framer-motion";
+interface BlockProps extends SVGMotionProps<SVGPathElement> {
   x: number;
   y: number;
 }
