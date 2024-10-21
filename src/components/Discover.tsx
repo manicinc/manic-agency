@@ -1,23 +1,23 @@
-import React from "react";
-import Section from "./Section";
-import imageWhiteboard from "@/images/whiteboard.jpg";
-import { TagList, TagListItem } from "./TagList";
+import React from 'react';
+import Section from './Section';
+import imageWhiteboard from '@/images/whiteboard.jpg';
+import { TagList, TagListItem } from './TagList';
 
 const Discover: React.FC = () => {
   return (
-    <Section title="Discover" image={{ src: imageWhiteboard, shape: 1 }}>
+    <Section title="Discover" image={{ src: imageWhiteboard.src, shape: 1 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          We work closely with our clients to understand their{" "}
+          We work closely with our clients to understand their{' '}
           <strong className="font-semibold text-neutral-950">needs</strong> and
           goals, embedding ourselves in their every day operations to understand
           what makes their business tick.
         </p>
         <p>
-          Our team of private investigators shadow the company director’s for
-          several weeks while our account managers focus on going through their
-          trash. Our senior security experts then perform social engineering
-          hacks to gain access to their{" "}
+          Our team of private investigators shadow the company director&apos;s
+          for several weeks while our account managers focus on going through
+          their trash. Our senior security experts then perform social
+          engineering hacks to gain access to their{' '}
           <strong className="font-semibold text-neutral-950">business</strong>
           accounts — handing that information over to our forensic accounting
           team.
@@ -42,5 +42,4 @@ const Discover: React.FC = () => {
     </Section>
   );
 };
-
 export default Discover;

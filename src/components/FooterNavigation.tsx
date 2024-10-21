@@ -1,5 +1,5 @@
-import { navigation } from "@/constants";
-import Link from "next/link";
+import { navigation } from '@/constants';
+import Link from 'next/link';
 
 const FooterNavigation: React.FC = () => {
   return (
@@ -11,12 +11,11 @@ const FooterNavigation: React.FC = () => {
               {item.title}
             </div>
             <ul role="list" className="mt-4 text-sm text-neutral-700">
-              {item.links.map((link) => (
-                <li key={link.title} className="mt-4">
+              {item.links.map((link, index) => (
+                <li key={`${link.title}-${index}`} className="mt-4">
                   <Link
                     href={link.href}
-                    className="transition hover:text-neutral-950"
-                  >
+                    className="transition hover:text-neutral-950">
                     {link.title}
                   </Link>
                 </li>

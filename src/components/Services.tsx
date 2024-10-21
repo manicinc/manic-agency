@@ -1,30 +1,27 @@
-"use client";;
-import SectionIntro from "./SectionIntro";
-import Container from "./Container";
-import List, { ListItem } from "./List";
-import StylizedImage from "./StylizedImage";
-import imageLaptop from "../images/laptop.jpg";
+'use client';
+import SectionIntro from './SectionIntro';
+import Container from './Container';
+import List, { ListItem } from './List';
+import StylizedImage from './StylizedImage';
+import imageLaptop from '../images/laptop.jpg';
 
 const Services = () => {
-
   return (
     <>
-      <SectionIntro
-        eyebrow=""
-        title="Our services"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
+      <SectionIntro eyebrow="" title="Our services">
         <p>
-          Fall down the rabbit hole with us to determine optimal budgeting, ideal market timing, and holistic architecture & design to manifest your vision
+          Fall down the rabbit hole with us to determine optimal budgeting,
+          ideal market timing, and holistic architecture & design to manifest
+          your vision
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <div className="w-[33.75rem] flex-none lg:w-[45rem]">
-              <StylizedImage 
+              <StylizedImage
                 src={imageLaptop}
-                sizes="(min-width: 1024px) 41rem, 31rem" 
+                sizes="(min-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
               />
             </div>
@@ -32,30 +29,32 @@ const Services = () => {
           {/* List item */}
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Development and deployments on every platform">
-            Each of our devs is full-stack with at least one
-            specialization in a particular area, whether that&apos;s frontend, SEO, 
-            mobile, VR / AR, deep learning, databases, web scraping, 
-            smart contracts, or devops and the cloud.
+              Each of our devs is full-stack with at least one specialization in
+              a particular area, whether that&apos;s frontend, SEO, mobile, VR /
+              AR, deep learning, databases, web scraping, smart contracts, or
+              devops and the cloud.
             </ListItem>
             <ListItem title="Innovative and emergent tech">
-            We rely on robust and battle-tested tech
-            to stand on the shoulders of. But we also continually keep up-to-date
-            with trends and research in upcoming fields poised to strike the mainstream world,
-            such as blockchain, generative AI, and virtual and augmented reality.
-            We understand demand and innovation are bidirectional.
+              We rely on robust and battle-tested tech to stand on the shoulders
+              of. But we also continually keep up-to-date with trends and
+              research in upcoming fields poised to strike the mainstream world,
+              such as blockchain, generative AI, and virtual and augmented
+              reality. We understand demand and innovation are bidirectional.
             </ListItem>
             <ListItem title="Designs with clarity and artistry">
-              Our branding and UI / UX skills are unparalleled, as we employ true artists
-              with a passion for their craft. We focus on humanistic-centric design and aim
-              for simplicity.
+              Our branding and UI / UX skills are unparalleled, as we employ
+              true artists with a passion for their craft. We focus on
+              humanistic-centric design and aim for simplicity.
             </ListItem>
             <ListItem title="Legal consultation">
-              Our team comprises licensed lawyers specializing in financial and software regulations.
-              We can help you figure out all the moves you need to secure proper compliance.
+              Our team comprises licensed lawyers specializing in financial and
+              software regulations. We can help you figure out all the moves you
+              need to secure proper compliance.
             </ListItem>
             <ListItem title="Creative and results-oriented marketing">
-              Growth hacking and going viral come naturally for us. Our in-house tools for social media 
-              analytics and brand monitoring aid us in bringing campaigns and user acquisition to the next level.
+              Growth hacking and going viral come naturally for us. Our in-house
+              tools for social media analytics and brand monitoring aid us in
+              bringing campaigns and user acquisition to the next level.
             </ListItem>
           </List>
         </div>

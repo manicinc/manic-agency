@@ -1,42 +1,66 @@
-import SectionIntro from "./SectionIntro";
-import Container from "./Container";
+import SectionIntro from './SectionIntro';
+import Container from './Container';
 
 const Work = () => {
   return (
     <>
-      <SectionIntro
-        eyebrow=""
-        title="Our work"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
+      <SectionIntro eyebrow="" title="Our work">
         <p>
-        Manic Agency houses a number of tech and media oriented platforms striking an impact on the world
+          Manic Agency houses a number of tech and media oriented platforms
+          striking an impact on the world
         </p>
       </SectionIntro>
       <Container className="mt-16">
-      {/* <FadeIn className="w-4/4"> */}
-        <div className="wrap w-4/4">
+        {/* <FadeIn className="w-4/4"> */}
+        <div className="wrap w-4/4 mt-24 sm:mt-32 lg:mt-40">
           <div className="expand1">
             <div className="info-block w-full">
-              <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">Quire.work</h2>
-              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">A platform to create and manage AI agents that can work collaboratively to automate tasks</p>
-              <a href="https://quire.work" target="_blank" className="font-semibold"><span>Go to link</span></a>
+              <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">
+                Quire.work
+              </h2>
+              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">
+                A platform to create and manage AI agents that can work
+                collaboratively to automate tasks
+              </p>
+              <a
+                href="https://quire.work"
+                target="_blank"
+                className="font-semibold">
+                <span>Go to link</span>
+              </a>
             </div>
             <div className="overlay"></div>
           </div>
           <div className="expand2">
             <div className="info-block">
-            <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">Fortune.day</h2>
-              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">A open-source (eventually) decentralized web-based metaverse with tokenized membership and economy</p>
-              <a href="https://fortune.day" target="_blank" className="font-semibold"><span>Go to link</span></a>
+              <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">
+                Fortune.day
+              </h2>
+              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">
+                A open-source (eventually) decentralized web-based metaverse
+                with tokenized membership and economy
+              </p>
+              <a
+                href="https://fortune.day"
+                target="_blank"
+                className="font-semibold">
+                <span>Go to link</span>
+              </a>
             </div>
             <div className="overlay"></div>
           </div>
           <div className="expand3">
             <div className="info-block">
-            <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90">Hype.blog</h2>
-              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">A automated digital newsroom that uses generative AI to create content from trending topics scraped on the web</p>
-              <a href="#" className="font-semibold"><span>Link coming soon</span></a>
+              <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90">
+                Hype.blog
+              </h2>
+              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">
+                A automated digital newsroom that uses generative AI to create
+                content from trending topics scraped on the web
+              </p>
+              <a href="#" className="font-semibold">
+                <span>Link coming soon</span>
+              </a>
             </div>
             <div className="overlay"></div>
           </div>
@@ -45,7 +69,7 @@ const Work = () => {
 
         {/* <div className="expand4">
           <div className="info-block">
-            <h2 className="bg-slate-600">Retail &amp; General Public</h2>
+            <h2 className="bg-slate-600">Retail & General Public</h2>
             <p>Looking to fit out your next project? Look no further, make a trade account with us today. We are experienced with working alongisde commercial, grass root and the self-employed.</p>
             <a href="#"><span>Shop Products</span></a>
           </div>
@@ -73,12 +97,12 @@ const Work = () => {
             </ListItem>
             <ListItem title="E-commerce">
               We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
+              mainly means adding your logo to the Shopify store template we've
               used for the past six years.
             </ListItem>
             <ListItem title="Custom content management">
               At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
+              customised CMS. That's why we run all of our client projects out
               of a single, enormous Joomla instance.
             </ListItem>
           </List> */}
@@ -86,5 +110,4 @@ const Work = () => {
     </>
   );
 };
-
 export default Work;

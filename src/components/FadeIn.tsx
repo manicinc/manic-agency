@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { createContext, useContext } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { createContext, useContext } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 const FadeInStaggerContext = createContext(false);
 
-const viewport = { once: true, margin: "0px 0px -200px" };
+const viewport = { once: true, margin: '0px 0px -200px' };
 
 const FadeIn: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   const shouldReduceMotion = useReducedMotion();
@@ -19,15 +19,14 @@ const FadeIn: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
       {...(isInStaggerGroup
         ? {}
         : {
-          initial: "visible",
-          whileInView: "animate",
+            initial: 'visible',
+            whileInView: 'animate',
             viewport,
           })}
-      {...props}
+      {...(props as any)}
     />
   );
 };
-
 const FadeInLong: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   const shouldReduceMotion = useReducedMotion();
   const isInStaggerGroup = useContext(FadeInStaggerContext);
@@ -41,18 +40,18 @@ const FadeInLong: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
       {...(isInStaggerGroup
         ? {}
         : {
-            // initial: "hidden",
-            // whileInView: "visible",
-            initial: "visible",
-            whileInView: "animate",
+            initial: 'visible',
+            whileInView: 'animate',
             viewport,
           })}
-      {...props}
+      {...(props as React.ComponentProps<typeof motion.div>)}
     />
   );
 };
 
-export const FadeInStagger: React.FC<{ faster?: boolean } & React.HTMLAttributes<HTMLDivElement>> = ({ faster = false, ...props }) => {
+export const FadeInStagger: React.FC<
+  { faster?: boolean } & React.HTMLAttributes<HTMLDivElement>
+> = ({ faster = false, ...props }) => {
   return (
     <FadeInStaggerContext.Provider value={true}>
       <motion.div
@@ -62,7 +61,7 @@ export const FadeInStagger: React.FC<{ faster?: boolean } & React.HTMLAttributes
         whileInView="animate"
         viewport={viewport}
         transition={{ staggerChildren: faster ? 0.72 : 0.7 }}
-        {...props}
+        {...(props as React.ComponentProps<typeof motion.div>)}
       />
     </FadeInStaggerContext.Provider>
   );

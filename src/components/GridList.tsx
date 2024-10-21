@@ -14,10 +14,7 @@ interface GridListItemProps {
   invert?: boolean;
 }
 
-export const GridList: React.FC<GridListProps> = ({
-  className,
-  children,
-}) => {
+export const GridList: React.FC<GridListProps> = ({ className, children }) => {
   return (
     <FadeInStagger>
       <ul
