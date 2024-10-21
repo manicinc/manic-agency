@@ -1,6 +1,12 @@
 import clsx from "clsx";
 
-function Office({ name, children, invert = false }) {
+interface OfficeProps {
+  name: string;
+  children: React.ReactNode;
+  invert?: boolean;
+}
+
+function Office({ name, children, invert = false }: OfficeProps) {
   return (
     <address
       className={clsx(
@@ -17,7 +23,7 @@ function Office({ name, children, invert = false }) {
   );
 }
 
-const Offices = ({ invert = false, ...props }) => {
+const Offices: React.FC<{ invert?: boolean }> = ({ invert = false, ...props }) => {
   return (
     <ul role="list" {...props}>
       <li>

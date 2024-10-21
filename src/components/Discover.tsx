@@ -3,7 +3,7 @@ import Section from "./Section";
 import imageWhiteboard from "@/images/whiteboard.jpg";
 import { TagList, TagListItem } from "./TagList";
 
-const Discover = () => {
+const Discover: React.FC = () => {
   return (
     <Section title="Discover" image={{ src: imageWhiteboard, shape: 1 }}>
       <div className="space-y-6 text-base text-neutral-600">

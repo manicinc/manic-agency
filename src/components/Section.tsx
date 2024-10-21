@@ -1,7 +1,13 @@
 import Container from "./Container";
 import StylizedImage from "./StylizedImage";
 
-const Section = ({ title, image, children }) => {
+interface SectionProps {
+  title: string;
+  image: { src: string; shape: number };
+  children: React.ReactNode;
+}
+
+const Section: React.FC<SectionProps> = ({ title, image, children }) => {
   return (
     <Container className="group/section [counter-increment:section]">
       <div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">

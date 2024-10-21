@@ -1,4 +1,8 @@
-const RadioInput = ({ label, ...props }) => {
+interface RadioInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+const RadioInput: React.FC<RadioInputProps> = ({ label, ...props }) => {
   return (
     <label className="flex gap-x-3">
       <input

@@ -1,7 +1,7 @@
 import { navigation } from "@/constants";
 import Link from "next/link";
 
-const FooterNavigation = () => {
+const FooterNavigation: React.FC = () => {
   return (
     <nav>
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">

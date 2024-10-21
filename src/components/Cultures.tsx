@@ -3,7 +3,7 @@ import SectionIntro from './SectionIntro';
 import Container from './Container';
 import { GridList, GridListItem } from './GridList';
 
-const Cultures = () => {
+const Cultures: React.FC = () => {
   return (
     <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro

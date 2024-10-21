@@ -6,7 +6,7 @@ const FadeInStaggerContext = createContext(false);
 
 const viewport = { once: true, margin: "0px 0px -200px" };
 
-const FadeIn = (props) => {
+const FadeIn: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   const shouldReduceMotion = useReducedMotion();
   const isInStaggerGroup = useContext(FadeInStaggerContext);
   return (
@@ -28,7 +28,7 @@ const FadeIn = (props) => {
   );
 };
 
-const FadeInLong = (props) => {
+const FadeInLong: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   const shouldReduceMotion = useReducedMotion();
   const isInStaggerGroup = useContext(FadeInStaggerContext);
   return (
@@ -52,7 +52,7 @@ const FadeInLong = (props) => {
   );
 };
 
-export const FadeInStagger = ({ faster = false, ...props }) => {
+export const FadeInStagger: React.FC<{ faster?: boolean } & React.HTMLAttributes<HTMLDivElement>> = ({ faster = false, ...props }) => {
   return (
     <FadeInStaggerContext.Provider value={true}>
       <motion.div

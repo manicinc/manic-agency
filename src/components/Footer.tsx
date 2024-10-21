@@ -3,7 +3,7 @@ import FooterNavigation from "./FooterNavigation";
 import Logo from "./Logo";
 import Link from "next/link";
 
-const ArrowIcon = (props) => {
+const ArrowIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg viewBox="0 0 16 6" aria-hidden="true" {...props}>
       <path
@@ -16,7 +16,7 @@ const ArrowIcon = (props) => {
   );
 };
 
-const NewsletterForm = () => {
+const NewsletterForm: React.FC = () => {
   return (
     <></>
     // <form className="max-w-sm">
@@ -49,7 +49,7 @@ const NewsletterForm = () => {
   );
 };
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40 rounded-2xl">
       {/* <div className=""> */}

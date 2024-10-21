@@ -5,7 +5,18 @@ import Container from "./Container";
 import FadeIn from "./FadeIn";
 import Image from "next/image";
 
-const Testimonials = ({ children, client, className }) => {
+interface Client {
+  logo: string;
+  name: string;
+}
+
+interface TestimonialsProps {
+  children: React.ReactNode;
+  client: Client;
+  className?: string;
+}
+
+const Testimonials: React.FC<TestimonialsProps> = ({ children, client, className }) => {
   return (
     <div
       className={clsx(

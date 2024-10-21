@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export function TagList({ className, children }) {
+export const TagList: React.FC<{ className?: string }> = ({ className, children }) => {
   return (
     <ul role="list" className={clsx(className, "flex flex-wrap gap-4")}>
       {children}
@@ -8,7 +8,7 @@ export function TagList({ className, children }) {
   );
 }
 
-export function TagListItem({ className, children }) {
+export const TagListItem: React.FC<{ className?: string }> = ({ className, children }) => {
   return (
     <li
       className={clsx(

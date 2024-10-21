@@ -3,7 +3,14 @@ import Container from "./Container";
 import FadeIn from "./FadeIn";
 import clsx from "clsx";
 
-const PageIntro = ({ eyebrow, title, children, centered = false }) => {
+interface PageIntroProps {
+  eyebrow: string;
+  title: string;
+  children: React.ReactNode;
+  centered?: boolean;
+}
+
+const PageIntro: React.FC<PageIntroProps> = ({ eyebrow, title, children, centered = false }) => {
   return (
     <Container
       className={clsx("mt-24 sm:mt-32 lg:mt-40", centered && "text-center")}

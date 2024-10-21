@@ -1,6 +1,10 @@
 import { useId } from "react";
 
-const TextInput = ({ label, ...props }) => {
+interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+const TextInput: React.FC<TextInputProps> = ({ label, ...props }) => {
   const id = useId();
   return (
     <div className="group relative z-0 transition-all focus-within:z-10">
