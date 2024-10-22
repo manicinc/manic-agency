@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 interface OfficeProps {
   name: string;
@@ -10,11 +10,10 @@ function Office({ name, children, invert = false }: OfficeProps) {
   return (
     <address
       className={clsx(
-        "text-sm not-italic",
-        invert ? "text-neutral-300" : "text-neutral-600"
-      )}
-    >
-      <strong className={invert ? "text-white" : "text-neutral-950"}>
+        'text-sm not-italic',
+        invert ? 'text-neutral-300' : 'text-neutral-600'
+      )}>
+      <strong className={invert ? 'text-white' : 'text-neutral-950'}>
         {name}
       </strong>
       <br />
@@ -23,7 +22,10 @@ function Office({ name, children, invert = false }: OfficeProps) {
   );
 }
 
-const Offices: React.FC<React.PropsWithChildren<{ invert?: boolean }>> = ({ invert = false, ...props }) => {
+const Offices: React.FC<React.PropsWithChildren<{ invert?: boolean }>> = ({
+  invert = false,
+  ...props
+}) => {
   return (
     <ul role="list" {...props}>
       <li>
@@ -31,14 +33,6 @@ const Offices: React.FC<React.PropsWithChildren<{ invert?: boolean }>> = ({ inve
           Los Angeles
           <br />
           California
-        </Office>
-      </li>
-      <li>
-        <Office name="Canada" invert={invert}>
-          Montreal
-          <br />
-          Québec
-          {/* Canada */}
         </Office>
       </li>
     </ul>

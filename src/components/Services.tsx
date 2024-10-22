@@ -7,7 +7,7 @@ import imageLaptop from '../images/laptop.jpg';
 
 const Services = () => {
   return (
-    <>
+    <div className="pt-20">
       <SectionIntro eyebrow="" title="Our services">
         <p>
           Fall down the rabbit hole with us to determine optimal budgeting,
@@ -59,7 +59,7 @@ const Services = () => {
           </List>
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import Container from './Container';
 
 const Work = () => {
   return (
-    <>
+    <div className="pt-20">
       <SectionIntro eyebrow="" title="Our work">
         <p>
           Manic Agency houses a number of tech and media oriented platforms
@@ -107,7 +107,7 @@ const Work = () => {
             </ListItem>
           </List> */}
       </Container>
-    </>
+    </div>
   );
 };
 export default Work;
