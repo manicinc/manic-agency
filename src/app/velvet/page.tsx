@@ -8,7 +8,7 @@ export const metadata = {
   import FeaturesPlanet from "@/components/FeaturesPlanet";
   import LargeTestimonial from "@/components/LargeTestimonial";
   import Cta from "@/components/Cta";
-  import DefaultLayout from "./layout";
+  import DefaultLayout from "@/app/velvet/layout";
   
   export default function Home() {
     return (
