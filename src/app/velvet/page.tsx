@@ -8,16 +8,17 @@ export const metadata = {
   import FeaturesPlanet from "@/components/FeaturesPlanet";
   import LargeTestimonial from "@/components/LargeTestimonial";
   import Cta from "@/components/Cta";
+  import DefaultLayout from "./layout";
   
   export default function Home() {
     return (
-      <>
+      <DefaultLayout>
         <Hero />
         <BusinessCategories />
         <FeaturesPlanet />
         <LargeTestimonial />
         <Cta />
-      </>
+      </DefaultLayout>
     );
   }
   
