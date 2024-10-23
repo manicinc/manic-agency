@@ -35,6 +35,7 @@ export const navigation: NavigationSection[] = [
       { title: "Process", href: "/process" },
       { title: "Blog", href: "/blog" },
       { title: "Contact us", href: "/contact" },
+      { title: "Team", href: "/team"}
     ],
   },
   {

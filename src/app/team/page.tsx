@@ -2,9 +2,9 @@ import React from 'react';
 
 const TeamsPage = () => {
   const executives = [
-    { name: 'Johnny Dunn', title: 'Lead developer & Co-founder', emoji: '🦁', description: 'Johnny is a passionate developer with over 10 years of experience in building scalable web applications.' },
-    { name: 'Nathan', title: 'Lead Designer & Co-founder', emoji: '🦊', description: 'Nathan is a creative designer who loves crafting beautiful and user-friendly interfaces.' },
-    { name: 'Victor E.', title: 'Developer', emoji: '🐒', description: 'Victor is a skilled developer with a knack for solving complex problems and optimizing performance.' },
+    { name: 'Johnny Dunn', title: 'Lead developer & Co-founder', emoji: '🦁', description: 'Johnny Dunn is a developer and artist working in California, and comes from a game design background. He enjoys making experimental experiences around text and interactive fiction. Previously: eBay, Amelia.ai, 5th Place Winner AT&T National VR and AR Challenge 2017 (THiNKIMMERSIVE team).' },
+    { name: 'Nathan', title: 'Lead Designer & Co-founder', emoji: '🦊', description: 'Senior Multi-Disciplinary Designer based in Melbourne, Australia, specializing in Product Design and Design Systems. Cautiously passionate about Generative AI and its potential for impactful use cases.' },
+    { name: 'Victor E.', title: 'Developer', emoji: '🐻‍❄️', description: 'Victor is a full-stack software developer from Nigeria, passionate about blockchain, AI, social media, and digital illustration and animation.' },
   ];
 
   return (

@@ -22,7 +22,7 @@ export const SocialMediaProfiles: SocialMediaProfile[] = [
     icon: BsInstagram,
   },
   { title: "GitHub", 
-  href: "#",
+  href: "https://github.com/manicinc/manic-agency",
    icon: BsGithub },
   {
     title: "Facebook",
