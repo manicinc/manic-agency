@@ -2,9 +2,9 @@ import React from 'react';
 
 const TeamsPage = () => {
   const executives = [
-    { name: 'Johnny Dunn', title: 'Lead developer & Co-founder', emoji: '🦁' },
-    { name: 'Nathan', title: 'Lead Designer & Co-founder', emoji: '🦊' },
-    { name: 'Victor E.', title: 'Developer', emoji: '🐒' },
+    { name: 'Johnny Dunn', title: 'Lead developer & Co-founder', emoji: '🦁', description: 'Johnny is a passionate developer with over 10 years of experience in building scalable web applications.' },
+    { name: 'Nathan', title: 'Lead Designer & Co-founder', emoji: '🦊', description: 'Nathan is a creative designer who loves crafting beautiful and user-friendly interfaces.' },
+    { name: 'Victor E.', title: 'Developer', emoji: '🐒', description: 'Victor is a skilled developer with a knack for solving complex problems and optimizing performance.' },
   ];
 
   return (
@@ -17,6 +17,7 @@ const TeamsPage = () => {
               <div className="text-6xl mb-4">{exec.emoji}</div>
               <h2 className="text-2xl font-semibold text-gray-800 mb-2">{exec.name}</h2>
               <p className="text-gray-500 text-center">{exec.title}</p>
+              <p className="text-gray-600 text-center mt-4">{exec.description}</p>
             </div>
           </li>
         ))}
