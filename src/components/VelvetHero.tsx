@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import velvetLogo from "../images/velvet-web-logo.png"
 
 export default function VelvetHero() {
   return (
@@ -8,7 +9,7 @@ export default function VelvetHero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto flex justify-center mb-8">
             <Image
-              src="/images/velvet-web-logo.png"
+              src={velvetLogo}
               alt="Velvet Web Logo"
               width={120}
               height={120}
@@ -25,7 +26,7 @@ export default function VelvetHero() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
-                href="https://discord.gg/velvetweb"
+                href="https://discord.gg/AqD9Aatdpm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
