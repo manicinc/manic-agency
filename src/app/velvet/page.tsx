@@ -1,24 +1,20 @@
 export const metadata = {
-    title: "Home - Simple",
-    description: "Page description",
-  };
-  
-  import Hero from "@/components/Hero";
-  import BusinessCategories from "@/components/BusinessCategories";
-  import FeaturesPlanet from "@/components/FeaturesPlanet";
-  import LargeTestimonial from "@/components/LargeTestimonial";
-  import Cta from "@/components/Cta";
-  import DefaultLayout from "@/app/velvet/layout";
-  
-  export default function Home() {
-    return (
-      <DefaultLayout>
-        <Hero />
-        <BusinessCategories />
-        <FeaturesPlanet />
-        <LargeTestimonial />
-        <Cta />
-      </DefaultLayout>
-    );
-  }
+  title: "Velvet Web - AI-Powered Crypto Community",
+  description: "Join the ultimate hub for crypto founders, creators, and developers. Get AI-powered insights, project management, and code analysis.",
+};
+
+import VelvetHero from "@/components/VelvetHero";
+import VelvetFeatures from "@/components/VelvetFeatures";
+import VelvetPricing from "@/components/VelvetPricing";
+import DefaultLayout from "@/app/velvet/layout";
+
+export default function Home() {
+  return (
+    <DefaultLayout>
+      <VelvetHero />
+      <VelvetFeatures />
+      <VelvetPricing />
+    </DefaultLayout>
+  );
+}
   
