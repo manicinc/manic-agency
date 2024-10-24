@@ -19,7 +19,7 @@ export default function VelvetFeatures() {
   ];
 
   return (
-    <div id="features" className="bg-white dark:bg-gray-800 py-24 sm:py-32">
+    <div id="features" className="relative bg-white dark:bg-gray-800 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">Powered by AI</h2>
@@ -41,6 +41,19 @@ export default function VelvetFeatures() {
             ))}
           </dl>
         </div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+        <svg
+          viewBox="0 0 1440 120"
+          className="relative w-full h-[60px] min-w-[1200px]"
+          preserveAspectRatio="none"
+          fill="currentColor"
+        >
+          <path
+            d="M0 120V60C240 20 480 0 720 0C960 0 1200 20 1440 60V120H0Z"
+            className="fill-white dark:fill-gray-900"
+          />
+        </svg>
       </div>
     </div>
   );
