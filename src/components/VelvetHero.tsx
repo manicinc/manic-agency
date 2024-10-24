@@ -1,10 +1,20 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function VelvetHero() {
   return (
     <div className="relative isolate pt-14 dark:bg-gray-900">
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto flex justify-center mb-8">
+            <Image
+              src="/images/velvet-web-logo.png"
+              alt="Velvet Web Logo"
+              width={120}
+              height={120}
+              priority
+            />
+          </div>
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
               Velvet Web: AI-Powered Community for Crypto Innovators
