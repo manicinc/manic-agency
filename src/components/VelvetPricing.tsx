@@ -36,7 +36,7 @@ export default function VelvetPricing() {
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600 dark:text-gray-300">USD</span>
                 </p>
                 <Link
-                  href="https://buy.stripe.com/velvetweb"
+                  href="https://discord.gg/AqD9Aatdpm"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
