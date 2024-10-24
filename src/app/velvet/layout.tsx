@@ -23,14 +23,12 @@ export default function DefaultLayout({
   });
 
   return (
-    <html>
-        <body>
-        <Header />
+    <>
+      <Header />
 
-<main className="grow">{children}</main>
+      <main className="grow">{children}</main>
 
-<Footer border={true} />
-        </body>
-    </html>
+      <Footer border={true} />
+    </>
   );
 }

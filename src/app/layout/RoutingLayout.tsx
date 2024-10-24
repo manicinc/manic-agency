@@ -1,20 +1,21 @@
-"use client"
+"use client";
 import ComponentLayout from "./ComponentLayout";
-import { usePathname } from 'next/navigation';
-import { PropsWithChildren } from "react"
+import { usePathname } from "next/navigation";
+import { PropsWithChildren } from "react";
 
-export default function RoutingLayout({children}: PropsWithChildren){
-    const pathname = usePathname();
-    console.log(pathname)
+export default function RoutingLayout({ children }: PropsWithChildren) {
+  const pathname = usePathname();
+  console.log(pathname);
 
-    // If the segment matches your excluded route
-    if (pathname === '/velvet') {
-        return <>{children}</>;
-    }
-
+  // If the segment matches your excluded route
+  if (pathname === "/velvet") {
     return (
-        <ComponentLayout>
-            {children}
-        </ComponentLayout>
+      <html>
+        <head></head>
+        <body>{children}</body>
+      </html>
     );
+  }
+
+  return <ComponentLayout>{children}</ComponentLayout>;
 }
