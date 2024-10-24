@@ -5,7 +5,7 @@ import velvetLogo from "../images/velvet-web-logo.png"
 export default function VelvetHero() {
   return (
     <div className="relative isolate pt-14 dark:bg-gray-900">
-      <div className="py-24 sm:py-32">
+      <div className="relative py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto flex justify-center mb-8">
             <Image
@@ -42,6 +42,19 @@ export default function VelvetHero() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+        <svg
+          viewBox="0 0 1440 120"
+          className="relative w-full h-[60px] min-w-[1200px]"
+          preserveAspectRatio="none"
+          fill="currentColor"
+        >
+          <path
+            d="M0 120L48 105C96 90 192 60 288 47.5C384 35 480 40 576 50C672 60 768 75 864 77.5C960 80 1056 70 1152 65C1248 60 1344 60 1392 60L1440 60V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z"
+            className="fill-white dark:fill-gray-800"
+          />
+        </svg>
       </div>
     </div>
   );
