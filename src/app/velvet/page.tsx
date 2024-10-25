@@ -1,6 +1,6 @@
 export const metadata = {
     title: "Velvet Web - AI-Powered Crypto Community",
-    description: "Join the ultimate hub for crypto founders, creators, and developers. Get AI-powered insights, project management, and code analysis.",
+    description: "Join an innovative community of founders, creators, and developers. Get AI-powered insights, project management, and advanced code analysis tools.",
   };
   
   import VelvetHero from "@/components/VelvetHero";
