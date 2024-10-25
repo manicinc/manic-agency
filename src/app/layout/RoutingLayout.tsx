@@ -17,7 +17,7 @@ export default function RoutingLayout({ children }: PropsWithChildren) {
         <link rel="icon" type="image/png" sizes="16x16" href="/velvet_favicon-16x16.png"/>
         <link rel="manifest" href="/site.webmanifest"/>
         <title>Velvet Web</title>
-        <meta name="description" content="Next-gen Discord community hub powered by AI, designed for founders, creators, and builders in Web3. Access personalized AI project management, code analysis, market insights, and curated crypto/tech news - all through specialized AI assistants. Join a thriving ecosystem where innovation meets community, with both free and premium tiers available. We're building the future of AI-enhanced community spaces, backed by our own infrastructure for sustainable, long-term value" />
+        <meta name="description" content="Next-gen Discord community hub powered by AI, designed for founders, creators, and builders. Access personalized AI project management, code analysis, market insights, and curated crypto/tech news - all through specialized AI assistants. Join a thriving ecosystem where innovation meets community, with both free and premium tiers available. We're building the future of AI-enhanced community spaces, backed by our own infrastructure for sustainable, long-term value" />
         </head>
         <body>{children}</body>
       </html>
