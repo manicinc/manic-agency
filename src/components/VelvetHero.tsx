@@ -21,8 +21,8 @@ export default function VelvetHero() {
               Velvet Web: AI-Powered Community for Innovators
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Your central hub for founders, creators, and developers. Get AI-curated insights, 
-              project management, and code analysis - all focused on growing the tech ecosystem.
+              Your central hub for tech innovators, builders, and developers. Get AI-powered insights, 
+              advanced code analysis, and smart project management tools to accelerate your development workflow.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
