@@ -7,7 +7,7 @@ export default function VelvetPricing() {
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Simple Pricing</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Join our community and help fund the future of crypto
+            Join our community of innovators and accelerate your development journey
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
@@ -21,10 +21,12 @@ export default function VelvetPricing() {
               <div className="h-px flex-auto bg-gray-100"></div>
             </div>
             <ul role="list" className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 dark:text-gray-300 sm:grid-cols-2 sm:gap-6">
-              <li className="flex gap-x-3">Unlimited AI Bot Access</li>
-              <li className="flex gap-x-3">Premium GPT Models</li>
-              <li className="flex gap-x-3">Code Analysis</li>
-              <li className="flex gap-x-3">Project Management</li>
+              <li className="flex gap-x-3">Advanced AI Assistant Access</li>
+              <li className="flex gap-x-3">Enterprise GPT-4 Integration</li>
+              <li className="flex gap-x-3">Automated Code Reviews</li>
+              <li className="flex gap-x-3">Smart Project Analytics</li>
+              <li className="flex gap-x-3">Priority Community Support</li>
+              <li className="flex gap-x-3">Exclusive Developer Events</li>
             </ul>
           </div>
           <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
