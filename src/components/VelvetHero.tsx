@@ -18,11 +18,11 @@ export default function VelvetHero() {
           </div>
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
-              Velvet Web: AI-Powered Community for Crypto Innovators
+              Velvet Web: AI-Powered Community for Innovators
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
               Your central hub for founders, creators, and developers. Get AI-curated insights, 
-              project management, and code analysis - all focused on growing the crypto ecosystem.
+              project management, and code analysis - all focused on growing the tech ecosystem.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
