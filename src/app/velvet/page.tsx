@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Velvet Web - AI-Powered Crypto Community",
+    title: "Velvet Web - AI-Powered Community for Innovators",
     description: "Join an innovative community of founders, creators, and developers. Get AI-powered insights, project management, and advanced code analysis tools.",
   };
   
