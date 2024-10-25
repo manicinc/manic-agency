@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import velvetLogo from "../images/velvet-web-logo.png"
+import styles from './VelvetHero.module.css'
 
 export default function VelvetHero() {
   return (
@@ -14,6 +15,7 @@ export default function VelvetHero() {
               width={120}
               height={120}
               priority
+              className={styles.heartbeat}
             />
           </div>
           <div className="mx-auto max-w-2xl text-center">
