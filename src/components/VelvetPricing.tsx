@@ -17,7 +17,7 @@ export default function VelvetPricing() {
               Limited time offer - Get unlimited access to all premium features forever
             </p>
             <div className="mt-10 flex items-center gap-x-4">
-              <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">What's included</h4>
+              <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">What&apos;s included</h4>
               <div className="h-px flex-auto bg-gray-100"></div>
             </div>
             <ul role="list" className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 dark:text-gray-300 sm:grid-cols-2 sm:gap-6">
