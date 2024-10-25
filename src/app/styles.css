@@ -212,8 +212,8 @@ svg {
     min-height: 40rem;
   }
   .wrap > div:hover { width: 50%; }
-  .wrap .expand1 { background: url('https://jddunn.github.io/assets/projects/quire-homepage-optimized.gif'); background-size: cover}
-  .wrap .expand2 { background: url('https://jddunn.github.io/assets/projects/fortune-poker-demo.gif'); background-size: cover }
+  .wrap .expand1 { background: url('https://res.cloudinary.com/dwaypfftw/image/upload/v1729869976/quire_preview_lp4lmn.gif'); background-size: cover}
+  .wrap .expand2 { background: url('https://res.cloudinary.com/dwaypfftw/image/upload/v1729869976/fortune_preview_veaovi.gif'); background-size: cover }
   .wrap .expand3 { background: url('https://jddunn.github.io/assets/projects/hype-blog-article-frontend.png'); background-size: cover}
   .wrap .expand4 { background: url('https://picsum.photos/800/900?random=3'); }
   .wrap .expand1, .wrap .expand2, .wrap .expand3, .wrap .expand4 {

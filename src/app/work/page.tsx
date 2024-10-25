@@ -3,6 +3,8 @@ import PageIntro from '@/components/PageIntro';
 // import './script.js';
 import '../styles/work.scss';
 import { useEffect, useState } from 'react';
+import quire from "@/images/quire_preview.gif"
+import fortune from "@/images/fortune_preview.gif"
 
 const WorkPage = () => {
   const [mounted, setMounted] = useState(false);
@@ -76,7 +78,7 @@ const WorkPage = () => {
                     Quire.work
                   </span>
                   <img
-                    src="https://jddunn.github.io/assets/projects/quire-summarizer-optimized.gif"
+                    src={quire.src}
                     alt="Quire.work"
                     className="w-full h-full"
                   />
@@ -86,7 +88,7 @@ const WorkPage = () => {
                 <span className="text-slate-800 text-2xl">Fortune.day</span>
                 <a className="image" href="#item02">
                   <img
-                    src="https://jddunn.github.io/assets/projects/fortune-ascii-rogue-demo.gif"
+                    src={fortune.src}
                     alt="Fortune.day"
                   />
                 </a>
@@ -125,7 +127,7 @@ const WorkPage = () => {
               </a>
             </div>
             <img
-              src="https://jddunn.github.io/assets/projects/quire-summarizer-optimized.gif"
+              src={quire.src}
               className="w-full"
               alt="Quire.work"
             />
@@ -157,7 +159,7 @@ const WorkPage = () => {
                 </a>
               </div>
               <img
-                src="https://jddunn.github.io/assets/projects/fortune-ascii-rogue-demo.gif"
+                src={fortune.src}
                 alt="Fortune.day"
               />
             </div>
