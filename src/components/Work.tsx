@@ -64,6 +64,22 @@ const Work = () => {
             </div>
             <div className="overlay"></div>
           </div>
+          <div className="expand4">
+            <div className="info-block">
+              <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90">
+                Velvet Web Discord
+              </h2>
+              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">
+                A central hub for founders, creators, artists, and devs with AI-powered insights, 
+                project management, and code review. Join our community to access specialized AI assistants 
+                and stay connected with crypto opportunities.
+              </p>
+              <a href="https://discord.gg/AqD9Aatdpm" target="_blank" className="font-semibold">
+                <span>Join Discord</span>
+              </a>
+            </div>
+            <div className="overlay"></div>
+          </div>
         </div>
         {/* </FadeIn> */}
 
