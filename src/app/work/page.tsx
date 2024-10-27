@@ -85,20 +85,26 @@ const WorkPage = () => {
                 </a>
               </li>
               <li>
-                <span className="text-slate-800 text-2xl">Fortune.day</span>
-                <a className="image" href="#item02">
+                <a href="#item02" className="">
+                  <span className="text-slate-800 text-2xl w-full h-full">
+                    Fortune.day
+                  </span>
                   <img
                     src={fortune.src}
                     alt="Fortune.day"
+                    className="w-full h-full"
                   />
                 </a>
               </li>
               <li>
-                <span className="text-slate-800 text-2xl">Hype.blog</span>
-                <a className="image" href="#item03">
+                <a href="#item03" className="">
+                  <span className="text-slate-800 text-2xl w-full h-full">
+                    Hype.blog
+                  </span>
                   <img
                     src="https://jddunn.github.io/assets/projects/hype-blog-article-frontend.png"
                     alt="Hype.blog"
+                    className="w-full h-full"
                   />
                 </a>
               </li>
