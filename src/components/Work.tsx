@@ -12,7 +12,7 @@ const Work = () => {
       </SectionIntro>
       <Container className="mt-16">
         {/* <FadeIn className="w-4/4"> */}
-        <div className="wrap w-4/4 mt-24 sm:mt-32 lg:mt-40">
+        <div className="projects-grid mt-24 sm:mt-32 lg:mt-40">
           <div className="expand1">
             <div className="info-block w-full">
               <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">
