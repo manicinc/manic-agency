@@ -8,3 +8,20 @@
   font-stretch: 75% 125%;
   src: url("../fonts//Mona-Sans.var.woff2");
 }
+
+.expand4 {
+  background: url('https://res.cloudinary.com/dwaypfftw/image/upload/v1730046365/202410271709-ezgif.com-video-to-gif-converter_swlu6y.gif') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  position: relative;
+  cursor: pointer;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.expand4:hover {
+  transform: scale(1.02);
+}
