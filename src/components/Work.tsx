@@ -13,42 +13,7 @@ const Work = () => {
       <Container className="mt-16">
         {/* <FadeIn className="w-4/4"> */}
         <div className="projects-grid mt-24 sm:mt-32 lg:mt-40">
-          <div className="expand1 transform transition-all duration-300 hover:scale-105">
-            <div className="info-block w-full opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">
-                Quire.work
-              </h2>
-              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">
-                A platform to create and manage AI agents that can work
-                collaboratively to automate tasks
-              </p>
-              <a
-                href="https://quire.work"
-                target="_blank"
-                className="font-semibold hover:text-slate-300 transition-colors duration-300">
-                <span>Go to link</span>
-              </a>
-            </div>
-            <div className="overlay"></div>
-          </div>
-          <div className="expand2 transform transition-all duration-300 hover:scale-105">
-            <div className="info-block opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90	">
-                Fortune.day
-              </h2>
-              <p className="w-full py-4 px-4 bg-slate-800 bg-opacity-90">
-                A open-source (eventually) decentralized web-based metaverse
-                with tokenized membership and economy
-              </p>
-              <a
-                href="https://fortune.day"
-                target="_blank"
-                className="font-semibold hover:text-slate-300 transition-colors duration-300">
-                <span>Go to link</span>
-              </a>
-            </div>
-            <div className="overlay"></div>
-          </div>
+
           <div className="expand3 transform transition-all duration-300 hover:scale-105">
             <div className="info-block opacity-0 hover:opacity-100 transition-opacity duration-300">
               <h2 className="w-full tracking-wider py-1 font-semibold bg-slate-800 bg-opacity-90">
@@ -81,47 +46,7 @@ const Work = () => {
             <div className="overlay"></div>
           </div>
         </div>
-        {/* </FadeIn> */}
-
-        {/* <div className="expand4">
-          <div className="info-block">
-            <h2 className="bg-slate-600">Retail & General Public</h2>
-            <p>Looking to fit out your next project? Look no further, make a trade account with us today. We are experienced with working alongisde commercial, grass root and the self-employed.</p>
-            <a href="#"><span>Shop Products</span></a>
-          </div>
-          <div className="overlay"></div>
-        </div> */}
-        {/* <div className="lg:flex lg:items-center lg:justify-end">
-          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
-              <StylizedImage 
-                src={imageLaptop} 
-                sizes="(min-width: 1024px) 41rem, 31rem" 
-                className="justify-center lg:justify-end"
-              />
-            </FadeIn>
-          </div>
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
-            </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
-            </ListItem>
-            <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we've
-              used for the past six years.
-            </ListItem>
-            <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That's why we run all of our client projects out
-              of a single, enormous Joomla instance.
-            </ListItem>
-          </List> */}
+        
       </Container>
     </div>
   );

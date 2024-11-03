@@ -3,6 +3,8 @@ import PageIntro from '@/components/PageIntro';
 // import './script.js';
 import '../styles/work.scss';
 import { useEffect, useState } from 'react';
+import quire from "@/images/quire_preview.gif"
+import fortune from "@/images/fortune_preview.gif"
 
 const WorkPage = () => {
   const [mounted, setMounted] = useState(false);
@@ -73,7 +75,31 @@ const WorkPage = () => {
               <li>
                 <a href="#item01" className="">
                   <span className="text-slate-800 text-2xl w-full h-full">
-                    Manic Blog
+                    Quire.work
+                  </span>
+                  <img
+                    src={quire.src}
+                    alt="Quire.work"
+                    className="w-full h-full"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="#item02" className="">
+                  <span className="text-slate-800 text-2xl w-full h-full">
+                    Fortune.day
+                  </span>
+                  <img
+                    src={fortune.src}
+                    alt="Fortune.day"
+                    className="w-full h-full"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="#item03" className="">
+                  <span className="text-slate-800 text-2xl w-full h-full">
+                    Hype.blog
                   </span>
                   <img
                     src="https://jddunn.github.io/assets/projects/hype-blog-article-frontend.png"
@@ -82,13 +108,85 @@ const WorkPage = () => {
                   />
                 </a>
               </li>
+              <li>
+                <a href="/velvet" className="">
+                  <span className="text-slate-800 text-2xl w-full h-full">
+                    Velvet Web
+                  </span>
+                  <img
+                    src="https://res.cloudinary.com/dwaypfftw/image/upload/v1730046365/202410271709-ezgif.com-video-to-gif-converter_swlu6y.gif"
+                    alt="Velvet Web"
+                    className="w-full h-full"
+                  />
+                </a>
+              </li>
             </ul>
           </div>
           <div id="item01" className="port">
             <a href="#item01" className="close text-slate-800"></a>
+            <div className="description w-full">
+              <h1 className="text-slate-700 w-2/3 sm:w-1/3 text-2xl">
+                Quire.work
+              </h1>
+              <p className="text-slate-700 w-2/3 sm:w-1/3 text-sm overflow-y-auto">
+                Quire is a platform where users can create their own autonomous
+                AI agents to automate and perform any type of work. Quire agents
+                can work together in a collaborative manner to achieve common
+                goals. This was built in Next / React, TypeScript, LangChain,
+                and LlamaIndex, and uses both open-source LLMs like Mistral and
+                GPT-3.5 / GPT-4.
+              </p>
+              <br></br>
+              <a
+                className="w-full text-blue-400 hover:text-slate-400"
+                href="https://quire.work"
+                target="_blank">
+                https://quire.work
+              </a>
+            </div>
+            <img
+              src={quire.src}
+              className="w-full"
+              alt="Quire.work"
+            />
+          </div>
+          <div id="item02" className="port">
+            <a href="#item02" className="close text-slate-800"></a>
             <div className="row">
               <div className="description w-full">
-                <h1 className="text-slate-700 w-2/3 sm:w-1/3">Manic Blog</h1>
+                <h1 className="text-slate-700 w-2/3 sm:w-1/3 ">Fortune.day</h1>
+                <p className="text-slate-700 w-2/3 sm:w-1/3 text-sm overflow-y-auto">
+                  Fortune is a decentralized metaverse platform with an initial
+                  version that will exist on the web. Any type of app or game
+                  can exist in Fortune. Worlds are interconnected with
+                  persistent player profiles and inventories, with
+                  authentication being web3 wallet-based. Users can mint a
+                  Fortune NFT (ERC-1155) to gain access to the hosted metaverse
+                  and create their own game world where other players can join
+                  and interact with each other in an online manner through web
+                  sockets. Currency in the metaverse is tokenized with a ERC-20
+                  token. This platform is currently still in-development with
+                  plans to be entirely open-source.
+                </p>
+                <br></br>
+                <a
+                  className="w-2/3 text-blue-400 hover:text-slate-400"
+                  href="https://fortune.day"
+                  target="_blank">
+                  https://fortune.day
+                </a>
+              </div>
+              <img
+                src={fortune.src}
+                alt="Fortune.day"
+              />
+            </div>
+          </div>
+          <div id="item03" className="port">
+            <a href="#item03" className="close text-slate-800"></a>
+            <div className="row">
+              <div className="description w-full">
+                <h1 className="text-slate-700 w-2/3 sm:w-1/3">Hype.blog</h1>
                 <p className="text-slate-700 w-2/3 sm:w-1/3 text-sm overflow-y-auto">
                   Hype.blog is a digital media newsroom with AI journalists that
                   can operate the newsroom entirely independently, by scouring
