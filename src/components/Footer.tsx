@@ -66,6 +66,7 @@ const Footer: React.FC = () => {
           <Logo className="h-8">Manic Agency</Logo>
         </Link>
         <p className="text-sm text-neutral-700 mb-4">team@manic.agency</p>
+        <p className="text-sm text-neutral-700 mb-4">Lagos, Nigeria</p>
         <p className="text-sm text-neutral-700 mb-4">
           © Manic Agency {new Date().getFullYear()}
         </p>
