@@ -3,8 +3,8 @@ import PageIntro from '@/components/PageIntro';
 // import './script.js';
 import '../styles/work.scss';
 import { useEffect, useState } from 'react';
-import quire from "@/images/quire_preview.gif"
-import fortune from "@/images/fortune_preview.gif"
+import quire from '@/images/quire_preview.gif';
+import fortune from '@/images/fortune_preview.gif';
 
 const WorkPage = () => {
   const [mounted, setMounted] = useState(false);
@@ -69,10 +69,10 @@ const WorkPage = () => {
         </p>
       </PageIntro>
       <div className="container mx-auto">
-        <section className="gallery">
-          <div className="row">
+        <section className="flex items-center justify-center">
+          <div className="mt-20 md:w-4/5 px-12">
             <ul>
-              <li>
+              {/* <li>
                 <a href="#item01" className="">
                   <span className="text-slate-800 text-2xl w-full h-full">
                     Quire.work
@@ -107,10 +107,10 @@ const WorkPage = () => {
                     className="w-full h-full"
                   />
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="/velvet" className="">
-                  <span className="text-slate-800 text-2xl w-full h-full">
+                  <span className="text-slate-800 font-semibold text-center block mb-5 md:mb-7 text-2xl md:text-3xl w-full h-full">
                     Velvet Web
                   </span>
                   <img
@@ -144,11 +144,7 @@ const WorkPage = () => {
                 https://quire.work
               </a>
             </div>
-            <img
-              src={quire.src}
-              className="w-full"
-              alt="Quire.work"
-            />
+            <img src={quire.src} className="w-full" alt="Quire.work" />
           </div>
           <div id="item02" className="port">
             <a href="#item02" className="close text-slate-800"></a>
@@ -176,10 +172,7 @@ const WorkPage = () => {
                   https://fortune.day
                 </a>
               </div>
-              <img
-                src={fortune.src}
-                alt="Fortune.day"
-              />
+              <img src={fortune.src} alt="Fortune.day" />
             </div>
           </div>
           <div id="item03" className="port">

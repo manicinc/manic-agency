@@ -23,12 +23,12 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    id: 1,
-    imageUrl: '/hypeblog.png',
-    link: '#',
-    title: 'Hype Blog',
-  },
+  // {
+  //   id: 1,
+  //   imageUrl: '/hypeblog.png',
+  //   link: '#',
+  //   title: 'Hype Blog',
+  // },
   {
     id: 2,
     imageUrl: '/velvetweb.gif',
