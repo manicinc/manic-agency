@@ -1,24 +1,25 @@
-# Abdullah Agency - Next.js, Tailwind CSS & Framer Motion
+# Manic Agency - Portfolio & Services
 
-![Abdullah Agency](/public/agency.PNG)
+![Manic Agency](/public/agency.PNG)
 
-Abdullah Agency is a stunning multi-page agency website template developed using Next.js, Tailwind CSS, and Framer Motion. Designed and built by the talented Tailwind CSS team, this template offers a sleek and minimalist appearance while boasting engaging interactive elements and captivating animations powered by Framer Motion.
+Welcome to Manic Agency's official website repository. Our platform showcases our diverse portfolio of projects and comprehensive range of services, built with cutting-edge technologies including Next.js, Tailwind CSS, and Framer Motion. The website features a modern, responsive design with smooth animations and intuitive navigation.
 
 ## Features
 
-- Beautifully designed agency website template.
-- Built using Tailwind CSS and Next.js for a seamless development experience.
-- Enhanced with delightful animations and transitions through Framer Motion.
-- Easy-to-update case studies and blog posts with MDX.
-- Production-ready and highly customizable for your agency's specific needs.
-- A valuable resource for learning how to build websites with Tailwind CSS and React.
+- Comprehensive portfolio showcase of our projects
+- Detailed overview of our service offerings
+- Modern, responsive design powered by Tailwind CSS
+- Smooth animations and transitions using Framer Motion
+- Built with Next.js for optimal performance
+- Interactive case studies and project demonstrations
+- Easy-to-navigate service categories
 
 ## Getting Started
 
-To run the Abdullah Agency website locally, follow these steps:
+To run the Manic Agency website locally, follow these steps:
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/abdullah-agency.git
+   git clone https://github.com/your-username/manic-agency.git
    ```
