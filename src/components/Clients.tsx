@@ -31,7 +31,7 @@ const Clients: React.FC = () => {
           {/* <h2 className="text-center font-display text-sm font-normal text-white sm:text-left">
             We have worked with hundreds of amazing people across all industries
           </h2> */}
-          <p className="mt-4">
+          <p className="mt-4 text-gray-400">
             We have built with hundreds of amazing people across all industries
           </p>
           {/* <div className="h-px flex-auto bg-neutral-800" /> */}
