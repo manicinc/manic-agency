@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     id: 2,
     imageUrl: '/velvetweb.gif',
-    link: 'https://discord.gg/AqD9Aatdpm',
+    link: 'https://www.manic.agency/velvet',
     title: 'Velvet Web',
   },
 ];

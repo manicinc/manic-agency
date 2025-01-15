@@ -1,110 +1,118 @@
-.image-glitch {
-    // position: relative;
-    // width: 100vw;
-    // height: 100vw;
-    // overflow: hidden;
-  }
-  
-  .image-distortion {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-  }
-  
-  #base {
-    z-index: 0;
-  }
-  
-  #red {
-    background-color: rgba(0, 128, 0, 0.16);
-    background-blend-mode: hue;
-  }
-  
-  #cyan {
-    background-color: rgba(0, 255, 158, 0.25);
-    background-blend-mode: darken;
-  }
-  
-  #transparent {
-    background-color: transparent;
-    background-blend-mode: unset;
-  }
-  
-  #red {
-    animation: img-glitch-red 4s infinite linear alternate-reverse both;
-  }
-  
-  #cyan {
-    animation: img-glitch-cyan 5s infinite linear alternate both;
-  }
-  
-    #transparent {
-    animation: img-glitch-transparent 4s infinite linear alternate-reverse both;
-  }
-  
-  @function randomNum($min, $max) {
-    $rand: random();
-    $randomNum: $min + floor($rand * (($max - $min) + 1));
-  
-    @return $randomNum;
-  }
-  
-  @keyframes img-glitch-red {
-    $steps: 10;
-    @for $i from 1 through $steps {
-      $width: 100/100;
-      $height: randomNum(0, 100)/100;
-      $top: $height - randomNum(0, 3)/100;
-      $left: 0;
-  
-      #{percentage($i*(1/$steps))} {
-        @if ($i > 3 and $i < 5 or $i > 8 and $i < 9) {
-          clip-path: polygon(percentage($left) percentage($height), percentage($width) percentage($height), percentage($width) percentage($top), percentage($left) percentage($top));
-          transform: scaleX(random(200)/100);
-        } @else {
-          clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
-        }
+.image-distortion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1571977144562-3737f035296a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#base {
+  z-index: 0;
+}
+
+#red {
+  background-color: rgba(0, 128, 0, 0.16);
+  background-blend-mode: hue;
+}
+
+#cyan {
+  background-color: rgba(0, 255, 158, 0.25);
+  background-blend-mode: darken;
+}
+
+#transparent {
+  background-color: transparent;
+  background-blend-mode: unset;
+}
+
+#red {
+  animation: img-glitch-red 4s infinite linear alternate-reverse both;
+}
+
+#cyan {
+  animation: img-glitch-cyan 5s infinite linear alternate both;
+}
+
+#transparent {
+  animation: img-glitch-transparent 4s infinite linear alternate-reverse both;
+}
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+
+@keyframes img-glitch-red {
+  $steps: 10;
+  @for $i from 1 through $steps {
+    $width: 100/100;
+    $height: randomNum(0, 100) / 100;
+    $top: $height - randomNum(0, 3) / 100;
+    $left: 0;
+
+    #{percentage($i*(1/$steps))} {
+      @if ($i > 3 and $i < 5 or $i > 8 and $i < 9) {
+        clip-path: polygon(
+          percentage($left) percentage($height),
+          percentage($width) percentage($height),
+          percentage($width) percentage($top),
+          percentage($left) percentage($top)
+        );
+        transform: scaleX(random(200) / 100);
+      } @else {
+        clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
       }
     }
   }
-  
-  @keyframes img-glitch-cyan {
-    $steps: 30;
-    @for $i from 1 through $steps {
-      $width: 100/100;
-      $height: randomNum(0, 100)/100;
-      $top: $height - randomNum(0, 3)/100;
-      $left: 0;
-  
-      #{percentage($i*(1/$steps))} {
-        @if ($i > 0 and $i < 3 or $i > 12 and $i < 21) {
-          clip-path: polygon(percentage($left) percentage($height), percentage($width) percentage($height), percentage($width) percentage($top), percentage($left) percentage($top));
-        } @else {
-          clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
-        }
+}
+
+@keyframes img-glitch-cyan {
+  $steps: 30;
+  @for $i from 1 through $steps {
+    $width: 100/100;
+    $height: randomNum(0, 100) / 100;
+    $top: $height - randomNum(0, 3) / 100;
+    $left: 0;
+
+    #{percentage($i*(1/$steps))} {
+      @if ($i > 0 and $i < 3 or $i > 12 and $i < 21) {
+        clip-path: polygon(
+          percentage($left) percentage($height),
+          percentage($width) percentage($height),
+          percentage($width) percentage($top),
+          percentage($left) percentage($top)
+        );
+      } @else {
+        clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
       }
     }
   }
-  
-  @keyframes img-glitch-transparent {
-    $steps: 25;
-    @for $i from 1 through $steps {
-      $width: 100/100;
-      $height: randomNum(0, 50)/100;
-      $top: $width - randomNum(25, 75)/100;
-      $left: 0;
-      
-      #{percentage($i*(1/$steps))} {
-        clip-path: polygon(percentage($left) percentage($height), percentage($width) percentage($height), percentage($width) percentage($top), percentage($left) percentage($top));
-        transform: translate(random(10) + px, 0);
-      }
+}
+
+@keyframes img-glitch-transparent {
+  $steps: 25;
+  @for $i from 1 through $steps {
+    $width: 100/100;
+    $height: randomNum(0, 50) / 100;
+    $top: $width - randomNum(25, 75) / 100;
+    $left: 0;
+
+    #{percentage($i*(1/$steps))} {
+      clip-path: polygon(
+        percentage($left) percentage($height),
+        percentage($width) percentage($height),
+        percentage($width) percentage($top),
+        percentage($left) percentage($top)
+      );
+      transform: translate(random(10) + px, 0);
     }
   }
+}
