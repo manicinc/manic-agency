@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .image-distortion {
   position: absolute;
   top: 0;
@@ -42,8 +44,6 @@
 #transparent {
   animation: img-glitch-transparent 4s infinite linear alternate-reverse both;
 }
-
-@use "sass:math";
 
 @function randomNum($min, $max) {
   $rand: math.random();
