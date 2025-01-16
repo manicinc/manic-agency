@@ -43,9 +43,11 @@
   animation: img-glitch-transparent 4s infinite linear alternate-reverse both;
 }
 
+@use "sass:math";
+
 @function randomNum($min, $max) {
-  $rand: random();
-  $randomNum: $min + floor($rand * (($max - $min) + 1));
+  $rand: math.random();
+  $randomNum: $min + math.floor($rand * (($max - $min) + 1));
 
   @return $randomNum;
 }
@@ -53,20 +55,20 @@
 @keyframes img-glitch-red {
   $steps: 10;
   @for $i from 1 through $steps {
-    $width: 100/100;
-    $height: randomNum(0, 100) / 100;
-    $top: $height - randomNum(0, 3) / 100;
+    $width: math.div(100, 100);
+    $height: math.div(randomNum(0, 100), 100);
+    $top: $height - math.div(randomNum(0, 3), 100);
     $left: 0;
 
-    #{percentage($i*(1/$steps))} {
+    #{math.percentage($i*math.div(1,$steps))} {
       @if ($i > 3 and $i < 5 or $i > 8 and $i < 9) {
         clip-path: polygon(
-          percentage($left) percentage($height),
-          percentage($width) percentage($height),
-          percentage($width) percentage($top),
-          percentage($left) percentage($top)
+          math.percentage($left) math.percentage($height),
+          math.percentage($width) math.percentage($height),
+          math.percentage($width) math.percentage($top),
+          math.percentage($left) math.percentage($top)
         );
-        transform: scaleX(random(200) / 100);
+        transform: scaleX(math.div(math.random() * 200, 100));
       } @else {
         clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
       }
