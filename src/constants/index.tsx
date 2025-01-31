@@ -15,10 +15,9 @@ export const navigation: NavigationSection[] = [
   {
     title: "Products",
     links: [
-      { title: "Fortune.day", href: "https://fortune.day" },
-      { title: "Quire.work", href: "https://quire.work" },
       { title: "Velvet Web", href: "/velvet"},
       { title: "Smart Parser", href: "#"},
+      { title: "SynthGPT", href: "#"},
       {
         title: (
           <>

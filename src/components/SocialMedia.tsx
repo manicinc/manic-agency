@@ -31,12 +31,12 @@ export const SocialMediaProfiles: SocialMediaProfile[] = [
   },
   {
     title: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/company/manic-agency-llc/",
     icon: BsLinkedin,
   },
   {
     title: "Twitter",
-    href: "#",
+    href: "https://x.com/manicagency",
     icon: BsTwitter,
   },
 ];
