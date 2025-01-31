@@ -1,12 +1,12 @@
 import Link from "next/link";
 import clsx from "clsx";
-import { 
-  BsFacebook, 
-  BsTwitter, 
-  BsGithub, 
-  // BsYoutube, 
-  BsInstagram, 
-  BsLinkedin 
+import {
+  BsFacebook,
+  BsTwitter,
+  BsGithub,
+  // BsYoutube,
+  BsInstagram,
+  BsLinkedin,
 } from "react-icons/bs";
 
 interface SocialMediaProfile {
@@ -16,19 +16,21 @@ interface SocialMediaProfile {
 }
 
 export const SocialMediaProfiles: SocialMediaProfile[] = [
-  {
+  /* {
     title: "Instagram",
     href: "#",
     icon: BsInstagram,
-  },
-  { title: "GitHub", 
-  href: "https://github.com/manicinc/manic-agency",
-   icon: BsGithub },
+  }, */
   {
+    title: "GitHub",
+    href: "https://github.com/manicinc",
+    icon: BsGithub,
+  },
+  /* {
     title: "Facebook",
     href: "#",
     icon: BsFacebook,
-  },
+  }, */
   {
     title: "LinkedIn",
     href: "https://www.linkedin.com/company/manic-agency-llc/",
