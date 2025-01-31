@@ -33,6 +33,8 @@ const Offices: React.FC<React.PropsWithChildren<{ invert?: boolean }>> = ({
           Los Angeles
           <br />
           California
+          <br/>
+          Lagos Nigeria
         </Office>
       </li>
     </ul>

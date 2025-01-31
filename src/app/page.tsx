@@ -23,14 +23,6 @@ export default function Home() {
       <Services />
       <Clients />
       <Work/>
-      {/* <Testimonials
-        className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: "Phobia", logo: logoPhobiaDark }}
-      >
-        The team at Studio went above and beyond with our onboarding, even
-        finding a way to access the user microphone without triggering one of
-        those annoying permission dialogs.
-      </Testimonials> */}
       <ContactSection />
     </main>
   );
