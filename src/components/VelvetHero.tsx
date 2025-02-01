@@ -2,10 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import velvetLogo from "../images/velvet-web-logo.png"
 import styles from './VelvetHero.module.css'
+import bgImage from "@/images/velvet-bg.jpg";
 
 export default function VelvetHero() {
   return (
-    <div className="relative isolate pt-14 dark:bg-gray-900">
+    <div className="relative isolate pt-14 text-white" style={{backgroundImage: `url(${bgImage.src})`}}>
       <div className="relative py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto flex justify-center mb-8">
@@ -19,7 +20,7 @@ export default function VelvetHero() {
             />
           </div>
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight">
               Velvet Web: AI-Powered Community for Innovators
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
