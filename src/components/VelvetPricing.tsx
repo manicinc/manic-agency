@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function VelvetPricing() {
   return (
-    <div className="bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-24 sm:py-32">
+    <div className="bg-gradient-to-br from-gray-200 via-white to-gray-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Simple Pricing</h2>
@@ -30,7 +30,7 @@ export default function VelvetPricing() {
             </ul>
           </div>
           <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-            <div className="rounded-2xl bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-800 dark:to-gray-700 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16 backdrop-blur-sm">
+            <div className="rounded-2xl bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16 backdrop-blur-sm">
               <div className="mx-auto max-w-xs px-8">
                 <p className="text-base font-semibold text-gray-600 dark:text-gray-300">Limited Time Offer</p>
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
