@@ -52,7 +52,7 @@ const Work = () => {
           <CarouselContent>
             {projects.map((project) => (
               <CarouselItem key={project.id}>
-                <Link href={project.link} passHref>
+                <Link href={project.link} passHref target='_blank'>
                   <Card className="w-full h-[500px]">
                     <CardContent className="p-0 relative w-full h-full">
                       <Image
