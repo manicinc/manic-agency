@@ -23,18 +23,18 @@ interface Project {
 }
 
 const projects: Project[] = [
-  // {
-  //   id: 1,
-  //   imageUrl: '/hypeblog.png',
-  //   link: '#',
-  //   title: 'Hype Blog',
-  // },
   {
-    id: 2,
+    id: 1,
     imageUrl: '/velvetweb.gif',
     link: 'https://www.manic.agency/velvet',
     title: 'Velvet Web',
   },
+  {
+    id: 2,
+    imageUrl: "/manic.gif",
+    link: 'https://manicinc.github.io/logomaker/',
+    title: "Logo Image Generator"
+  }
 ];
 
 const Work = () => {
