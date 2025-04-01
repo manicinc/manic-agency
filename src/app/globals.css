@@ -2,3 +2,17 @@
 @import "./styles.css";
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #ecf0f1;
+  --text-color: #2c3e50;
+  --font-family: 'Arial, sans-serif';
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}

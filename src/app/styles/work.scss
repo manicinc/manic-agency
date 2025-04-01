@@ -11,15 +11,13 @@
 }
 
 .row {
-  // margin-left: 250px;
   margin: auto;
-  // text-align: center;
   width: 100%;
-  margin-left: 150px;
-  // max-width: 1170px;
-  // margin: 0 auto;
   padding: 0;
   clear: both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1600px) {
