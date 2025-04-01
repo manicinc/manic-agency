@@ -54,22 +54,21 @@
 }
 
 @keyframes img-glitch-red {
-  $steps: 10;
-  @for $i from 1 through $steps {
-    $width: math.div(100, 100);
-    $height: math.div(randomNum(0, 100), 100);
-    $top: $height - math.div(randomNum(0, 3), 100);
+  @for $i from 1 through 10 {
+    $width: 1;
+    $height: randomNum(0, 100) / 100;
+    $top: $height - randomNum(0, 3) / 100;
     $left: 0;
 
-    #{math.percentage($i*math.div(1,$steps))} {
+    #{percentage($i * 10%)} {
       @if ($i > 3 and $i < 5 or $i > 8 and $i < 9) {
         clip-path: polygon(
-          math.percentage($left) math.percentage($height),
-          math.percentage($width) math.percentage($height),
-          math.percentage($width) math.percentage($top),
-          math.percentage($left) math.percentage($top)
+          percentage($left) percentage($height),
+          percentage($width) percentage($height),
+          percentage($width) percentage($top),
+          percentage($left) percentage($top)
         );
-        transform: scaleX(math.div(math.random() * 200, 100));
+        transform: scaleX(random(200) / 100);
       } @else {
         clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
       }
@@ -78,14 +77,13 @@
 }
 
 @keyframes img-glitch-cyan {
-  $steps: 30;
-  @for $i from 1 through $steps {
-    $width: 100/100;
+  @for $i from 1 through 30 {
+    $width: 1;
     $height: randomNum(0, 100) / 100;
     $top: $height - randomNum(0, 3) / 100;
     $left: 0;
 
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i * 3.33%)} {
       @if ($i > 0 and $i < 3 or $i > 12 and $i < 21) {
         clip-path: polygon(
           percentage($left) percentage($height),
@@ -101,14 +99,13 @@
 }
 
 @keyframes img-glitch-transparent {
-  $steps: 25;
-  @for $i from 1 through $steps {
-    $width: 100/100;
+  @for $i from 1 through 25 {
+    $width: 1;
     $height: randomNum(0, 50) / 100;
     $top: $width - randomNum(25, 75) / 100;
     $left: 0;
 
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i * 4%)} {
       clip-path: polygon(
         percentage($left) percentage($height),
         percentage($width) percentage($height),
