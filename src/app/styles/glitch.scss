@@ -68,7 +68,7 @@
           percentage($width) percentage($top),
           percentage($left) percentage($top)
         );
-        transform: scaleX(random(200) / 100);
+        transform: scaleX(math.random() * 2);
       } @else {
         clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
       }
@@ -112,7 +112,7 @@
         percentage($width) percentage($top),
         percentage($left) percentage($top)
       );
-      transform: translate(random(10) + px, 0);
+      transform: translate(math.random() * 10px, 0);
     }
   }
 }
