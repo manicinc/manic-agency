@@ -45,9 +45,12 @@
 }
 
 .gallery {
-  padding: 40px 0 300px;
+  padding: 20px 0 100px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .gallery ul {
   padding-top: 50px;
