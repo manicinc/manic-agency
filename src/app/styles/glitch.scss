@@ -61,7 +61,7 @@
     $left: 0;
 
     #{percentage($i * 10%)} {
-      @if ($i > 3 and $i < 5 or $i > 8 and $i < 9) {
+      @if ($i > 3 and $i < 5) or ($i > 8 and $i < 9) {
         clip-path: polygon(
           percentage($left) percentage($height),
           percentage($width) percentage($height),

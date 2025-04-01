@@ -77,7 +77,13 @@
   top: 40%;
   left: 50%;
   margin: -14px 0 0 -16px;
-  background: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20960%20560%22%3E%3Cg%3E%3Crect%20x%3D%22220%22%20y%3D%22260%22%20fill%3D%22%23FFFFFF%22%20width%3D%22536%22%20height%3D%2224%22/%3E%3C/g%3E%3Cg%3E%3Crect%20x%3D%22476%22%20y%3D%224%22%20fill%3D%22%23FFFFFF%22%20width%3D%2224%22%20height%3D%22556%22/%3E%3C/g%3E%3C/svg%3E)
+  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20960%20560%22%3E%3Cg%3E%3Crect%20x%3D%22220%22%20y%3D%22260%22%20fill%3D%22%23FFFFFF%22%20width%3D%22536%22%20height%3D%2224%22/%3E%3C/g%3E%3Cg%3E%3Crect%20x%3D%22476%22%20y%3D%224%22%20fill%3D%22%23FFFFFF%22%20width%3D%2224%22%20height%3D%22556%22/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+```
+
+src/app/styles/work.scss
+```scss
+<<<<<<< SEARCH
+  background: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2021%2021%22%3E%3Cg%20transform%3D%22translate%280%2C-1031.3622%29%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M0%2C1031.4l21%2C21%22/%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M21%2C1031.4l-21%2C21%22/%3E%3C/g%3E%3C/svg%3E)
     no-repeat;
   content: '';
   opacity: 0;
