@@ -8,6 +8,7 @@ import image51 from "@/images/image51.png";
 import image52 from "@/images/image52.png";
 import image53 from "@/images/image53.png";
 import curve from "@/images/curve.png";
+import ClientsSection from "./ClientsSection";
 
 export const ServicesSection = () => {
   const [activeService, setActiveService] = useState(0);
@@ -326,6 +327,7 @@ export const ServicesSection = () => {
           ))}
         </div>
       </div>
+      <ClientsSection/>
 
       {/* Custom styles for animations */}
       <style jsx>{`
