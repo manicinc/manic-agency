@@ -60,7 +60,7 @@
     $top: $height - randomNum(0, 3) / 100;
     $left: 0;
 
-    #{percentage($i * 10%)} {
+    #{percentage($i * 10)} {
       @if ($i > 3 and $i < 5) or ($i > 8 and $i < 9) {
         clip-path: polygon(
           percentage($left) percentage($height),
@@ -83,7 +83,7 @@
     $top: $height - randomNum(0, 3) / 100;
     $left: 0;
 
-    #{percentage($i * 3.33%)} {
+    #{percentage($i * 3.33)} {
       @if ($i > 0 and $i < 3 or $i > 12 and $i < 21) {
         clip-path: polygon(
           percentage($left) percentage($height),
@@ -105,7 +105,7 @@
     $top: $width - randomNum(25, 75) / 100;
     $left: 0;
 
-    #{percentage($i * 4%)} {
+    #{percentage($i * 4)} {
       clip-path: polygon(
         percentage($left) percentage($height),
         percentage($width) percentage($height),
