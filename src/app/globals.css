@@ -1,5 +1,5 @@
 @import "./base.css";
-@import "./styles.css";
+/* @import "./styles.css"; */
 @tailwind components;
 @tailwind utilities;
 
@@ -9,13 +9,4 @@
   --background-color: #f5f5f5;
   --text-color: #34495e;
   --font-family: 'Roboto, sans-serif';
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--font-family);
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
 }

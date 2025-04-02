@@ -1,3 +1,4 @@
+import Script from "next/script"
 import "../globals.css";
 import RootLayout from "@/components/RootLayout";
 import {FunctionComponent, PropsWithChildren} from "react"
@@ -8,6 +9,8 @@ export default function ComponentLayout({children}:PropsWithChildren){
         lang="en"
         className=" bg-slate-500 text-neutral-100"
       >
+        <head>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="msapplication-TileColor" content="#FFF" />
         <meta name="theme-color" content="#FFF" />
@@ -45,9 +48,12 @@ export default function ComponentLayout({children}:PropsWithChildren){
         <link href="/apple-startup-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" rel="apple-touch-startup-image" />
         <link href="/apple-startup-1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" rel="apple-touch-startup-image" />
         <link rel="manifest" href="/manifest.json" />
+        
+
+        </head>
   
         <body className="flex min-h-full flex-col">
-          <RootLayout>{children}</RootLayout>
+          {children}
         </body>
       </html>
     )
