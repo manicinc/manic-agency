@@ -192,7 +192,7 @@ export const ServicesSection = () => {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-20 overflow-hidden" id="services">
       {/* Background with specified gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#23153c] via-[#1e1b45] to-[#102040] overflow-hidden">
         {/* Subtle grid overlay */}

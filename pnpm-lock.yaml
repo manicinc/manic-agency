@@ -26,7 +26,13 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      embla-carousel:
+        specifier: ^8.5.2
+        version: 8.5.2
       embla-carousel-autoplay:
+        specifier: ^8.5.2
+        version: 8.5.2(embla-carousel@8.5.2)
+      embla-carousel-class-names:
         specifier: ^8.5.2
         version: 8.5.2(embla-carousel@8.5.2)
       embla-carousel-react:
@@ -799,6 +805,11 @@ packages:
 
   embla-carousel-autoplay@8.5.2:
     resolution: {integrity: sha512-27emJ0px3q/c0kCHCjwRrEbYcyYUPfGO3g5IBWF1i7714TTzE6L9P81V6PHLoSMAKJ1aHoT2e7YFOsuFKCbyag==}
+    peerDependencies:
+      embla-carousel: 8.5.2
+
+  embla-carousel-class-names@8.5.2:
+    resolution: {integrity: sha512-hYqvN06fzOs+e3QQKkDTqIxiTdlxSKoMQ7lO7oStRr/u1Gc8kNCBSh2flWmnXAHhZiVxoAX6o4jiBqJGW6xHsQ==}
     peerDependencies:
       embla-carousel: 8.5.2
 
@@ -2596,6 +2607,10 @@ snapshots:
   electron-to-chromium@1.5.41: {}
 
   embla-carousel-autoplay@8.5.2(embla-carousel@8.5.2):
+    dependencies:
+      embla-carousel: 8.5.2
+
+  embla-carousel-class-names@8.5.2(embla-carousel@8.5.2):
     dependencies:
       embla-carousel: 8.5.2
 

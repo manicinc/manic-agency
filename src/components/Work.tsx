@@ -1,19 +1,8 @@
 'use client';
-
-import SectionIntro from './SectionIntro';
-import Container from './Container';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
-
-import Autoplay from 'embla-carousel-autoplay';
-import Image from 'next/image';
-import Link from 'next/link';
+import { EmblaOptionsType } from 'embla-carousel';
+import EmblaCarousel from './EmblaCarousel';
+import curve from "@/images/curve.png"
+import Image from "next/image"
 
 interface Project {
   id: number;
@@ -37,45 +26,25 @@ const projects: Project[] = [
   }
 ];
 
+const OPTIONS: EmblaOptionsType = {}
+
 const Work = () => {
+  
+  
   return (
-    <div className="pt-20">
-      <SectionIntro eyebrow="" title="Our work">
-        <p>
-          Manic Agency houses a number of tech and media oriented platforms
-          striking an impact on the world
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
+    <section id="work" className="py-32 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center grow-0 flex flex-col items-center mb-10">
+          <span>Our Work</span>
+        <Image src={curve} alt="curve" className='w-44 grow-0'/>
+          </h2>
         
-        <Carousel plugins={[Autoplay({ delay: 3000 })]} className="w-full">
-          <CarouselContent>
-            {projects.map((project) => (
-              <CarouselItem key={project.id}>
-                <Link href={project.link} passHref target='_blank'>
-                  <Card className="w-full h-[500px]">
-                    <CardContent className="p-0 relative w-full h-full">
-                      <Image
-                        src={project.imageUrl || '/placeholder.svg'}
-                        alt={project.title}
-                        fill
-                        style={{ objectFit: 'cover' }}
-                        priority
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
-                        <h2 className="text-2xl font-bold">{project.title}</h2>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </Container>
-    </div>
+
+
+        <EmblaCarousel slides={projects}/>
+        </div>
+    </section>
   );
 };
+
 export default Work;

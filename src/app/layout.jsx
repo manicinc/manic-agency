@@ -1,6 +1,7 @@
 
 import Script from "next/script";
 import "./globals.css"
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: {
@@ -20,6 +21,7 @@ export default function Layout({ children }) {
     </head>
     <body>
       {children}
+      <Footer/>
     </body>
   </html>)
   
