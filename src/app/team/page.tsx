@@ -1,4 +1,6 @@
+"use client"
 import React from 'react';
+import { Nav } from '@/components/Nav';
 
 const TeamsPage = () => {
   const executives = [
@@ -8,6 +10,10 @@ const TeamsPage = () => {
   ];
 
   return (
+    <>
+    <div className='bg-[#23153c]'>
+    <Nav />
+    </div>
     <div className="container mx-auto px-4 py-12 bg-gradient-to-b from-blue-100 to-purple-100 my-10">
       <h1 className="text-4xl font-bold mb-12 text-center text-blue-600 animate-bounce">Our Executive Team</h1>
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -23,6 +29,7 @@ const TeamsPage = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 

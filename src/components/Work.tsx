@@ -26,7 +26,6 @@ const projects: Project[] = [
   }
 ];
 
-const OPTIONS: EmblaOptionsType = {}
 
 const Work = () => {
   

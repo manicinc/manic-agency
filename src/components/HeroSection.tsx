@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export const HeroSection = () => {
   return (
@@ -12,17 +13,17 @@ export const HeroSection = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"> Digital Future</span>
             </h1>
             
-            <p className="text-gray-300 text-lg mb-8 max-w-xl">
+            <p className="text-gray-300 text-lg mb-8 max-w-xl font-bold">
               We craft immersive experiences at the convergence of physical and digital worlds, leveraging cutting-edge technologies to build tomorrow&apos;s solutions today.
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <button className="px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-md transition duration-300">
+              <Link className="px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-md transition duration-300" href="#work">
                 Explore Our Work
-              </button>
-              <button className="px-8 py-3 bg-transparent border border-white hover:bg-white/10 text-white font-medium rounded-md transition duration-300">
+              </Link>
+              <Link className="px-8 py-3 bg-transparent border border-white hover:bg-white/10 text-white font-medium rounded-md transition duration-300" href="/contact">
                 Connect With Us
-              </button>
+              </Link>
             </div>
           </div>
           

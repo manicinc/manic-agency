@@ -7,6 +7,7 @@ export const Header = () => {
 
     return (
         <header className="min-h-screen">
+            
             <Nav/>
             <HeroSection/>
         </header>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -31,12 +32,12 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Company</h3>
           <ul className="space-y-2 opacity-80">
-            <li>Mission</li>
-            <li>Work</li>
-            <li>Process</li>
-            <li>Blog</li>
-            <li>Contact us</li>
-            <li>Team</li>
+            <li><Link href="/mission" className="hover:text-purple-300" >Mission</Link></li>
+            <li><Link href="/work" className="hover:text-purple-300" >Work</Link></li>
+            <li><Link href="/process" className="hover:text-purple-300" >Process</Link></li>
+            <li><Link href="/blog" className="hover:text-purple-300" >Blog</Link></li>
+            <li><Link href="/contact" className="hover:text-purple-300" >Contact us</Link></li>
+            <li><Link href="/team" className="hover:text-purple-300" >Team</Link></li>
           </ul>
         </div>
         
@@ -44,9 +45,9 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Connect</h3>
           <div className="flex space-x-4 text-xl">
-            <a href="#" className="hover:text-purple-300"><FaGithub /></a>
-            <a href="#" className="hover:text-purple-300"><FaLinkedin /></a>
-            <a href="#" className="hover:text-purple-300"><FaTwitter /></a>
+            <a href="https://github.com/manicinc" className="hover:text-purple-300" target="_blank"><FaGithub /></a>
+            <a href="https://www.linkedin.com/company/manic-agency-llc/" className="hover:text-purple-300" target="_blank"><FaLinkedin /></a>
+            <a href="https://x.com/manicagency" className="hover:text-purple-300" target="_blank"><FaTwitter /></a>
           </div>
         </div>
       </div>

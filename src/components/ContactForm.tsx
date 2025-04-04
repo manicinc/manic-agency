@@ -1,6 +1,3 @@
-import TextInput from './TextInput';
-import RadioInput from './RadioInput';
-import Button from './Button';
 import Script from 'next/script';
 
 const ContactForm = () => {
@@ -9,73 +6,53 @@ const ContactForm = () => {
       <Script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" />
       <Script src="./email.js" />
       <Script src="./send.js" />
-      <div>
-        <div className="messageSuccess text-1xl text-slate-800 tracking-wider hidden w-full">
-          <h2 className="w-full">
+      <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
+        <div className="messageSuccess text-xl text-gray-800 tracking-wider hidden">
+          <h2 className="text-center font-semibold">
             Thank you for submitting your proposal! We will be in touch soon.
           </h2>
         </div>
-        <form id="contact-form">
-          <h2 className="font-display text-base font-semibold text-neutral-950">
-            Work inquiries
-          </h2>
-          <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-            <TextInput
-              label="Name"
-              name="name"
-              autoComplete="name"
-              required={true}
-            />
-            <TextInput
-              label="Email"
-              type="email"
-              name="email"
-              autoComplete="email"
-              required={true}
-            />
-            <TextInput
-              label="Company"
-              name="company"
-              autoComplete="organization"
-              required={false}
-            />
-            <TextInput
-              label="Phone (Optional)"
-              type="tel"
-              name="phone"
-              autoComplete="tel"
-              required={false}
-            />
-            <TextInput
-              label="Message"
-              name="message"
-              required={true}
-              minLength={12}
-            />
-            <div className="border border-neutral-300 px-6 py-8 first:rounded-t-2xl last:rounded-b-2xl">
-              <fieldset>
-                <legend className="text-base/6 text-neutral-500">Budget</legend>
-              </fieldset>
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <RadioInput label="$5K – $10K" name="budget" value="5-10" />
-                <RadioInput label="$10K – $25K" name="budget" value="10-25" />
-                <RadioInput label="$25K – $100K" name="budget" value="25-100" />
-                <RadioInput
-                  label="More than $100K"
-                  name="budget"
-                  value="100+"
-                />
-              </div>
+        <form id="contact-form" className="space-y-6">
+          <h2 className="text-lg font-semibold text-gray-900">Work inquiries</h2>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" name="name" required className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-300" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Email</label>
+              <input type="email" name="email" required className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-300" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Company</label>
+              <input type="text" name="company" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-300" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Phone (Optional)</label>
+              <input type="tel" name="phone" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-300" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Message</label>
+              <textarea name="message" required minLength={12} className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-300"></textarea>
             </div>
           </div>
-          <p className="mt-6 text-neutral-600">
-            Note: For certain proposals we will also consider taking equity as a
-            portion of compensation.
+          <fieldset className="border p-4 rounded-lg">
+            <legend className="text-base font-medium text-gray-700">Budget</legend>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+              {["$5K – $10K", "$10K – $25K", "$25K – $100K", "More than $100K"].map((label, index) => (
+                <label key={index} className="flex items-center space-x-2">
+                  <input type="radio" name="budget" value={label} className="form-radio text-indigo-600" />
+                  <span className="text-gray-700">{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <p className="text-gray-600 text-sm">
+            Note: For certain proposals we will also consider taking equity as a portion of compensation.
           </p>
-          <input type="submit" value="Send" />
-          <Button type="submit" className="mt-4 border-b-4 border-red-700">
+          <button type="submit" className="w-full px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
             Let&apos;s work together
-          </Button>
+          </button>
         </form>
       </div>
     </>
