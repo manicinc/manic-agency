@@ -20,7 +20,8 @@ interface BlogPageProps {
 
 // Assume 'posts' is fetched server-side (e.g., in a parent Server Component
 // or using generateStaticParams/fetch in Next.js App Router) and passed as a prop.
-const BlogPage: FunctionComponent<BlogPageProps> = ({ posts = [] }) => { // Provide default empty array
+const BlogPage = () => { // Provide default empty array
+  const posts: any[] = []
   return (
     <>
       <div className='bg-[#23153c]'>
