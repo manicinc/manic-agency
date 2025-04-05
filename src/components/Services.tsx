@@ -41,7 +41,7 @@ export const ServicesSection = () => {
 
   const services = [
     {
-      title: "Development & Deployment",
+      title: "Development and deployments on every platform",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ export const ServicesSection = () => {
         </svg>
       ),
       description:
-        "From concept to execution, we build and deploy cutting-edge applications across all platforms. Our development team excels in creating seamless experiences for web, mobile, AR/VR, and blockchain environments, ensuring your solution works flawlessly wherever your users are.",
+        "Each of our devs is full-stack with at least one specialization in a particular area, whether that's frontend, SEO, mobile, VR / AR, deep learning, databases, web scraping, smart contracts, or devops and the cloud.",
       features: [
         "Cross-platform development",
         "Cloud infrastructure",
@@ -93,7 +93,7 @@ export const ServicesSection = () => {
         </svg>
       ),
       description:
-        "We pioneer solutions at the bleeding edge of technology. Our team specializes in AI/ML implementation, blockchain applications, mixed reality experiences, and metaverse development—transforming emerging technologies into practical solutions that give your business a competitive advantage.",
+        "We rely on robust and battle-tested tech to stand on the shoulders of. But we also continually keep up-to-date with trends and research in upcoming fields poised to strike the mainstream world, such as blockchain, generative AI, and virtual and augmented reality. We understand demand and innovation are bidirectional.",
       features: [
         "AI & machine learning integration",
         "Web3 & blockchain solutions",
@@ -104,7 +104,7 @@ export const ServicesSection = () => {
       backgroundImage: image46,
     },
     {
-      title: "Design with Clarity & Artistry",
+      title: "Designs with clarity and artistry",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ export const ServicesSection = () => {
         </svg>
       ),
       description:
-        "Our design philosophy blends aesthetic excellence with intuitive functionality. We create visually stunning interfaces and experiences that communicate clearly and delight users. From brand identity to product design, we craft visual narratives that resonate with your audience.",
+        "Our branding and UI / UX skills are unparalleled, as we employ true artists with a passion for their craft. We focus on humanistic-centric design and aim for simplicity.",
       features: [
         "UI/UX design",
         "Brand identity",
@@ -150,7 +150,7 @@ export const ServicesSection = () => {
         </svg>
       ),
       description:
-        "Navigate the complex legal landscape of digital innovation with confidence. Our legal specialists provide expert guidance on intellectual property, data privacy, regulatory compliance, and smart contracts, ensuring your technological innovations have solid legal foundations.",
+        "Our team comprises licensed lawyers specializing in financial and software regulations. We can help you figure out all the moves you need to secure proper compliance.",
       features: [
         "IP protection",
         "Data privacy compliance",
@@ -179,7 +179,7 @@ export const ServicesSection = () => {
         </svg>
       ),
       description:
-        "We transform innovative ideas into compelling narratives that drive engagement and conversions. Our data-driven marketing strategies leverage the latest digital channels to connect with your audience. We blend creativity with analytics to deliver marketing campaigns that achieve measurable results.",
+        " Growth hacking and going viral come naturally for us. Our in-house tools for social media analytics and brand monitoring aid us in bringing campaigns and user acquisition to the next level.",
       features: [
         "Digital marketing strategy",
         "Content creation",
@@ -206,8 +206,7 @@ export const ServicesSection = () => {
           </h2>
 
           <p className="text-gray-300 max-w-2xl mx-auto">
-            We offer comprehensive solutions across the digital landscape,
-            combining technical excellence with creative vision.
+          Fall down the rabbit hole with us to determine optimal budgeting, ideal market timing, and holistic architecture & design to manifest your vision
           </p>
         </div>
 

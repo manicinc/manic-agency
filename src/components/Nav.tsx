@@ -14,7 +14,7 @@ export const Nav = () => {
                 <div className="flex flex-wrap items-center justify-between">
                     {/* Logo and Company Name */}
                     <div className="flex items-center space-x-2">
-                    <Link className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500" href="/">
+                    <Link className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500 glitch" href="/">
                             manic
                         </Link>
                         <span className="hidden md:inline-block h-6 w-px bg-gray-300 mx-2"></span>

@@ -10,3 +10,34 @@
   --text-color: #34495e;
   --font-family: 'Roboto, sans-serif';
 }
+
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9;
+  }
+  20% {
+    text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9;
+  }
+  40% {
+    text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9;
+  }
+  60% {
+    text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9;
+  }
+  80% {
+    text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+.glitch {
+  animation: glitch 1.5s infinite;
+}
+
+
+html{
+  scroll-behavior: smooth;
+}

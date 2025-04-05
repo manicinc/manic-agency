@@ -14,7 +14,7 @@ export const HeroSection = () => {
             </h1>
             
             <p className="text-gray-300 text-lg mb-8 max-w-xl font-bold">
-              We craft immersive experiences at the convergence of physical and digital worlds, leveraging cutting-edge technologies to build tomorrow&apos;s solutions today.
+            We are a group of web developers, digital marketers, machine learning / AI engineers, product designers, game designers, and legal specialists, working at the intersection of reality, mixed reality, web3, and the emerging metaverse.
             </p>
             
             <div className="flex flex-wrap gap-4">

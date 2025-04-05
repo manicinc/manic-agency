@@ -56,7 +56,7 @@ const Footer = () => {
       <div className="border-t border-white/20 mt-8 pt-6 text-center text-sm opacity-80">
         <p className="font-semibold text-lg">Manic Agency</p>
         <p className="text-purple-300">team@manic.agency</p>
-        <p>Lagos, Nigeria</p>
+        <p>Los Angeles California</p>
         <p className="mt-4">© Manic Agency 2025</p>
       </div>
     </footer>
