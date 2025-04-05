@@ -29,9 +29,13 @@ export const HeroSection = () => {
 
 
 
-              <Link className="px-8 py-3 bg-transparent border border-white hover:bg-white/10 text-white font-medium rounded-md transition duration-300" href="/contact">
-                Connect With Us
-              </Link>
+<Link
+  href="/contact"
+  className="inline-block px-8 py-3 text-white font-mono text-lg tracking-wider uppercase border-2 border-[#0ff] rounded-md transition duration-300 hover:bg-[#0ff]/10 shadow-[2px_2px_0_#f0f,4px_4px_0_#00f]"
+>
+  Connect With Us
+</Link>
+
             </div>
           </div>
           

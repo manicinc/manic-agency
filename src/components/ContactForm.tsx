@@ -50,9 +50,12 @@ const ContactForm = () => {
           <p className="text-gray-600 text-sm">
             Note: For certain proposals we will also consider taking equity as a portion of compensation.
           </p>
-          <button type="submit" className="w-full px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
-            Let&apos;s work together
-          </button>
+          <button type="submit"
+  
+  className="inline-block px-8 py-3 text-black font-mono text-lg tracking-wider uppercase bg-[#0ff] rounded-md transition duration-300 hover:bg-[#0cc] shadow-[4px_4px_0_#f0f,8px_8px_0_#00f] hover:shadow-[2px_2px_0_#f0f,4px_4px_0_#00f]"
+>
+ Let&apos;s work together
+</button>
         </form>
       </div>
     </>
