@@ -37,7 +37,9 @@ const Work = () => {
           <span>Our Work</span>
         <Image src={curve} alt="curve" className='w-44 grow-0'/>
           </h2>
-        
+        <p className="text-lg text-center text-gray-700 mb-8">
+          Manic Agency houses a number of tech and media oriented platforms striking an impact on the world.
+        </p>
 
 
         <EmblaCarousel slides={projects}/>
