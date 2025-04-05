@@ -1,23 +1,7 @@
-// import logoBrightPath from "../images/clients/bright-path/logo-light.svg";
-// import logoFamilyFund from "../images/clients/family-fund/logo-light.svg";
-// import logoGreenLife from "../images/clients/green-life/logo-light.svg";
-// import logoHomeWork from "../images/clients/home-work/logo-light.svg";
-// import logoMailSmirk from "../images/clients/mail-smirk/logo-light.svg";
-// import logoNorthAdventures from "../images/clients/north-adventures/logo-light.svg";
-// import logoUnseal from "../images/clients/unseal/logo-light.svg";
+
 import Container from "./Container";
 import FadeInLong from "./FadeIn";
 
-const clients = [
-  ["Edelman", ""],
-  ["Hereafterlegacy.ai", ""],
-  ["EmergeX", ""],
-  ["NuBloom NFTs", ""],
-  ["Smurf.finance", ""],
-  // ["", ""],
-  // ["Bright Path", ""],
-  // ["North Adventures", ""],
-];
 
 const Intro = () => {
   return (

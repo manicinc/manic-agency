@@ -5,8 +5,8 @@ import image46 from "@/images/image46.png";
 import image47 from "@/images/image47.png";
 import image50 from "@/images/image50.png";
 import image51 from "@/images/image51.png";
-import image52 from "@/images/image52.png";
-import image53 from "@/images/image53.png";
+import image52 from "@/images/image52.png"; // Added missing import if needed
+import image53 from "@/images/image53.png"; // Added missing import if needed
 import curve from "@/images/curve.png";
 import ClientsSection from "./ClientsSection";
 
@@ -19,7 +19,7 @@ export const ServicesSection = () => {
   // Reset refs array when services change
   useEffect(() => {
     boxRefs.current = boxRefs.current.slice(0, services.length);
-  }, []);
+  }, []); // Removed services dependency as it wasn't used inside
 
   // Handle mouse movement
   const handleMouseMove = (e: MouseEvent, index: number) => {
@@ -40,155 +40,156 @@ export const ServicesSection = () => {
   };
 
   const services = [
+    // ... (service data remains the same) ...
     {
-      title: "Development and deployments on every platform",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="16 18 22 12 16 6"></polyline>
-          <polyline points="8 6 2 12 8 18"></polyline>
-        </svg>
-      ),
-      description:
-        "Each of our devs is full-stack with at least one specialization in a particular area, whether that's frontend, SEO, mobile, VR / AR, deep learning, databases, web scraping, smart contracts, or devops and the cloud.",
-      features: [
-        "Cross-platform development",
-        "Cloud infrastructure",
-        "DevOps automation",
-        "API integration",
-        "Performance optimization",
-      ],
-      backgroundImage: image44,
-    },
-    {
-      title: "Innovative & Emergent Tech",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
-          <path d="M12 2v2"></path>
-          <path d="M12 20v2"></path>
-          <path d="M20 12h2"></path>
-          <path d="M2 12h2"></path>
-          <path d="M17.5 6.5l-1.4 1.4"></path>
-          <path d="M6.5 17.5l-1.4 1.4"></path>
-          <path d="M17.5 17.5l-1.4-1.4"></path>
-          <path d="M6.5 6.5l-1.4-1.4"></path>
-        </svg>
-      ),
-      description:
-        "We rely on robust and battle-tested tech to stand on the shoulders of. But we also continually keep up-to-date with trends and research in upcoming fields poised to strike the mainstream world, such as blockchain, generative AI, and virtual and augmented reality. We understand demand and innovation are bidirectional.",
-      features: [
-        "AI & machine learning integration",
-        "Web3 & blockchain solutions",
-        "Mixed reality experiences",
-        "Metaverse development",
-        "IoT ecosystems",
-      ],
-      backgroundImage: image46,
-    },
-    {
-      title: "Designs with clarity and artistry",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-          <path d="M2 2l7.586 7.586"></path>
-          <circle cx="11" cy="11" r="2"></circle>
-        </svg>
-      ),
-      description:
-        "Our branding and UI / UX skills are unparalleled, as we employ true artists with a passion for their craft. We focus on humanistic-centric design and aim for simplicity.",
-      features: [
-        "UI/UX design",
-        "Brand identity",
-        "3D modeling & animation",
-        "Game design",
-        "Motion graphics",
-      ],
-      backgroundImage: image47,
-    },
-    {
-      title: "Legal Consultation",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M6 9l6 6 6-6"></path>
-        </svg>
-      ),
-      description:
-        "Our team comprises licensed lawyers specializing in financial and software regulations. We can help you figure out all the moves you need to secure proper compliance.",
-      features: [
-        "IP protection",
-        "Data privacy compliance",
-        "Smart contract auditing",
-        "Regulatory guidance",
-        "Web3 & metaverse legal frameworks",
-      ],
-      backgroundImage: image50,
-    },
-    {
-      title: "Creative & Results-Oriented Marketing",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-10 w-10"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M16 8l-8 8"></path>
-          <path d="M8 8l8 8"></path>
-        </svg>
-      ),
-      description:
-        " Growth hacking and going viral come naturally for us. Our in-house tools for social media analytics and brand monitoring aid us in bringing campaigns and user acquisition to the next level.",
-      features: [
-        "Digital marketing strategy",
-        "Content creation",
-        "Web3 & metaverse marketing",
-        "Social media management",
-        "Performance analytics",
-      ],
-      backgroundImage: image51,
-    },
+        title: "Development and deployments on every platform",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        ),
+        description:
+          "Each of our devs is full-stack with at least one specialization in a particular area, whether that's frontend, SEO, mobile, VR / AR, deep learning, databases, web scraping, smart contracts, or devops and the cloud.",
+        features: [
+          "Cross-platform development",
+          "Cloud infrastructure",
+          "DevOps automation",
+          "API integration",
+          "Performance optimization",
+        ],
+        backgroundImage: image44,
+      },
+      {
+        title: "Innovative & Emergent Tech",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M2 12h2"></path>
+            <path d="M17.5 6.5l-1.4 1.4"></path>
+            <path d="M6.5 17.5l-1.4 1.4"></path>
+            <path d="M17.5 17.5l-1.4-1.4"></path>
+            <path d="M6.5 6.5l-1.4-1.4"></path>
+          </svg>
+        ),
+        description:
+          "We rely on robust and battle-tested tech to stand on the shoulders of. But we also continually keep up-to-date with trends and research in upcoming fields poised to strike the mainstream world, such as blockchain, generative AI, and virtual and augmented reality. We understand demand and innovation are bidirectional.",
+        features: [
+          "AI & machine learning integration",
+          "Web3 & blockchain solutions",
+          "Mixed reality experiences",
+          "Metaverse development",
+          "IoT ecosystems",
+        ],
+        backgroundImage: image46,
+      },
+      {
+        title: "Designs with clarity and artistry",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+            <path d="M2 2l7.586 7.586"></path>
+            <circle cx="11" cy="11" r="2"></circle>
+          </svg>
+        ),
+        description:
+          "Our branding and UI / UX skills are unparalleled, as we employ true artists with a passion for their craft. We focus on humanistic-centric design and aim for simplicity.",
+        features: [
+          "UI/UX design",
+          "Brand identity",
+          "3D modeling & animation",
+          "Game design",
+          "Motion graphics",
+        ],
+        backgroundImage: image47,
+      },
+      {
+        title: "Legal Consultation",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            {/* Corrected SVG path for a gavel or scale icon */}
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
+           </svg>
+        ),
+        description:
+          "Our team comprises licensed lawyers specializing in financial and software regulations. We can help you figure out all the moves you need to secure proper compliance.",
+        features: [
+          "IP protection",
+          "Data privacy compliance",
+          "Smart contract auditing",
+          "Regulatory guidance",
+          "Web3 & metaverse legal frameworks",
+        ],
+        backgroundImage: image50,
+      },
+      {
+        title: "Creative & Results-Oriented Marketing",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+             {/* Corrected SVG path for a target or megaphone icon */}
+             <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"></path><path d="M12 6a6 6 0 100 12 6 6 0 000-12z"></path><path d="M12 10a2 2 0 100 4 2 2 0 000-4z"></path>
+            </svg>
+        ),
+        description:
+          " Growth hacking and going viral come naturally for us. Our in-house tools for social media analytics and brand monitoring aid us in bringing campaigns and user acquisition to the next level.",
+        features: [
+          "Digital marketing strategy",
+          "Content creation",
+          "Web3 & metaverse marketing",
+          "Social media management",
+          "Performance analytics",
+        ],
+        backgroundImage: image51,
+      },
   ];
 
   return (
@@ -202,11 +203,14 @@ export const ServicesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 flex flex-col items-center">
-            <span>Our Services</span> <Image src={curve} alt="curve" className="w-44"/>
+            <span>Our Services</span>{" "}
+            <Image src={curve} alt="curve" className="w-44" />
           </h2>
 
           <p className="text-gray-300 max-w-2xl mx-auto">
-          Fall down the rabbit hole with us to determine optimal budgeting, ideal market timing, and holistic architecture & design to manifest your vision
+            Fall down the rabbit hole with us to determine optimal budgeting,
+            ideal market timing, and holistic architecture & design to manifest
+            your vision
           </p>
         </div>
 
@@ -223,13 +227,13 @@ export const ServicesSection = () => {
                     : "bg-white/10 text-gray-300 hover:bg-white/20"
                 }`}
               >
-                {service.title}
+                {service.title.split(" ")[0]} {/* Show first word for brevity */}
               </button>
             ))}
           </div>
 
           <div
-            className="mt-6 bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 relative overflow-hidden"
+            className="mt-6 bg-white/5 rounded-xl p-6 backdrop-blur-md border border-white/10 relative overflow-hidden" // Changed backdrop-blur-sm to backdrop-blur-md
             ref={(el) => (boxRefs.current[0] = el as any)}
             onMouseMove={(e) => handleMouseMove(e as any, 0)}
             onMouseLeave={handleMouseLeave}
@@ -279,19 +283,20 @@ export const ServicesSection = () => {
               ref={(el) => (boxRefs.current[index] = el as any)}
               onMouseMove={(e) => handleMouseMove(e as any, index)}
               onMouseLeave={handleMouseLeave}
-              className="relative bg-white/5 rounded-xl p-8 backdrop-blur-sm border border-white/10 hover:border-[#ff448c] transition-all duration-300 hover:translate-y-1 group overflow-hidden"
+              className="relative bg-white/5 rounded-xl p-8 backdrop-blur-md border border-white/10 hover:border-[#8641ff] transition-all duration-300 hover:-translate-y-1 group overflow-hidden" // Changed backdrop-blur-sm to backdrop-blur-md and adjusted hover translate
             >
               {/* Background Image on Hover */}
               <div
-                className={`absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-0`} // Ensure z-index is lower than content
                 style={{
                   backgroundImage: `url(${service.backgroundImage.src})`,
                 }}
               ></div>
 
+              {/* Mouse Light Effect */}
               {activeBox === index && (
                 <div
-                  className="absolute pointer-events-none mouse-light-effect"
+                  className="absolute pointer-events-none mouse-light-effect z-0" // Ensure z-index is lower than content
                   style={{
                     left: `${mousePosition.x}px`,
                     top: `${mousePosition.y}px`,
@@ -305,28 +310,31 @@ export const ServicesSection = () => {
                 ></div>
               )}
 
-              <div className="text-[#ff448c] mb-4 group-hover:scale-110 transform transition-transform duration-300 relative z-10">
-                {service.icon}
+              {/* Card Content */}
+              <div className="relative z-10"> {/* Ensure content is above overlays */}
+                <div className="text-[#8641ff] mb-4 group-hover:scale-110 transform transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 mb-6">
+                  {service.description}
+                </p>
+                <ul className="grid grid-cols-1 gap-3">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-gray-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#8641ff] mr-2"></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4 relative z-10">
-                {service.title}
-              </h3>
-              <p className="text-gray-300 mb-6 relative z-10">
-                {service.description}
-              </p>
-              <ul className="grid grid-cols-1 gap-3 relative z-10">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-gray-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#ff448c] mr-2"></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
       </div>
-      <ClientsSection/>
+      <ClientsSection />
 
       {/* Custom styles for animations */}
       <style jsx>{`
@@ -342,6 +350,8 @@ export const ServicesSection = () => {
           pointer-events: none;
           position: absolute;
           transition: opacity 0.15s ease;
+          /* Ensure it doesn't interfere with hover effects if needed */
+          /* z-index: 0; */ 
         }
       `}</style>
     </section>

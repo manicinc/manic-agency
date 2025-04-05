@@ -46,77 +46,6 @@ a:hover {
 svg {
 }
 
-.logoNeon {
-  text-align: center;
-  margin: auto;
-  scale: .4;
-  padding-top: 0px;
-  margin-top: 0px;
-  height: 280px;
-  vertical-align: center;
-  /* width: 65%; */
-  /* height: 250px;
-  position: absolute;
-  /* top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; */
-  user-select: none;
-}
-
-.logoNeonText {
-     margin-left: -180px;
-      text-align: center;
-    width: 150% !important;
-}
-
-.logoNeon b{
-  width: 100% !important;
-  letter-spacing: 6px;
-  font: 700 9.0em "Courier New";
-  color: #fee;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #89d1eb, 0 0 0.5em #2e889f, 0 0 0.1em #28bbff, 0 10px 3px #000;
-}
-.logoNeon b span{
-  animation: blink linear infinite 5s;
-}
-.logoNeon b span:nth-of-type(2){
-  animation: blink linear infinite 11s;
-}
-@keyframes blink {
-  78% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  79%{
-     color: #333;
-  }
-  80% {
-    
-    text-shadow: none;
-  }
-  81% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  82% {
-    color: #333;
-    text-shadow: none;
-  }
-  83% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  92% {
-    color: #333;
-    text-shadow: none;
-  }
-  92.5% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-}
-
 
 /* Glitch logo */
 .glitch {
@@ -332,10 +261,7 @@ svg {
   
   @media (max-width: 992px) {
 
-    .logoNeonText {
-        margin-top: -180px;
-        margin-left: -110px;
-   }
+    
 
     .wrap .info-block a {
         color: rgb(224, 224, 224);

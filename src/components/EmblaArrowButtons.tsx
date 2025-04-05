@@ -61,7 +61,7 @@ import React, {
   
     return (
       <button
-        className="embla__button embla__button--prev !border !rounded-full !border-[#ff448c]"
+        className="embla__button embla__button--prev !border !rounded-full !border-[#8641ff]"
         type="button"
         {...restProps}
       >
@@ -81,7 +81,7 @@ import React, {
   
     return (
       <button
-        className="embla__button embla__button--next !border !rounded-full !border-[#ff448c]"
+        className="embla__button embla__button--next !border !rounded-full !border-[#8641ff]"
         type="button"
         {...restProps}
       >

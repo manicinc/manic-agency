@@ -1,6 +1,4 @@
 "use client"
-import ContactSection from "@/components/ContactSection";
-import Container from "@/components/Container";
 import Intro from "@/components/Intro";
 import Clients from "@/components/Clients";
 import Services from "@/components/Services";
@@ -17,6 +15,7 @@ export default function Home() {
 
         <Script src="/globe.js"></Script>
       <Header />
+      {/* <Intro /> */}
       <Services />
       <Work/>
       {/* <Intro/>
