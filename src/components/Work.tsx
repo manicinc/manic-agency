@@ -14,7 +14,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    imageUrl: '/velvetweb.gif',
+    imageUrl: '/velvet_web.png',
     link: 'https://www.manic.agency/velvet',
     title: 'Velvet Web',
   },

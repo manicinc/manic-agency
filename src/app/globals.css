@@ -124,3 +124,95 @@ html{
 
 
 }
+
+
+/* Style for the container (optional, mainly for spacing/alignment if needed) */
+.mad-quote-section {
+  /* No background is needed as divs are transparent by default */
+  /* text-center and py-* classes are handled by Tailwind/utility classes if used,
+     otherwise, define them here: */
+  /* text-align: center; */
+  /* padding-top: 4rem; */    /* Example: roughly py-16 */
+  /* padding-bottom: 4rem; */ /* Example: roughly py-16 */
+}
+
+/* Style for the glowing, bold text */
+.mad-quote-text {
+  font-weight: bold;
+  /* Choose a color that contrasts well with your expected background */
+  color: #E0E0E0; /* Light gray/off-white, adjust as needed */
+  font-size: 1.75rem; /* Example size, adjust as needed */
+  line-height: 1.5; /* Improve readability */
+
+  /* --- The Glow Effect --- */
+  /* Uses text-shadow. Multiple layers create a smoother glow. */
+  /* Format: offset-x offset-y blur-radius color */
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.7), /* Inner soft white glow */
+    0 0 10px rgba(255, 255, 255, 0.6), /* Medium soft white glow */
+    0 0 15px rgba(255, 255, 255, 0.4), /* Outer wider white glow */
+    0 0 20px rgba(168, 85, 247, 0.6), /* Subtle violet/purple hint (Tailwind purple-500) */
+    0 0 25px rgba(168, 85, 247, 0.5), /* Wider violet/purple hint */
+    0 0 30px rgba(168, 85, 247, 0.3); /* Faintest violet/purple hint */
+
+  /* Optional: Add a subtle animation or transition for extra flair */
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Optional: Enhance glow slightly on hover */
+.mad-quote-text:hover {
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 12px rgba(255, 255, 255, 0.7),
+    0 0 18px rgba(255, 255, 255, 0.5),
+    0 0 24px rgba(168, 85, 247, 0.7),
+    0 0 30px rgba(168, 85, 247, 0.6),
+    0 0 35px rgba(168, 85, 247, 0.4);
+}
+
+/* --- Responsive Font Size (Optional) --- */
+@media (min-width: 640px) { /* sm breakpoint */
+  .mad-quote-text {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .mad-quote-text {
+    font-size: 2.25rem;
+  }
+}
+
+
+@keyframes glitch-btn {
+  0% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-1px, 1px);
+    opacity: 0.9;
+  }
+  80% {
+    transform: translate(1px, -1px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-glitch {
+    animation: glitch-btn 300ms infinite;
+  }
+}

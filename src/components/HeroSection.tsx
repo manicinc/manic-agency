@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import Container from "./Container";
+import FadeInLong from "./FadeIn";
 
 export const HeroSection = () => {
   return (
-    <section className="relativev py-20 md:py-32">
+    <section className="relativev md:pt-32">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           {/* Text Content */}
@@ -18,9 +20,15 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Link className="px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-md transition duration-300" href="#work">
-                Explore Our Work
-              </Link>
+            <Link
+  href="#work"
+  className="inline-block px-8 py-3 text-black font-mono text-lg tracking-wider uppercase bg-[#0ff] rounded-md transition duration-300 hover:bg-[#0cc] shadow-[4px_4px_0_#f0f,8px_8px_0_#00f] hover:shadow-[2px_2px_0_#f0f,4px_4px_0_#00f]"
+>
+  Explore Our Work
+</Link>
+
+
+
               <Link className="px-8 py-3 bg-transparent border border-white hover:bg-white/10 text-white font-medium rounded-md transition duration-300" href="/contact">
                 Connect With Us
               </Link>
@@ -42,6 +50,22 @@ export const HeroSection = () => {
         </div>
       </div>
       
+    {/* --- New Section Added Below --- */}
+    <div className="py-5 md:py-0">
+
+    <Container>
+        <FadeInLong className="flex items-center gap-x-8 w-full">
+        {/* <FadeIn className="max-w-full"> */}
+          <div className="logoNeon text-1xl w-full">
+            <div className="logoNeonText w-full"> <b><span></span>We&apos;re <span> </span>all<span> m</span>ad here</b></div>
+          </div>
+        </FadeInLong>
+        {/* <FadeInStagger faster> */}
+        {/* </FadeInStagger> */}
+      </Container>
+    </div>
+            {/* --- End of New Section --- */}
+
     </section>
   );
 };
