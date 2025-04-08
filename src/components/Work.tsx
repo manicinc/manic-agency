@@ -14,15 +14,21 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    imageUrl: "/manic.gif",
+    link: 'https://manicinc.github.io/logomaker/',
+    title: "Logo Maker"
+  },
+  {
+    id: 2,
     imageUrl: '/velvet_web.png',
     link: 'https://www.manic.agency/velvet',
     title: 'Velvet Web',
   },
   {
-    id: 2,
-    imageUrl: "/manic.gif",
-    link: 'https://manicinc.github.io/logomaker/',
-    title: "Logo Image Generator"
+    id: 3,
+    imageUrl: "/portapack.jpg",
+    link: "https://github.com/manicinc/portapack",
+    title: "Portapack",
   }
 ];
 

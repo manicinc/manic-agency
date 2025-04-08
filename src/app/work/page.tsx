@@ -21,17 +21,22 @@ const WorkPage = () => {
   const projects = [
     {
       id: 1,
-      imageUrl: '/velvetweb.gif', // Ensure these paths are correct relative to /public
+      imageUrl: "/manic.gif",
+      link: 'https://manicinc.github.io/logomaker/',
+      title: "Logo Maker"
+    },
+    {
+      id: 2,
+      imageUrl: '/velvet_web.png',
       link: 'https://www.manic.agency/velvet',
       title: 'Velvet Web',
     },
     {
-      id: 2,
-      imageUrl: '/manic.gif', // Ensure these paths are correct relative to /public
-      link: 'https://manicinc.github.io/logomaker/',
-      title: 'Logo Image Generator',
-    },
-    // Add more projects as needed following the same structure
+      id: 3,
+      imageUrl: "/portapack.jpg",
+      link: "https://github.com/manicinc/portapack",
+      title: "Portapack",
+    }
   ];
 
   return (
