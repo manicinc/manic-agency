@@ -134,34 +134,7 @@ export const ServicesSection = () => {
         ],
         backgroundImage: image47,
       },
-      {
-        title: "Legal Consultation",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-10 w-10"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            {/* Corrected SVG path for a gavel or scale icon */}
-            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
-           </svg>
-        ),
-        description:
-          "Our team comprises licensed lawyers specializing in financial and software regulations. We can help you figure out all the moves you need to secure proper compliance.",
-        features: [
-          "IP protection",
-          "Data privacy compliance",
-          "Smart contract auditing",
-          "Regulatory guidance",
-          "Web3 & metaverse legal frameworks",
-        ],
-        backgroundImage: image50,
-      },
+      
       {
         title: "Creative & Results-Oriented Marketing",
         icon: (
@@ -190,6 +163,65 @@ export const ServicesSection = () => {
         ],
         backgroundImage: image51,
       },
+      {
+        title: "Data Intelligence & Analytics",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 3v18h18"></path>
+            <path d="M18 17V9"></path>
+            <path d="M13 17V5"></path>
+            <path d="M8 17v-3"></path>
+          </svg>
+        ),
+        description:
+          "We transform raw data into actionable insights through advanced analytics, visualization, and predictive modeling. Our expertise spans traditional datasets to complex behavioral analytics in virtual environments, helping businesses make data-driven decisions across all reality planes.",
+        features: [
+          "Behavioral analytics in XR",
+          "Real-time data visualization",
+          "Predictive user modeling",
+          "Cross-platform attribution",
+          "Engagement & retention metrics",
+        ],
+        backgroundImage: image50,
+      },
+      {
+        title: "Digital Twin & Simulation Environments",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <path d="M3.29 7 12 12l8.71-5"></path>
+            <path d="M12 22V12"></path>
+          </svg>
+        ),
+        description:
+          "We create highly accurate digital replicas of physical spaces, products, and processes that enable testing, training, and visualization in risk-free virtual environments. Our digital twins bridge the gap between physical and digital, unlocking new possibilities for product development and operational efficiency.",
+        features: [
+          "Industrial process simulation",
+          "Interactive product prototypes",
+          "Virtual training environments",
+          "Architectural visualization",
+          "IoT-connected real-time twins",
+        ],
+        backgroundImage: image53,
+      }
   ];
 
   return (

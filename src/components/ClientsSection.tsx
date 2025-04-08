@@ -2,7 +2,6 @@ export default function ClientsSection() {
     const clients = [
       "Edelman",
       "Hereafterlegacy.ai",
-      "The Specter",
       "Grapple Media",
       "NuBloom NFTs",
       "Smurf Finance",

@@ -1,4 +1,5 @@
-import { useState, FunctionComponent } from "react";
+"use client"
+import { useState } from "react";
 import Link from "next/link";
 
 export const Nav = () => {
@@ -64,12 +65,12 @@ export const Nav = () => {
                             <a href="/#work" className="text-gray-100 hover:text-teal-300 transition duration-300">Portfolio</a>
                             <a href="/team" className="text-gray-100 hover:text-teal-300 transition duration-300">Team</a>
                             <a href="/blog" className="text-gray-100 hover:text-teal-300 transition duration-300">Blog</a>
-                            <Link
+                            <a
   href="/contact"
   className="inline-block px-8 py-3 text-black font-mono text-lg tracking-wider uppercase bg-[#0ff] rounded-md transition duration-300 hover:bg-[#0cc] shadow-[4px_4px_0_#f0f,8px_8px_0_#00f] hover:shadow-[2px_2px_0_#f0f,4px_4px_0_#00f]"
 >
   Contact Us
-</Link>
+</a>
                         </div>
                         <div className="mt-4 text-xs text-gray-200">
                             We are a group of web developers, digital marketers, machine learning / AI engineers, product designers, game designers, and legal specialists, working at the intersection of reality, mixed reality, web3, and the emerging metaverse.
