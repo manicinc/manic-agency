@@ -1,4 +1,3 @@
-
 const path = require('path');
 
 /** @type {import('next').NextConfig} */
@@ -16,6 +15,9 @@ const nextConfig = {
   },
   assetPrefix: process.env.NODE_ENV === 'production' ? '/logomaker' : '',
   basePath: process.env.NODE_ENV === 'production' ? '/logomaker' : '',
+
+  // ✅ THIS is the important part for static exports
+  output: 'export',
 };
 
 module.exports = nextConfig;
