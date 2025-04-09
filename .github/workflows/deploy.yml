@@ -20,8 +20,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build && npm run export
-        # Note: You may need to add "export": "next export" to your package.json scripts
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
