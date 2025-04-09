@@ -11,7 +11,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'src/app/styles')],
   },
   
-  // Output as static HTML/CSS/JS (replaces the old "export" command)
+  // Output as static HTML/CSS/JS
   output: 'export',
   
   // Skip TypeScript checking during build
@@ -24,12 +24,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   
-  // Add rewrites for blog posts (these only work in dev/server mode, not with export)
-  // For static exports, you'll need to rely on client-side redirects
-  
   // GitHub Pages configuration
   basePath: process.env.GITHUB_ACTIONS ? '/manic-agency' : '',
-  assetPrefix: process.env.GITHUB_ACTIONS ? '' : '',
+  assetPrefix: process.env.GITHUB_ACTIONS ? '/manic-agency/' : '',
 };
 
 module.exports = nextConfig;

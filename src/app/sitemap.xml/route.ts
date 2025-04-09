@@ -1,36 +1,38 @@
+// src/app/sitemap.xml/route.ts
 import { getAllPosts } from "@/lib/getAllPosts";
-import { NextResponse } from "next/server";
+
+// This is required for static export
+export const dynamic = 'force-static';
 
 export async function GET() {
-  const baseUrl = "https://manic.agency";
   const posts = getAllPosts();
-
-  const rss = `<?xml version="1.0" encoding="UTF-8" ?>
-  <rss version="2.0">
-    <channel>
-      <title>Manic.agency Blog</title>
-      <link>${baseUrl}</link>
-      <description>The manic writings of a mystic software collective</description>
-      <language>en-us</language>
-      ${posts
-        .map(
-          (post) => `
-        <item>
-          <title>${post.title}</title>
-          <link>${baseUrl}/blog/${post.category}/${post.slug}</link>
-          <guid>${baseUrl}/blog/${post.category}/${post.slug}</guid>
-          <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-          <description><![CDATA[${post.excerpt}]]></description>
-        </item>
-      `
-        )
-        .join("\n")}
-    </channel>
-  </rss>`;
-
-  return new NextResponse(rss, {
+  
+  // Create the XML content
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+      <loc>https://www.manic.agency/</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://www.manic.agency/blog</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+      <priority>0.8</priority>
+    </url>
+    ${posts.map(post => `
+    <url>
+      <loc>https://www.manic.agency/blog/${post.category}/${post.slug}</loc>
+      <lastmod>${post.modifiedDate || post.date}</lastmod>
+      <priority>0.7</priority>
+    </url>
+    `).join('')}
+  </urlset>`;
+  
+  // Return the XML with the appropriate headers
+  return new Response(xml, {
     headers: {
-      "Content-Type": "application/xml",
+      'Content-Type': 'application/xml',
     },
   });
 }
