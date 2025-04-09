@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import { Nav } from "@/components/Nav";
-import "@/app/blog/blogPost.css"; // 👈 new styles here
+import "@/app/blog/blogs.css";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join(process.cwd(), "src", "blogs"));
