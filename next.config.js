@@ -13,11 +13,9 @@ const nextConfig = {
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/logomaker' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/logomaker' : '',
-
-  // ✅ THIS is the important part for static exports
   output: 'export',
+  assetPrefix: '', // ✅ deploys to root
+  basePath: '',    // ✅ deploys to root
 };
 
 module.exports = nextConfig;
