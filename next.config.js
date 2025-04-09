@@ -23,7 +23,7 @@ const nextConfig = {
 
   // GitHub Pages configuration
   assetPrefix: process.env.GITHUB_ACTIONS ? '/manic-agency/' : '',
-  basePath: process.env.GITHUB_ACTIONS ? '/manic-agency/' : '',
+  basePath: process.env.GITHUB_ACTIONS ? '' : ''
 };
 
 module.exports = nextConfig;
