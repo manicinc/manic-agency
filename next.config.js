@@ -5,7 +5,7 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/app/styles')],
@@ -24,9 +24,14 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   
-  // GitHub Pages configuration
-  basePath: process.env.GITHUB_ACTIONS ? '/manic-agency' : '',
-  assetPrefix: process.env.GITHUB_ACTIONS ? '/manic-agency/' : '',
+  // For local development, don't use any base path
+  basePath: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
+    ? '' 
+    : '',
+  
+  assetPrefix: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
+    ? '' 
+    : '',
 };
 
 module.exports = nextConfig;
