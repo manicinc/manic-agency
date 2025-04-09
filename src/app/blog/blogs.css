@@ -1,0 +1,107 @@
+.blog-container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    font-family: 'IBM Plex Mono', 'Inter', monospace;
+    color: #eee;
+  }
+  
+  .blog-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: #ffcb6b;
+    text-shadow: 0 0 4px #ffcb6b55;
+  }
+  
+  .blog-meta {
+    font-size: 0.85rem;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+  
+  .blog-content h1, .blog-content h2, .blog-content h3 {
+    color: #7f5af0;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 700;
+    text-shadow: 0 0 3px #7f5af066;
+  }
+  
+  .blog-content p {
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+  
+  .blog-content img {
+    display: block;
+    max-width: 100%;
+    margin: 2rem auto 0.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+  
+  .blog-content em {
+    display: block;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  
+  .blog-content a {
+    color: #ff9bf2;
+    text-decoration: underline;
+    transition: all 0.25s ease;
+  }
+  
+  .blog-content a:hover {
+    color: #ffaafc;
+    text-shadow: 0 0 4px #ffaafc;
+  }
+  
+  .blog-content pre {
+    background: #1e1e2f;
+    color: #d1d1e0;
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .blog-content code {
+    background: #2c2c3e;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #f2f2f2;
+  }
+  
+  .blog-content blockquote {
+    border-left: 3px solid #ffcb6b;
+    padding-left: 1rem;
+    margin: 2rem 0;
+    color: #ccc;
+    font-style: italic;
+    background: #2a1d40;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 768px) {
+    .blog-title {
+      font-size: 2rem;
+    }
+    .blog-content p {
+      font-size: 1rem;
+    }
+  }
+  
