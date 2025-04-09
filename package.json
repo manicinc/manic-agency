@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "export": "next export"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
