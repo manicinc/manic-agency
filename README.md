@@ -26,7 +26,7 @@ To run the Manic Agency website locally, follow these steps:
 
 ## How to add a blog post
 
-Write blog content in `src/blogs` using the format 
+Write blog content in `src/posts` using the format 
 
 ```
 ---

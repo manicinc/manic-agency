@@ -1,19 +1,21 @@
 ---
 title: "Logomaker: An experiment in human-computer interaction and ✨vibe coding ✨"
 date: "2025-04-08"
+category: "thinkpieces"
 excerpt: "Exploring the world of vibe coding through a logo creation tool, with insights on different LLMs and the changing landscape of software development."
-author: "Manic Agency"
+author: "Johnny Dunn"
+tags: ["featured"]
 ---
 
 # Logomaker: An experiment in human-computer interaction and ✨vibe coding ✨
 
 **GitHub link: [https://github.com/manicinc/logomaker](https://github.com/manicinc/logomaker)**
 
-*Note: Each LLM tested (GPT-4o, GPT-4.5, GPT–o1, Claude Sonnet 3.7, Gemini 2.5 Pro) was done using the default settings (No extended thinking / deep research, no 200$ Pro subscription or web search experimental plugins or memories). I used the basic plan and default options for each (all set at 20$ a month currently). This is only called an experiment in title, as it is incredibly anecdotal. Everything was written / tested in VS Code with Copilot enabled and used to solve single line bugs.*
+***Note: Each LLM tested (GPT-4o, GPT-4.5, GPT–o1, Claude Sonnet 3.7, Gemini 2.5 Pro) was done using the default settings (No extended thinking / deep research, no 200$ Pro subscription or web search experimental plugins or memories). I used the basic plan and default options for each (all set at 20$ a month currently). This is only called an experiment in title, as it is incredibly anecdotal. Everything was written / tested in VS Code with Copilot enabled and used to solve single line bugs.***
 
 At the time of writing this, I'll have been in the software field for the upper half of but still quite far away decade amount of time. It might be a unpleasant shock to realize this declaration is necessary to introduce this post, because there are in fact non-junior engineers (as in, mid-level, as in, working for multiple years now) who **just** might have gotten away with not handwriting a class or file, function, or even line of code without the aid of generative AI.
 
-Last week, while working on one of our open-source projects PortaPack ([https://github.com/manicinc/portapack](https://github.com/manicinc/portapack)), which is also being launched and released along with this post detailing our experiences building Logomaker (the two play nicely with our design philosophies of portability and software sustainability). I wanted to play around with some logo designs / typefaces before finalizing on a branding decision with the rest of our small team, who all work on their own projects, roles, and ventures, hence the usefulness of a rapid prototyping tool (self-reliance!).
+Last week, while working on one of our open-source projects PortaPack ([https://github.com/manicinc/portapack](https://github.com/manicinc/portapack)), which is also being launched and released along with this post detailing our experiences building Logomaker (the two play nicely with our design philosophies of portability and software sustainability). I wanted to play around with some logo designs / typefaces before finalizing on a branding decision with the rest of our small team, who all work on their own projects, roles, and ventures, hence the usefulness of a rapid prototyping tool (***self-reliance!***).
 
 ![The final version of the PortaPack logo, graphical](/assets/blog/portapack-logo.png)
 *The final version of the PortaPack logo, graphical.*

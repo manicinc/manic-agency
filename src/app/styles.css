@@ -5,7 +5,8 @@ html, body {
   font-family: var(--font-family);
 }
 
-h1, h2, h3, h4, h5, h6 {
+body:not(.blog-container) h1, body:not(.blog-container) h2, body:not(.blog-container) h3, 
+body:not(.blog-container) h4, body:not(.blog-container) h5, body:not(.blog-container) h6 {
   color: var(--primary-color);
 }
 

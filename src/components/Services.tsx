@@ -16,29 +16,7 @@ export const ServicesSection = () => {
   const [activeBox, setActiveBox] = useState<number | null>(null);
   const boxRefs = useRef<any>([]);
 
-  // Reset refs array when services change
-  useEffect(() => {
-    boxRefs.current = boxRefs.current.slice(0, services.length);
-  }, []); // Removed services dependency as it wasn't used inside
-
-  // Handle mouse movement
-  const handleMouseMove = (e: MouseEvent, index: number) => {
-    const box = boxRefs.current[index];
-    if (!box) return;
-
-    const rect = box.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-    setActiveBox(index);
-  };
-
-  // Handle mouse leave
-  const handleMouseLeave = () => {
-    setActiveBox(null);
-  };
-
+  
   const services = [
     // ... (service data remains the same) ...
     {
@@ -223,6 +201,29 @@ export const ServicesSection = () => {
         backgroundImage: image53,
       }
   ];
+
+  useEffect(() => {
+    // This effect now correctly depends on the number of services
+    boxRefs.current = boxRefs.current.slice(0, services.length);
+  }, [services.length]); // Added services.length
+
+  // Handle mouse movement
+  const handleMouseMove = (e: MouseEvent, index: number) => {
+    const box = boxRefs.current[index];
+    if (!box) return;
+
+    const rect = box.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+    setActiveBox(index);
+  };
+
+  // Handle mouse leave
+  const handleMouseLeave = () => {
+    setActiveBox(null);
+  };
 
   return (
     <section className="relative py-20 overflow-hidden" id="services">
