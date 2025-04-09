@@ -45,7 +45,7 @@ function findCategoryForSlug(slug: string): string {
 // Generate static params for known slugs to avoid file system operations at runtime
 export function generateStaticParams() {
   const postsDir = path.join(process.cwd(), 'src', 'posts');
-  const slugs = [];
+  const slugs: { slug: string }[] = [];
   
   try {
     // Get all category directories
