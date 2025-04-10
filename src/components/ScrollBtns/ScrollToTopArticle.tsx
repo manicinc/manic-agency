@@ -9,9 +9,19 @@ export default function ScrollToTopArticle() {
 
   useEffect(() => {
     const onScroll = () => {
-      const threshold = window.innerHeight * 0.4
-      setShow(window.scrollY > threshold)
+      const article = document.querySelector('article.blog-post') as HTMLDivElement
+      if (!article) return
+
+      const articleRect = article.getBoundingClientRect()
+      const articleTop = window.scrollY + articleRect.top
+      const articleHeight = article.offsetHeight
+
+      // Show when user scrolls past 30% of the article
+      const triggerPoint = articleTop + articleHeight * 0.15
+
+      setShow(window.scrollY > triggerPoint)
     }
+
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
