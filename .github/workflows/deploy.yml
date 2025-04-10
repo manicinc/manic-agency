@@ -20,8 +20,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
-
+        run: npm run build # Take out export
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
