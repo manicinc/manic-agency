@@ -1,0 +1,157 @@
+/* Dark Mode Transition Effects */
+
+/* Theme transition effect */
+.theme-transitioning * {
+    transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease !important;
+  }
+  
+  /* Digital interference overlay during theme transition */
+  body.theme-transitioning::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 11, 19, 0.7);
+    z-index: 999;
+    backdrop-filter: blur(5px);
+    animation: distortionWave 2s ease-in-out;
+  }
+  
+  @keyframes distortionWave {
+    0%, 100% { opacity: 0; }
+    25%, 75% { opacity: 0.8; }
+    50% { opacity: 0.95; }
+  }
+  
+  /* Digital noise pattern during transition */
+  body.theme-transitioning::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1000;
+    animation: staticNoise 2s linear;
+  }
+  
+  @keyframes staticNoise {
+    0%, 100% { opacity: 0; }
+    25%, 75% { opacity: 0.08; }
+    50% { opacity: 0.12; }
+  }
+  
+  /* Digital scan line effect */
+  .scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(10, 11, 19, 0.05) 51%
+    );
+    background-size: 100% 4px;
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0;
+    animation: scanlines 2s ease-in-out;
+  }
+  
+  @keyframes scanlines {
+    0%, 100% { opacity: 0; }
+    25%, 75% { opacity: 0.5; }
+    50% { opacity: 0.7; }
+  }
+  
+  /* Theme toggle visual effect */
+  .theme-toggle {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .theme-toggle:hover:after {
+    opacity: 1;
+  }
+  
+  /* Add glitch effect to important text during transition */
+  .theme-transitioning .glitch-on-transition {
+    animation: microGlitch 2s linear;
+  }
+  
+  @keyframes microGlitch {
+    0%, 100% { transform: translate(0); }
+    10% { transform: translate(-2px, 2px); }
+    20% { transform: translate(2px, -2px); }
+    30% { transform: translate(-1px, -1px); }
+    40% { transform: translate(1px, 1px); }
+    50% { transform: translate(0); }
+    60% { transform: translate(-2px, -2px); }
+    70% { transform: translate(2px, 2px); }
+    80% { transform: translate(-1px, 1px); }
+    90% { transform: translate(1px, -1px); }
+  }
+  
+  /* Color shift during transition */
+  .theme-transitioning .color-shift {
+    animation: colorShift 2s ease-in-out;
+  }
+  
+  @keyframes colorShift {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(45deg); }
+  }
+  
+  /* Circuit animation for theme toggle */
+  .circuit-path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: circuit 2s infinite linear;
+  }
+  
+  @keyframes circuit {
+    0% { stroke-dashoffset: 60; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -60; }
+  }
+  
+  .circuit-circle {
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    animation: drawCircle 2s infinite;
+  }
+  
+  .circuit-line {
+    stroke-dasharray: 90;
+    stroke-dashoffset: 90;
+    animation: drawLine 2s infinite;
+  }
+  
+  @keyframes drawCircle {
+    0% { stroke-dashoffset: 283; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -283; }
+  }
+  
+  @keyframes drawLine {
+    0% { stroke-dashoffset: 90; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -90; }
+  }

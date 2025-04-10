@@ -1,5 +1,5 @@
 import Script from "next/script"
-import "../globals.css";
+import "../styles/globals.css";
 import RootLayout from "@/components/RootLayout";
 import {FunctionComponent, PropsWithChildren} from "react"
 

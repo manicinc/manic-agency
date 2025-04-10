@@ -3,8 +3,8 @@ import { getAllPosts } from "@/lib/getAllPosts";
 import type { BlogPost } from "@/types/blog";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import "@/app/blog/blogs.css";
-import "@/app/blog/blogList.css";
+import "@/app/styles/blogs.css";
+import "@/app/styles/blogList.css";
 
 // Define params type
 type Params = {

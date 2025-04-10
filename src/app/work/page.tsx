@@ -14,7 +14,7 @@ import { Nav } from '@/components/Nav';
 import curve from '@/images/curve.png'; // Make sure this path is correct
 import EmblaCarousel from '@/components/EmblaCarousel'; // Make sure this path is correct
 import React from 'react'; // Good practice to include React
-import "../embla.css";
+import "../styles/embla.css";
 
 const WorkPage = () => {
   // Project data remains the same

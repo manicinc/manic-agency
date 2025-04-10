@@ -1,5 +1,13 @@
 @import "./base.css";
 /* @import "./styles.css"; */
+@import "./darkMode.css";
+@import "./blogs.css";
+@import "./blogList.css";
+@import "./imageStyles.css";
+@import "./embla.css";
+/* @import "./glitch.scss"; */
+@import "./main.css";
+/* @import "./tailwind.css"; */
 @tailwind components;
 @tailwind utilities;
 

@@ -21,7 +21,7 @@ import { getAllPosts, calculateReadingTime } from "@/lib/getAllPosts";
 import { BlogPost, TableOfContentsItem } from "@/types/blog";
 
 // CSS
-import "@/app/blog/blogs.css";
+import "@/app/styles/blogs.css";
 
 // Constants
 const POSTS_DIR = path.join(process.cwd(), "src", "posts");

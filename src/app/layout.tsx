@@ -1,6 +1,6 @@
 
 import Script from "next/script";
-import "./globals.css"
+import "./styles/globals.css";
 import Footer from "@/components/Footer";
 
 export const metadata = {

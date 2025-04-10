@@ -1,0 +1,236 @@
+/* Manic Agency - Synthetic Design System
+ * A dark, hyperdigital aesthetic with biomechanical and glitch elements
+ */
+
+ :root {
+    /* === Core Colors === */
+    --color-abyss: #0a0b13;            /* Deep background */
+    --color-deepspace: #141625;        /* Secondary background */
+    --color-substrate: #1d2038;        /* Tertiary background */
+    
+    /* Vibrant accents */
+    --color-signal: #7f5af0;           /* Primary accent */
+    --color-pulse: #2cb67d;            /* Secondary accent */
+    --color-biohazard: #ff8906;        /* Alert/warning accent */
+    --color-disruption: #e53170;       /* Highlight accent */
+    --color-static: #72757e;           /* Muted accent */
+    --color-success: #2cb67d;          /* Success states */
+    --color-error: #ef4565;            /* Error states */
+    
+    /* Text colors */
+    --color-transmission: #fffffe;     /* Primary text */
+    --color-interference: #94a1b2;     /* Secondary text */
+    --color-noise: #72757e;            /* Tertiary text */
+    
+    /* === Typography === */
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-display: 'Mona Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* === Dark Mode Theme (Default) === */
+    --bg-primary: var(--color-abyss);
+    --bg-secondary: var(--color-deepspace);
+    --bg-tertiary: var(--color-substrate);
+    
+    --text-primary: var(--color-transmission);
+    --text-secondary: var(--color-interference);
+    --text-muted: var(--color-noise);
+    
+    --accent-primary: var(--color-signal);
+    --accent-secondary: var(--color-pulse);
+    --accent-highlight: var(--color-disruption);
+    --accent-alert: var(--color-biohazard);
+    
+    --success: var(--color-success);
+    --error: var(--color-error);
+    
+    --shadow-color: rgba(10, 11, 19, 0.6);
+    --glow-color: rgba(127, 90, 240, 0.4);
+  }
+  
+  /* === Light Mode Theme === */
+  .light {
+    --bg-primary: #fffffe;
+    --bg-secondary: #f0f0f8;
+    --bg-tertiary: #e0e2f0;
+    
+    --text-primary: #141625;
+    --text-secondary: #2e324a;
+    --text-muted: #72757e;
+    
+    --accent-primary: #6246ea;
+    --accent-secondary: #2cb67d;
+    --accent-highlight: #e53170;
+    --accent-alert: #ff8906;
+    
+    --success: #2cb67d;
+    --error: #ef4565;
+    
+    --shadow-color: rgba(20, 22, 37, 0.15);
+    --glow-color: rgba(98, 70, 234, 0.25);
+  }
+  
+  /* === Glitch Effects === */
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 rgba(229, 49, 112, 0.75),
+                  -0.025em -0.05em 0 rgba(44, 182, 125, 0.75),
+                  0.025em 0.05em 0 rgba(127, 90, 240, 0.75);
+    }
+    14% {
+      text-shadow: 0.05em 0 0 rgba(229, 49, 112, 0.75),
+                  -0.05em -0.025em 0 rgba(44, 182, 125, 0.75),
+                  -0.025em 0.05em 0 rgba(127, 90, 240, 0.75);
+    }
+    15% {
+      text-shadow: -0.05em -0.025em 0 rgba(229, 49, 112, 0.75),
+                  0.025em 0.025em 0 rgba(44, 182, 125, 0.75),
+                  -0.05em -0.05em 0 rgba(127, 90, 240, 0.75);
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 rgba(229, 49, 112, 0.75),
+                  0.025em 0.025em 0 rgba(44, 182, 125, 0.75),
+                  -0.05em -0.05em 0 rgba(127, 90, 240, 0.75);
+    }
+    50% {
+      text-shadow: 0.025em 0.05em 0 rgba(229, 49, 112, 0.75),
+                  0.05em 0 0 rgba(44, 182, 125, 0.75),
+                  0 -0.05em 0 rgba(127, 90, 240, 0.75);
+    }
+    99% {
+      text-shadow: 0.025em 0.05em 0 rgba(229, 49, 112, 0.75),
+                  0.05em 0 0 rgba(44, 182, 125, 0.75),
+                  0 -0.05em 0 rgba(127, 90, 240, 0.75);
+    }
+    100% {
+      text-shadow: -0.025em 0 0 rgba(229, 49, 112, 0.75),
+                  -0.025em -0.025em 0 rgba(44, 182, 125, 0.75),
+                  -0.025em -0.05em 0 rgba(127, 90, 240, 0.75);
+    }
+  }
+  
+  .text-glitch {
+    animation: glitch 3s infinite;
+  }
+  
+  .text-glitch:hover {
+    animation: glitch 1.5s infinite;
+  }
+  
+  /* Subtle text glitch effect */
+  .text-glitch-subtle {
+    position: relative;
+  }
+  
+  .text-glitch-subtle::before,
+  .text-glitch-subtle::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+  
+  .text-glitch-subtle::before {
+    animation: glitch-subtle 3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-0.025em, -0.0125em);
+    opacity: 0.8;
+    color: var(--accent-highlight);
+  }
+  
+  .text-glitch-subtle::after {
+    animation: glitch-subtle 2.7s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(0.025em, 0.0125em);
+    opacity: 0.8;
+    color: var(--accent-secondary);
+  }
+  
+  @keyframes glitch-subtle {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-1px, -1px); }
+    80% { transform: translate(1px, 1px); }
+    100% { transform: translate(0); }
+  }
+  
+  /* === Button Styles === */
+  .btn-synthetic {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--accent-primary);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .btn-synthetic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      var(--accent-primary), 
+      var(--accent-highlight)
+    );
+    transition: left 0.3s ease;
+    z-index: -1;
+  }
+  
+  .btn-synthetic:hover {
+    color: var(--color-transmission);
+    border-color: transparent;
+    box-shadow: 0 0 15px var(--glow-color);
+  }
+  
+  .btn-synthetic:hover::before {
+    left: 0;
+  }
+  
+  /* === Card Styles === */
+  .card-synthetic {
+    background-color: var(--bg-secondary);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    border: 1px solid rgba(127, 90, 240, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-synthetic:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color), 
+                0 0 15px rgba(127, 90, 240, 0.2);
+  }
+  
+  /* === Utility Classes === */
+  .text-gradient {
+    background: linear-gradient(90deg, 
+      var(--accent-primary), 
+      var(--accent-highlight)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .border-glow {
+    border: 1px solid var(--accent-primary);
+    box-shadow: 0 0 15px var(--glow-color);
+  }
+  
+  .shadow-synthetic {
+    box-shadow: 0 10px 25px var(--shadow-color), 
+                0 0 15px rgba(127, 90, 240, 0.15);
+  }

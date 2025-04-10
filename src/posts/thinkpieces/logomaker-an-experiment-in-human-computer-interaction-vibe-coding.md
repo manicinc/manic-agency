@@ -7,8 +7,6 @@ author: "Johnny Dunn"
 tags: ["featured"]
 ---
 
-# Logomaker: An experiment in human-computer interaction and ✨vibe coding ✨
-
 **GitHub link: [https://github.com/manicinc/logomaker](https://github.com/manicinc/logomaker)**
 
 ***Note: Each LLM tested (GPT-4o, GPT-4.5, GPT–o1, Claude Sonnet 3.7, Gemini 2.5 Pro) was done using the default settings (No extended thinking / deep research, no 200$ Pro subscription or web search experimental plugins or memories). I used the basic plan and default options for each (all set at 20$ a month currently). This is only called an experiment in title, as it is incredibly anecdotal. Everything was written / tested in VS Code with Copilot enabled and used to solve single line bugs.***
@@ -39,6 +37,9 @@ At the moment, this iterative product management process in giving product-drive
 
 Without human guidance at various points in this process, mapping out sensible AND robust user flows the way humans want to use software seems more difficult for LLMs than implementing very complex algorithms. Is this a limitation of something like a creativity mechanism in the LLM? Or is it a natural consequence of its training data? What happens if we get 10,000 product designers to write 10,000 user stories each? (100 billion user stories! This would entail in a model that really is about as large as or in the ballpark of GPT-3). Would the output of those models result in the most well-designed software the world's ever known?
 
+![Can we build it, LLMs?](/assets/blog/alice-in-wonderland-using-tool-building.png)
+
+
 For example, the LLMs of course knew what basic and desirable functionalities would go into a design tool like this, so of course exporting options were done (and fully working I might add, from the LLM writing the exact dependency links needed from the CDN link for html2canvas.js), and with multiple exporting options, though it was basic and naturally didn't include SVG (which would be really complex, so it makes sense it's originally ignored unless prompted).
 
 So, it'd be easy for me to simply ask for additional exporting options of GIF and SVG, which I did. But if I didn't prompt the LLM to specifically design the addition of these new features in a way that, say, really considered the user experience, or even specifically instructed the LLM to do this, it would (typically) output the components to render a GIF, SVG, and PNG, but all 3 as just buttons with working functionality and no additional considerations in enhancing the UX. Tooltips, mobile responsive styles, etc. sure, it doesn't go far beyond that though. It feels like, in general, LLMs like to be conservative in their token output / generation, which, in coding, isn't good when you're getting incomplete scripts, or, in many, many, many cases, placeholder logic that sneakily hides its way in there even when the LLM has been instructed aggressively to not output those comments.
@@ -51,6 +52,67 @@ Here's the issue. How can you guide a LLM to think about things like this, witho
 
 ![This is the first iteration of the "ultimate logo generator" which was all asked to be built and written in one file. The end result was just under 1000 lines.](/assets/blog/logomaker-old-version-first-one.png)
 *This is the first iteration of the "ultimate logo generator" which was all asked to be built and written in one file. The end result was just under 1000 lines.*
+
+This beginning code demonstrates the LLM "generating" the correct links for fonts (as well as other dependencies like `https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js`) in line 869, and starting the in-line CSS for styles for the logo creator to apply via UI selection.
+ 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Generator</title>
+  <!-- Extended Google Fonts API -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Audiowide&family=Bungee+Shade&family=Bungee&family=Bungee+Outline&family=Bungee+Hairline&family=Chakra+Petch:wght@700&family=Exo+2:wght@800&family=Megrim&family=Press+Start+2P&family=Rubik+Mono+One&family=Russo+One&family=Syne+Mono&family=VT323&family=Wallpoet&family=Faster+One&family=Teko:wght@700&family=Black+Ops+One&family=Bai+Jamjuree:wght@700&family=Righteous&family=Bangers&family=Raleway+Dots&family=Monoton&family=Syncopate:wght@700&family=Lexend+Mega:wght@800&family=Michroma&family=Iceland&family=ZCOOL+QingKe+HuangYou&family=Zen+Tokyo+Zoo&family=Major+Mono+Display&family=Nova+Square&family=Kelly+Slab&family=Graduate&family=Unica+One&family=Aldrich&family=Share+Tech+Mono&family=Silkscreen&family=Rajdhani:wght@700&family=Jura:wght@700&family=Goldman&family=Tourney:wght@700&family=Saira+Stencil+One&family=Syncopate&family=Fira+Code:wght@700&family=DotGothic16&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(
+        45deg, 
+        #FF1493,   /* Deep Pink */
+        #FF69B4,   /* Hot Pink */
+        #FF00FF,   /* Magenta */
+        #FF4500,   /* Orange Red */
+        #8A2BE2    /* Blue Violet */
+      );
+      --cyberpunk-gradient: linear-gradient(
+        45deg,
+        #00FFFF, /* Cyan */
+        #FF00FF, /* Magenta */
+        #FFFF00  /* Yellow */
+      );
+      --sunset-gradient: linear-gradient(
+        45deg,
+        #FF7E5F, /* Coral */
+        #FEB47B, /* Peach */
+        #FF9966  /* Orange */
+      );
+      --ocean-gradient: linear-gradient(
+        45deg,
+        #2E3192, /* Deep Blue */
+        #1BFFFF  /* Light Cyan */
+      );
+      --forest-gradient: linear-gradient(
+        45deg,
+        #134E5E, /* Deep Teal */
+        #71B280  /* Light Green */
+      );
+      --rainbow-gradient: linear-gradient(
+        45deg,
+        #FF0000, /* Red */
+        #FF7F00, /* Orange */
+        #FFFF00, /* Yellow */
+        #00FF00, /* Green */
+        #0000FF, /* Blue */
+        #4B0082, /* Indigo */
+        #9400D3  /* Violet */
+      );
+    }
+    ..
+```
+
+**Full gist of the generated HTML / logic is at:
+[https://gist.github.com/jddunn/48bc03f3a9f85ffd8ccf90c801f6cf93](https://gist.github.com/jddunn/48bc03f3a9f85ffd8ccf90c801f6cf93)**
 
 While I don't have the original prompt that was used to create this file, the working version was generated in one-go (single round) with no prior context or examples of code given. In total, the prompt itself must've been a single paragraph long, and simply asked for a nicely designed and usable logo maker / generator that had export options and good styling options. Nothing was specified, and at the time, font management wasn't decided on a feature yet.
 
@@ -164,6 +226,8 @@ And we're still left in the dark in other ways. How much of a competitive edge d
 
 ![The live site of Logomaker, at https://manicinc.github.io/logomaker, which will live here free forever so long as GitHub Pages is free.](/assets/blog/logomaker-live-site.png)
 *The live site of Logomaker, at https://manicinc.github.io/logomaker, which will live here free forever so long as GitHub Pages is free.*
+
+![Logomaker live site 2](/assets/blog/logomaker-live-site-2.png)
 
 This app was built as an experimental work to test the current capabilities of different LLMs as well as their providers and the accompanying UI features serviced by them. It's meant as a fun, useful, and chaotic work where the dev was fully dedicated to just using vibe coding, or allowing the LLM to generate code and functions with detailed and clear technical guidance. Individual small fixes for issues from the LLM providers (the code given out in the UIs) were fixed sometimes with GitHub Co-Pilot for convenience's (and budget) sake.
 

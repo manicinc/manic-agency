@@ -4,7 +4,7 @@ import Clients from "@/components/Clients";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
 import { Header } from "@/components/Header";
-import "./embla.css";
+import "./styles/embla.css";
 import Script from "next/script";
 
 export default function Home() {

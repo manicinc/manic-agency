@@ -4,7 +4,7 @@ import { BlogPost } from "@/types/blog";
 import Link from "next/link";
 import { format } from "date-fns";
 import { Nav } from "@/components/Nav";
-import "@/app/blog/blogs.css";
+import "@/app/styles/blogs.css";
 
 export const dynamic = "force-static";
 
