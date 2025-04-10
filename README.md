@@ -13,3 +13,7 @@ To run the Manic Agency website locally, follow these steps:
    ## Write for us!
 
    We welcome [contributions](./src/posts/tutorials/contribute.md).
+
+   ## Deployments
+
+   Pages are automatically built on commit to `master`.
