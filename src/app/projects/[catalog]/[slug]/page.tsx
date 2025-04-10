@@ -1,179 +1,110 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+// src/app/projects/[catalog]/[slug]/page.tsx
+
+// --- NO 'use client' --- (This is a Server Component)
+
+import React from 'react';
+// We DO NOT import useEffect, useState, useParams here
+
+// We CAN import server-side functions
 import { getProjectBySlug, getAllProjects } from '@/lib/getAllProjects';
 import { Project } from '@/types/project';
-import { Nav } from '@/components/Nav';
-import { ProjectDetail } from '@/components/Project/ProjectDetail';
+import { Nav } from '@/components/Nav'; // Assuming these are compatible or client components
+import { ProjectDetail } from '@/components/Project/ProjectDetail'; // This component will receive data as props
 import ThemeToggle from '@/components/Theme/ThemeToggle';
+import { notFound } from 'next/navigation'; // Import notFound
 
-// For static site generation with Next.js
+// --- generateStaticParams is CORRECT ---
+// This runs server-side at build time to determine paths
 export async function generateStaticParams() {
+  console.log("[generateStaticParams] Generating params for /projects/[catalog]/[slug]");
   try {
-    const projects = getAllProjects();
-    
-    return projects.map((project) => ({
-      params: {
-        category: project.category,
-        slug: project.slug,
-      },
+    const projects = getAllProjects(); // Uses fs - OK here
+    const params = projects.map((project) => ({
+      catalog: project.category, // Use 'catalog' to match folder name
+      slug: project.slug,
     }));
+    console.log(`[generateStaticParams] Found ${params.length} project paths.`);
+    return params;
   } catch (error) {
-    console.error("Error generating static paths:", error);
-    return [];
+    console.error("[generateStaticParams] Error:", error);
+    return []; // Return empty array on error
   }
 }
 
-export async function getStaticProps({ params }: { params: { category: string, slug: string } }) {
+// --- REMOVE getStaticProps entirely ---
+
+
+// Define the props type, including `params` for dynamic segments
+interface ProjectDetailPageProps {
+  params: {
+    catalog: string; // Changed from 'category' to 'catalog' to match folder name
+    slug: string;
+  };
+}
+
+// The Page component is async and receives params
+export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+  const { catalog, slug } = params; // Get catalog and slug from params prop
+
+  console.log(`[ProjectDetailPage] Rendering page for catalog: ${catalog}, slug: ${slug}`);
+
+  // --- Fetch Data DIRECTLY in the Server Component ---
+  const project = getProjectBySlug(catalog, slug); // Use fs - OK here
+
+  // --- Handle Not Found ---
+  if (!project) {
+    console.warn(`[ProjectDetailPage] Project not found for catalog: ${catalog}, slug: ${slug}. Triggering 404.`);
+    notFound(); // Use the notFound function
+  }
+
+  // --- Fetch Related Projects (Server-Side) ---
+  // You can still calculate related projects here
+  let relatedProjects: Project[] = [];
   try {
-    const { category, slug } = params;
-    const project = getProjectBySlug(category, slug);
-    
-    if (!project) {
-      return {
-        notFound: true,
-      };
-    }
-    
-    // Get related projects
-    const allProjects = getAllProjects();
-    const relatedProjects = allProjects
-      .filter((p) => {
-        if (p.slug === slug && p.category === category) return false;
-        if (p.category === project.category) return true;
-        const sharedTags: string[] = p.tags.filter((tag: string) => project.tags.includes(tag));
-        return sharedTags.length > 0;
-      })
-      .slice(0, 3);
-    
-    return {
-      props: {
-        project,
-        relatedProjects,
-      },
-      revalidate: 3600,
-    };
+      const allProjects = getAllProjects(); // Use fs - OK here
+      relatedProjects = allProjects
+        .filter((p) => {
+            // Exclude the current project
+            if (p.slug === slug && p.category === catalog) return false;
+            // Prioritize same category
+            if (p.category === project.category) return true;
+            // Fallback to shared tags (optional logic)
+            // const sharedTags = p.tags?.filter((tag: string) => project.tags?.includes(tag));
+            // return sharedTags && sharedTags.length > 0;
+            return false; // Simpler: only relate by category for this example
+        })
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort related by date
+        .slice(0, 3); // Limit to 3
+       console.log(`[ProjectDetailPage] Found ${relatedProjects.length} related projects.`);
   } catch (error) {
-    console.error(`Error fetching project ${params.slug}:`, error);
-    return {
-      notFound: true,
-    };
+      console.error("[ProjectDetailPage] Error fetching related projects:", error);
+      // Decide how to handle errors fetching related projects (e.g., show none)
+      relatedProjects = [];
   }
-}
 
-export default function ProjectDetailPage() {
-  const params = useParams();
-  const [project, setProject] = useState<Project | null>(null);
-  const [relatedProjects, setRelatedProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  
-  const category = params?.category as string;
-  const slug = params?.slug as string;
-  
-  useEffect(() => {
-    async function loadProject() {
-      try {
-        if (!category || !slug) {
-          setError(true);
-          return;
-        }
-        
-        const projectData = getProjectBySlug(category, slug);
-        
-        if (!projectData) {
-          setError(true);
-          return;
-        }
-        
-        setProject(projectData);
-        
-        // Get related projects
-        const allProjects = getAllProjects();
-        const related = allProjects
-          .filter((p) => {
-            if (p.slug === slug && p.category === category) return false;
-            if (p.category === projectData.category) return true;
-            const sharedTags = p.tags.filter((tag) => projectData.tags.includes(tag));
-            return sharedTags.length > 0;
-          })
-          .slice(0, 3);
-        
-        setRelatedProjects(related);
-      } catch (err) {
-        console.error("Error loading project:", err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    
-    loadProject();
-  }, [category, slug]);
-  
-  if (loading) {
-    return (
-      <>
-        <div className="bg-bg-primary">
-          <Nav />
-          <div className="absolute top-4 right-4 z-50">
-            <ThemeToggle />
-          </div>
-        </div>
-        
-        <main className="bg-bg-primary text-text-primary min-h-screen py-20">
-          <div className="container mx-auto max-w-7xl px-4 sm:px-6 flex items-center justify-center">
-            <div className="relative w-16 h-16">
-              <div className="absolute inset-0 border-4 border-accent-primary/20 rounded-full"></div>
-              <div className="absolute inset-0 border-4 border-transparent border-t-accent-primary rounded-full animate-spin"></div>
-            </div>
-          </div>
-        </main>
-      </>
-    );
-  }
-  
-  if (error || !project) {
-    return (
-      <>
-        <div className="bg-bg-primary">
-          <Nav />
-          <div className="absolute top-4 right-4 z-50">
-            <ThemeToggle />
-          </div>
-        </div>
-        
-        <main className="bg-bg-primary text-text-primary min-h-screen py-20">
-          <div className="container mx-auto max-w-3xl px-4 sm:px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Project Not Found</h1>
-            <p className="text-xl text-text-secondary mb-8">
-              The project you're looking for doesn't exist or has been moved.
-            </p>
-            <a 
-              href="/projects" 
-              className="px-6 py-3 bg-accent-primary text-white rounded-md hover:bg-accent-highlight transition-colors inline-flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              Back to Projects
-            </a>
-          </div>
-        </main>
-      </>
-    );
-  }
-  
+
+  // --- NO useState, useEffect, useParams ---
+
+  // --- Render the Page ---
+  // Pass the fetched data to the actual UI component(s)
   return (
     <>
-      <div className="bg-bg-primary">
+      {/* Header */}
+      <div className="bg-bg-primary sticky top-0 z-40">
         <Nav />
         <div className="absolute top-4 right-4 z-50">
           <ThemeToggle />
         </div>
       </div>
-      
+
+      {/* Main Content Area */}
       <main className="bg-bg-primary text-text-primary min-h-screen py-8 md:py-12">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+          {/*
+            The ProjectDetail component receives the data.
+            If ProjectDetail needs state, effects, or browser APIs,
+            IT must be marked with 'use client' in its own file.
+          */}
           <ProjectDetail project={project} relatedProjects={relatedProjects} />
         </div>
       </main>
