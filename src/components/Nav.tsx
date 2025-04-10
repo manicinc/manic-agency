@@ -63,9 +63,10 @@ export const Nav = () => {
                     <div className="md:hidden pt-4 pb-2">
                         <div className="flex flex-col space-y-3">
                             <a href="/#services" className="text-gray-100 hover:text-teal-300 transition duration-300">Services</a>
-                            <a href="/#work" className="text-gray-100 hover:text-teal-300 transition duration-300">Portfolio</a>
-                            <a href="/team" className="text-gray-100 hover:text-teal-300 transition duration-300">Team</a>
+                            <a href="/projects" className="text-gray-100 hover:text-teal-300 transition duration-300">Projects</a>
+                            <a href="/team" className="text-gray-100 hover:text-teal-300 transition duration-300">Maniacs</a>
                             <a href="/blog" className="text-gray-100 hover:text-teal-300 transition duration-300">Blog</a>
+                            <a href="/open-source" className="text-gray-100 hover:text-teal-300 transition duration-300">Open-Source</a>
                             <a
   href="/contact"
   className="inline-block px-8 py-3 text-black font-mono text-lg tracking-wider uppercase bg-[#0ff] rounded-md transition duration-300 hover:bg-[#0cc] shadow-[4px_4px_0_#f0f,8px_8px_0_#00f] hover:shadow-[2px_2px_0_#f0f,4px_4px_0_#00f]"
