@@ -55,6 +55,35 @@
     border: 1px solid rgba(127, 90, 240, 0.2);
     @apply p-1;
   }
+
+    /* Enhanced border styles */
+    .image-border-simple {
+        border: 1px solid rgba(127, 90, 240, 0.3);
+        padding: 4px;
+    }
+    
+    .image-border-gradient {
+        padding: 3px;
+        background: linear-gradient(45deg, var(--accent-primary), var(--accent-highlight));
+        position: relative;
+    }
+    
+    .image-border-glow {
+        border: 1px solid var(--accent-primary);
+        box-shadow: 0 0 15px var(--accent-primary);
+    }
+    
+    .image-border-inset {
+        border: 1px solid rgba(127, 90, 240, 0.3);
+        box-shadow: inset 0 0 10px rgba(127, 90, 240, 0.2);
+        padding: 4px;
+    }
+    
+    .image-border-dashed {
+        border: 2px dashed var(--accent-primary);
+        padding: 4px;
+    }
+  
   
   .image-glow {
     box-shadow: 0 0 15px var(--accent-primary);
@@ -118,15 +147,25 @@
     opacity: 1;
     animation: glitch 0.3s infinite;
   }
+  /* Clickable/zoomable image styles */
+  .image-zoomable {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+  }
   
-  /* Zoomable image effect */
-  .zoom-overlay {
+  .image-zoomable:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Image zoom modal */
+  .image-zoom-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(10, 11, 19, 0.9);
+    backdrop-filter: blur(5px);
     z-index: 9999;
     display: flex;
     align-items: center;
@@ -136,30 +175,51 @@
     transition: opacity 0.3s ease;
   }
   
-  .zoom-overlay.active {
+  .image-zoom-overlay.active {
     opacity: 1;
     pointer-events: auto;
   }
   
-  .zoom-image {
+  .image-zoom-container {
+    position: relative;
     max-width: 90vw;
     max-height: 90vh;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
   }
   
-  .zoom-overlay.active .zoom-image {
+  .image-zoom-img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .image-zoom-overlay.active .image-zoom-img {
     transform: scale(1);
   }
   
-  .zoom-close {
+  .image-zoom-caption {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--text-primary);
+    padding: 10px;
+    font-size: 14px;
+    background-color: rgba(29, 32, 56, 0.7);
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .image-zoom-close {
     position: absolute;
     top: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(127, 90, 240, 0.2);
+    background: rgba(229, 49, 112, 0.2);
     color: white;
     display: flex;
     align-items: center;
@@ -169,9 +229,11 @@
     transition: background-color 0.3s ease;
   }
   
-  .zoom-close:hover {
-    background: rgba(229, 49, 112, 0.3);
+  .image-zoom-close:hover {
+    background: rgba(229, 49, 112, 0.4);
   }
+
+  
   
   /* Progressive loading effect for images */
   @keyframes imgLoading {

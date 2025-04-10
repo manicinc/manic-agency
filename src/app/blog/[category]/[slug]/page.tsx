@@ -23,6 +23,8 @@ import { BlogPost, TableOfContentsItem } from "@/types/blog";
 // CSS
 import "@/app/styles/blogs.css";
 
+import { CustomMarkdownRenderer } from "@/components/MarkdownRenderer";
+
 // Constants
 const POSTS_DIR = path.join(process.cwd(), "src", "posts");
 
@@ -111,8 +113,11 @@ type Params = {
 };
 
 // Metadata Generation
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { category, slug } = params;
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  // Await the params object to access its properties
+  const resolvedParams = await params;
+  const { category, slug } = resolvedParams;
+  
   const post = await getPostData(category, slug);
   
   if (!post) {
@@ -152,34 +157,11 @@ export async function generateStaticParams(): Promise<Params[]> {
   }
 }
 
-// Custom Markdown Components
-const markdownComponents = {
-  code({ node, className, children, ...props }: any) {
-    const match = /language-(\w+)/.exec(className || '');
-    const isBlockCode = !!match;
-
-    return isBlockCode ? (
-      <SyntaxHighlighter
-        style={coldarkDark as any}
-        language={match[1]}
-        PreTag="div"
-      >
-        {String(children).replace(/\n$/, '')}
-      </SyntaxHighlighter>
-    ) : (
-      <code className={className} {...props}>
-        {children}
-      </code>
-    );
-  },
-  img({ src, alt, ...props }: any) {
-    return <img loading="lazy" src={src} alt={alt || ''} {...props} />;
-  },
-};
-
 // Main Page Component
-export default async function BlogPostPage({ params }: { params: Params }) {
-  const { category, slug } = params;
+export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
+  // Await the params object to access its properties
+  const resolvedParams = await params;
+  const { category, slug } = resolvedParams;
 
   if (!category || !slug) {
     notFound();
@@ -238,13 +220,9 @@ export default async function BlogPostPage({ params }: { params: Params }) {
           </div>
           
           <div className="blog-content">
-            <ReactMarkdown
-              rehypePlugins={[rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]]}
-              remarkPlugins={[remarkGfm]}
-              components={markdownComponents}
-            >
-              {post.content || ''}
-            </ReactMarkdown>
+            <CustomMarkdownRenderer>
+              {typeof post.content === 'string' ? post.content : ''}
+            </CustomMarkdownRenderer>
           </div>
           
           {post.tags && post.tags.length > 0 && (

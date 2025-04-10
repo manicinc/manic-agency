@@ -13,6 +13,7 @@ import { ArrowLeft, ExternalLink, Github, Calendar, Clock, Tag, Users, Trophy, B
 import { AsciiArtPlaceholder } from '@/lib/asciiPlaceholders';
 import { Code } from 'lucide-react';
 import { Project } from '@/types/project';
+import { CustomMarkdownRenderer } from '@/components/MarkdownRenderer';
 
 interface ProjectDetailProps {
   project: Project;
@@ -57,120 +58,6 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
     setActiveImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
   };
   
-  // Custom markdown components
-  const markdownComponents = {
-    code({ node, className, children, ...props }: any) {
-      const match = /language-(\w+)/.exec(className || '');
-      const isBlockCode = !!match;
-
-      return isBlockCode ? (
-        <SyntaxHighlighter
-          style={coldarkDark as any}
-          language={match[1]}
-          PreTag="div"
-        >
-          {String(children).replace(/\n$/, '')}
-        </SyntaxHighlighter>
-      ) : (
-        <code className="px-1.5 py-0.5 bg-bg-tertiary text-accent-primary rounded" {...props}>
-          {children}
-        </code>
-      );
-    },
-    img({ src, alt, ...props }: any) {
-      return (
-        <div className="my-8">
-          <img 
-            loading="lazy" 
-            src={src} 
-            alt={alt || ''} 
-            className="rounded-md max-w-full mx-auto" 
-            {...props} 
-          />
-          {alt && <p className="text-center text-sm text-text-muted mt-2">{alt}</p>}
-        </div>
-      );
-    },
-    h2({ node, children, ...props }: any) {
-      return (
-        <h2 className="text-2xl md:text-3xl font-bold mt-12 mb-6 text-accent-primary" {...props}>
-          {children}
-        </h2>
-      );
-    },
-    h3({ node, children, ...props }: any) {
-      return (
-        <h3 className="text-xl md:text-2xl font-bold mt-8 mb-4 text-accent-secondary" {...props}>
-          {children}
-        </h3>
-      );
-    },
-    p({ node, children, ...props }: any) {
-      return (
-        <p className="mb-6 text-text-secondary leading-relaxed" {...props}>
-          {children}
-        </p>
-      );
-    },
-    ul({ node, children, ...props }: any) {
-      return (
-        <ul className="mb-6 pl-6 list-disc text-text-secondary" {...props}>
-          {children}
-        </ul>
-      );
-    },
-    ol({ node, children, ...props }: any) {
-      return (
-        <ol className="mb-6 pl-6 list-decimal text-text-secondary" {...props}>
-          {children}
-        </ol>
-      );
-    },
-    li({ node, children, ...props }: any) {
-      return (
-        <li className="mb-2" {...props}>
-          {children}
-        </li>
-      );
-    },
-    blockquote({ node, children, ...props }: any) {
-      return (
-        <blockquote 
-          className="border-l-4 border-accent-primary pl-4 italic my-6 text-text-secondary" 
-          {...props}
-        >
-          {children}
-        </blockquote>
-      );
-    },
-    a({ node, children, href, ...props }: any) {
-      return (
-        <a 
-          href={href} 
-          className="text-accent-primary hover:text-accent-highlight hover:underline transition-colors"
-          target={href?.startsWith('http') ? '_blank' : undefined}
-          rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-          {...props}
-        >
-          {children}
-        </a>
-      );
-    },
-  };
-  
-  // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    })
-  };
   
   return (
     <article className="max-w-7xl mx-auto pb-16">
@@ -358,13 +245,9 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
             {/* Project long description or content */}
             <div className="prose prose-lg max-w-none">
               {project.content ? (
-                <ReactMarkdown 
-                  components={markdownComponents}
-                  rehypePlugins={[rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]]}
-                  remarkPlugins={[remarkGfm]}
-                >
-                  {project.content}
-                </ReactMarkdown>
+                <CustomMarkdownRenderer>
+                    {project.content}
+                </CustomMarkdownRenderer>
               ) : (
                 <div className="text-text-secondary leading-relaxed">
                   <p>{project.longDescription || project.description}</p>

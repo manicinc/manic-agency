@@ -30,8 +30,10 @@ export async function generateStaticParams(): Promise<Params[]> {
   return params;
 }
 
-export default function CategoryPage({ params }: { params: Params }) {
-  const { category } = params;
+export default async function CategoryPage({ params }: { params: Promise<Params> }) {
+  // Await the params object to access its properties
+  const resolvedParams = await params;
+  const { category } = resolvedParams;
   
   const posts: BlogPost[] = getAllPosts().filter(
     (post) => post.category?.toLowerCase() === category.toLowerCase()

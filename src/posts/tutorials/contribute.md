@@ -1,159 +1,294 @@
 ---
-title: "How to Contribute to the Manic.agency Blog"
-date: "2025-04-09" # Using today's date, change if needed
-excerpt: "Learn how to contribute your own strange ideas and strong vibes to our open-source blog via Pull Request."
-author: "Manic Agency" # Or your name/handle
-category: "documentation" # Use a distinct category if needed, or omit if not a blog post
-tags: ["contribution", "guide", "meta", "writing", "open source"]
-# image: "/path/to/optional/image.png" # Optional: Add an image if you have one
+title: "Publishing on Manic.agency: A Contributor's Guide"
+date: "2025-04-10"
+excerpt: "Learn how to contribute your experimental ideas and digital explorations to our synthetic publishing platform."
+author: "Manic Agency"
+category: "documentation"
+tags: ["contribution", "guide", "markdown", "writing", "open source"]
+image: "/assets/blog/contribute-banner.jpg"
 ---
 
-# ✨ Manic.agency Blog
+# ⟨/⟩ Contributing to Manic.agency 
 
-> "We publish strange ideas with strong vibes."
+> *"The digital frontier isn't found. It's synthesized."*
 
-This repo powers the [Manic.agency](https://manic.agency) blog — a living, open-source publication.  
-No headless CMS. Just Markdown, imagination, and contributions from people across dimensions.
+The [Manic.agency](https://manic.agency) platform is an experimental publishing space for technical explorations, digital art theories, and synthetic interfaces. No traditional CMS—just Markdown, code, and contributions from like-minded digital explorers across the network.
 
-We write about code, culture, AI, marketing, indie software, product design, the future, and the fragments between.
+We cover experimental UI/UX, AI systems, creative coding, synthetic media, speculative technology, and the strange spaces between established disciplines.
 
----
+## 📡 Contribution Protocol
 
-## 📝 How to Contribute
+We accept article contributions via **pull request**. Your content can range from fully-formed articles to experimental concepts, research snippets, or technical demonstrations.
 
-> ⚡️ Yes, you can open a PR with your own `.md` file.  
-We accept article proposals, drafts, outlines, or headlines via **pull request**.
+### Submission Process
 
-To submit your own post:
-1. Fork this repo
-2. Add your post in `posts/[category]/your-title.md` (Make sure to choose or create a category folder!)
-3. Open a pull request
+1. Fork the repository
+2. Create your content file in `src/posts/[category]/your-article-slug.md`
+3. Add any supporting images to `public/assets/blog/[your-article-slug]/`
+4. Open a pull request
+5. Engage with any feedback
 
-We'll take care of the rest.
+## 📊 Markdown & Metadata Structure
 
----
+Each contribution requires structured metadata and content formatting.
 
-### 🧠 Markdown File Format
-
-Each post should start with frontmatter like this:
+### Required Metadata
 
 ```yaml
 ---
-title: "Your Article Title"
-date: "2025-04-08"
-excerpt: "A short summary of your piece."
-author: "Your Name"
-tags: ["ai", "ethics", "design"]
-category: "technology" # e.g., thinkpieces, tutorials, design, etc.
-image: "/assets/blog/your-image.png" # Optional but recommended
+title: "Your Neural Interface Exploration"
+date: "2025-04-10"
+excerpt: "A concise summary of your digital exploration."
+author: "Your Identifier"
+category: "experiments"
+tags: ["neural-interfaces", "synthetic-media", "speculative-tech"]
+image: "/assets/blog/your-article-slug/featured-image.jpg"
 ---
 
-Then write your content in pure Markdown. We support:
+```
 
-- Headings (##)
-- Code blocks
-- Images
-- Quotes
-- Links
-- Bold, italic, etc.
+### Extended Metadata Options
 
-## 🔮 Optional Metadata
+The system supports additional parameters for enhanced presentation:
 
-| Field | Type | Description | Required? |
-|-------|------|-------------|-----------|
-| title | string | Main title for the post | ✅ Yes |
-| date | date | Format: YYYY-MM-DD | ✅ Yes |
-| excerpt | string | Short summary shown on the blog index | ✅ Yes |
-| category | string | High-level section (folder name) | ✅ Yes |
-| author | string | Optional – pulled from git commit author if not set | No |
-| tags | array | Tags like ["vibes", "llms", "future"] | No |
-| image | string | Optional thumbnail image path | No |
-| authorBio | string | Optional short bio for the author box | No |
+```yaml
+authorBio: "Brief context about your relevant background and work."
+featured: true  # Promotes content to featured sections
+sortOrder: 3    # Controls display order in featured collections
+bgColor: "#0a0b13"  # Custom background color in HEX format
+textColor: "#7f5af0"  # Custom text color in HEX format
+```
 
-## ✍️ Guidelines
+## 🧠 Content Formatting Guide
 
-- Don't worry about polish — we care more about vibe, originality, and insight
-- Posts can be short or long. Even just an outline with a good title is fine
-- Markdown only. No HTML unless you're doing something very cursed
-- Your article doesn't need to be perfect — just interesting
+### Advanced Image Formatting
 
-## 📂 Folder Structure (Example)
+Our system supports extended image controls through a specialized syntax:
+
+#### Basic Image with Size Control
+
+```markdown
+![Image description|size=small](/path/to/image.jpg)
+```
+
+Size options include:
+- `small` - Compact, roughly 1/4 width (300px max)
+- `medium` - Standard, roughly 1/2 width (500px max)
+- `large` - Expanded, roughly 3/4 width (800px max)
+- `full` - Full-width display
+
+#### Image Alignment
+
+```markdown
+![Circuit diagram|size=medium|align=right](/path/to/circuit.jpg)
+```
+
+Alignment options:
+- `left` - Text wraps around the right side
+- `center` - Default centered display
+- `right` - Text wraps around the left side
+
+#### Visual Effects
+
+```markdown
+![Neural network visualization|effect=glow](/path/to/network.jpg)
+```
+
+Effect options:
+- `shadow` - Subtle drop shadow
+- `border` - Defined border with accent color
+- `glow` - Ethereal glow using accent color
+- `glitch` - Interactive glitch effect on hover
+
+#### Border Styles
+
+```
+![Image description|border=gradient](/path/to/image.jpg)
+```
+
+- `simple` - Simple border
+- `gradient` - Gradient border using accent colors
+- `glow` - Glowing border effect
+- `inset` - Inset shadow effect
+- `dashed` - Dashed border
+- `none` - No border (default)
+
+#### Zoomable by Default
+
+```markdown
+![Image description|zoomable=false](/path/to/image.jpg)
+```
+
+#### Image with Caption
+
+```markdown
+![|caption=Synthetic interface prototype from our 2024 experiments](/path/to/interface.jpg)
+```
+
+#### Combined Parameters
+
+```markdown
+![Circuit board close-up|size=medium|align=left|effect=glow|caption=Experimental neural processing unit](/path/to/circuit.jpg)
+```
+
+### Image Grid Layouts
+
+For multi-image displays:
+
+```markdown
+<ImageGrid columns=3>
+  ![First image](/path/to/image1.jpg)
+  ![Second image](/path/to/image2.jpg)
+  ![Third image](/path/to/image3.jpg)
+</ImageGrid>
+```
+
+### Code Blocks with Syntax Highlighting
+
+```javascript
+// Neural pattern generator
+function generatePattern(complexity, seed) {
+  const base = seed || Math.random();
+  return Array(complexity).fill(0).map((_, i) => {
+    return {
+      weight: base * (i / complexity) * Math.sin(i),
+      activation: i % 2 ? 'sigmoid' : 'relu',
+      connections: Math.floor(complexity / (i + 1))
+    };
+  });
+}
+```
+
+### Custom Callouts
+
+```markdown
+:::note
+Important implementation details should be noted here.
+:::
+
+:::warning
+Experimental features may produce unpredictable results.
+:::
+
+:::tip
+Optimize rendering by pre-processing node connections.
+:::
+
+:::alert
+Critical security considerations for neural access points.
+:::
+```
+
+### Data Tables
+
+```markdown
+| Parameter | Range | Default | Impact |
+|-----------|-------|---------|--------|
+| Latency | 10-100ms | 30ms | Responsiveness |
+| Precision | 0.1-0.001 | 0.01 | Detail level |
+| Iterations | 1-10 | 3 | Processing depth |
+```
+
+### Mathematical Formulas
+
+```markdown
+$$
+f(x) = \sum_{i=0}^{n} \frac{a_i}{1 + e^{-(x-b_i)/c_i}}
+$$
+```
+
+## 📁 Content Structure
 
 ```
 /src/posts
-  ├── thinkpieces/
-  │   ├── logomaker-vibe-coding.md
-  │   └── ai-sociopaths.md
+  ├── experiments/
+  │   ├── neural-interface-prototype.md
+  │   └── synthetic-media-generation.md
+  ├── research/
+  │   └── emergent-system-behaviors.md
   ├── tutorials/
-  │   └── your-tutorial.md
-  └── marketing/
-      └── future-of-marketing.md
+  │   └── building-with-synthstack.md
+  └── theory/
+      └── digital-consciousness-parameters.md
 ```
 
-Once merged, your post will be live on manic.agency/blog — no deploys, no nonsense.
+## 🔧 Real-World Examples
 
-## 🔧 FEATURE ENHANCEMENTS (system-wide)
+### Effective Image Sizing
+
+```markdown
+# Neural Pathways in Synthetic Systems
+
+Text introduction to the concept...
+
+![Basic neural structure|size=small|align=right](/assets/neural-basic.jpg)
+
+When examining synthetic neural structures, we observe emergent pathway formation without explicit programming. These pathways demonstrate characteristics similar to biological systems while maintaining their unique synthetic properties.
+
+## Advanced Connections
+
+![Connection topology map|size=large](/assets/connection-topology.jpg)
+
+The topology of advanced connections reveals complex decision matrices that evolve based on input patterns...
+```
+
+### Using Image Grid for Comparisons
+
+```markdown
+## System Evolution Across Iterations
+
+<ImageGrid columns=3>
+  ![Version 1.0](/assets/v1-interface.jpg)
+  ![Version 2.0](/assets/v2-interface.jpg)
+  ![Version 3.0](/assets/v3-interface.jpg)
+</ImageGrid>
+
+The progression of the interface demonstrates our shifting understanding of synthetic-human interaction patterns...
+```
+
+### Mathematical Analysis Example
+
+```markdown
+## Activation Function Optimization
+
+The normalized activation pattern can be expressed as:
+
+$$
+A(x) = \max(0, x) + \alpha \min(0, x)
+$$
+
+Where $\alpha$ represents the leakage coefficient, typically set between 0.1 and 0.3 for optimal signal propagation without information loss.
+```
+
+## 🧪 Technical Implementation Details
+
+The rendering system supports:
+
+- **Syntax highlighting** for multiple languages
+- **Responsive image layouts** with dynamic sizing
+- **Mathematical formula rendering** using KaTeX
+- **Interactive elements** via client components
+- **Custom callouts** for various information types
+- **Code execution** for JavaScript examples (sandbox environment)
+- **Graph/chart generation** from code or data
+
+## 🔮 Feature Roadmap
 
 | Feature | Status | Description |
 |---------|--------|-------------|
-| ✅ Frontmatter | Implemented | Title, date, excerpt, author, category |
-| ✅ Automatic author | Active | Pulled from Git commit if omitted |
-| ✅ Tags | Implemented | tags: field, rendered on post page |
-| ✅ Category | Implemented | category: field (matches folder), used for routing |
-| ✅ Basic Blog Index | Implemented | Lists all posts |
-| ✅ Category Index/Pages | Implemented | /category, /category/[name] |
-| ✅ Tag Index/Pages | Implemented | /tags, /tags/[name] |
-| ✅ Syntax Highlighting | Implemented | For code blocks |
-| ✅ TOC / Reading Progress | Implemented | Client-side |
-| 🆕 Preview images | To-do | Add image: field for post thumbnail (used on index + social previews) |
-| 🆕 Ascii headers | To-do | Dynamic CLI-style headers or dividers for ✨mood✨ |
-| 🆕 Fancy borders | To-do | Glowing, animated, or dashed borders on cards or quotes |
-| 🆕 Category/Tag filter | To-do | Optional: filter posts by category or tag on /blog index |
-| 🆕 Related Posts Logic | To-do | Improve related posts algorithm |
-| 🆕 Image Component | To-do | Use next/image for optimization (if not static export) |
+| ✅ Advanced image controls | Implemented | Size, alignment, effects, captions |
+| ✅ Code syntax highlighting | Implemented | Multiple language support |
+| ✅ Image grids | Implemented | Responsive multi-image layouts |
+| ✅ Custom callouts | Implemented | Note, warning, tip, alert blocks |
+| ✅ Table formatting | Implemented | Responsive data tables |
+| ✅ Math formula rendering | In testing | KaTeX integration |
+| 🔄 Interactive code blocks | In development | Editable & executable examples |
+| 🔄 SVG diagram generation | In development | Code-to-diagram rendering |
+| 📝 Data visualization | Planned | Chart generation from markdown tables |
+| 📝 Timeline components | Planned | Interactive project/concept timelines |
 
-## ✅ Next steps (system changes)
+## 🕳️ Transmission Protocol
 
-- ~~Update blog schema parser to handle: tags, category, image~~ (Done)
-- ~~Render tags below titles on post page~~ (Done)
-- Render category/tag filters on blog index (optional)
-- Use preview image in card on blog index (if present)
-- Add optional ASCII flair
+This is an experimental platform operating across normal disciplinary boundaries. We're building the tools, systems, and theories we wish existed. Your anomalous contributions are welcome.
 
-## 🌈 Upcoming Extras
-
-- Robust Tag filters + search on index
-- Fancy post cards with borders, emojis, and preview images
-- Ascii/CLI-style headers
-- "Manic-speak" glossary
-- More guest essays, more chaos
-
-## 💌 Stay strange, stay open
-
-This is an open zine from a semi-chaotic agency operating on vibes, intuition, and late-night code.
-We're building strange tools and stranger systems.
-You're welcome to publish something that doesn't fit anywhere else.
-
-Pull requests welcome 🕳
-
-*(Note: I added the frontmatter back in but commented it out - decide if you want to add it or not based on the approach below). I also updated the "How to Contribute" and "Folder Structure" slightly based on our current setup.*
-
-**2. Recommended Approach NOW:**
-
-Since the error persists even without `contribute.md`, let's definitely **keep the contribution guide separate** from the blog posts.
-
-* **Recreate the File:** Save the content above, perhaps as `CONTRIBUTING.md` in your project root, or `src/docs/contribute.md`. **Do NOT put it back in `src/posts/tutorials/`**.
-* **Ensure `getAllPosts` Skips It:** Make sure `getAllPosts` doesn't try to read from outside `src/posts` or that it still has logic to skip non-blog files if you put it somewhere else accessible. Easiest is keeping it outside `src/posts`.
-* **Create Dedicated Page:** Use the code for `src/app/blog/contribute/page.tsx` (or maybe `/contribute/page.tsx`) from the previous response to display this markdown file. Make sure the `README_PATH` constant in that file points to wherever you saved the contribution markdown.
-
-**3. Fixing the Persistent Error for `/blog/logomaker-...`:**
-
-The error isn't the `contribute.md` file itself, but something happening when `BlogPostPage` renders *any* problematic post, including `/blog/logomaker-...`.
-
-You **need** to follow the debugging step from the previous answer:
-
-* **Comment out the "Related Posts" section** within the `return (...)` block of `src/app/blog/[category]/[slug]/page.tsx`.
-* **Delete `.next`**.
-* **Run `npm run build`**.
-
-This is the most direct way to test if that specific section (and its second call to `getAllPosts`) is triggering the `path.join(..., undefined)` error when rendering the `logomaker-...` page.
+Pull requests transmit data across the void. 📡

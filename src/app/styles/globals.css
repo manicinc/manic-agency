@@ -17,6 +17,8 @@
   --background-color: #f5f5f5;
   --text-color: #34495e;
   --font-family: 'Roboto, sans-serif';
+  --muted: 0 0% 96.1%;             /* Likely background/component color */
+  --muted-foreground: 0 0% 45.1%; /* << Likely the TEXT color for muted elements */
 }
 
 
