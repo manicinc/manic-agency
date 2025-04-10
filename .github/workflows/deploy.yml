@@ -20,7 +20,8 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build && next export 
+        # Use npx to ensure the locally installed next binary is found for export
+        run: npm run build && npx next export
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
