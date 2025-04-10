@@ -1,5 +1,8 @@
 // next.config.js
 const path = require('path');
+// Set this to your repository name
+const repoName = 'manicinc'; // <---- Make sure this matches your repo name!
+const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
