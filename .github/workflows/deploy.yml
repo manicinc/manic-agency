@@ -20,10 +20,10 @@ jobs:
         run: npm ci
 
       - name: Build
-        # Use npx to ensure the locally installed next binary is found for export
-        run: npm run build && npx next export
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: out
+        # This creates the 'out' directory
+        run: npm run build
+
+      - name: Create .nojekyll file
+        # Create an empty .nojekyll file in the 'out' directory
+        # so GitHub Pages serves the site correctly.
+        run: touch out/.nojekyll
