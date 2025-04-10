@@ -12,14 +12,14 @@ export default function ScrollToTopArticle() {
       const article = document.querySelector('article.blog-post') as HTMLDivElement
       if (!article) return
 
-      const articleRect = article.getBoundingClientRect()
-      const articleTop = window.scrollY + articleRect.top
       const articleHeight = article.offsetHeight
+      const viewportHeight = window.innerHeight
+      const scrollY = window.scrollY
 
-      // Show when user scrolls past 30% of the article
-      const triggerPoint = articleTop + articleHeight * 0.15
+      const articleLongEnough = articleHeight > viewportHeight * 2
+      const userScrolledFarEnough = scrollY > viewportHeight * 1.5
 
-      setShow(window.scrollY > triggerPoint)
+      setShow(articleLongEnough && userScrolledFarEnough)
     }
 
     window.addEventListener('scroll', onScroll)
