@@ -28,8 +28,15 @@ const nextConfig = {
   },
   
   // Configure base path and asset prefix for GitHub Pages
-  basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}/` : '', // <---- Note trailing slash here!
+  // basePath: isProd ? `/${repoName}` : '',
+  // assetPrefix: isProd ? `/${repoName}/` : '', // <---- Note trailing slash here!  // For local development, don't use any base path
+  basePath: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
+  ? '' 
+  : '',
+
+  assetPrefix: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
+    ? '' 
+    : '',
 };
 
 module.exports = nextConfig;
