@@ -17,3 +17,5 @@ To run the Manic Agency website locally, follow these steps:
    ## Deployments
 
    Pages are automatically built on commit to `master`.
+
+   The output of the build is stored in the `gh-pages` branch and that is what is served on the GitHub pages for this repo.
