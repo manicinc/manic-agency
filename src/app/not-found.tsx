@@ -12,6 +12,7 @@ import white2 from "@/images/404/white-2.png";
 import white3 from "@/images/404/white-3.png";
 import white4 from "@/images/404/white-4.png";
 import Image from "next/image";
+import { Nav } from "@/components/Nav";
 
 const darkImages = [dark1, dark2, dark3, dark4];
 const whiteImages = [white1, white2, white3, white4];
@@ -60,6 +61,10 @@ export default function NotFound() {
   }, [imageSet]);
 
   return (
+    <>
+    <div className='bg-[#23153c]'>
+        <Nav />
+        </div>
     <div
       className={`min-h-screen flex flex-col items-center justify-center p-8 transition-colors duration-500 ${
         isDarkMode ? "bg-black text-white" : "bg-white text-black"
@@ -125,5 +130,6 @@ export default function NotFound() {
         }
       `}</style>
     </div>
+    </>
   );
 }
