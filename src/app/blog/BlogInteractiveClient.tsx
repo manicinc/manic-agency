@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { TableOfContentsItem } from '@/types/blog';
 import { BookOpen, ArrowUp } from 'lucide-react';
