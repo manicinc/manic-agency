@@ -1,22 +1,19 @@
+// src/components/Header.tsx
 import React from "react";
-import HeroSection from "./HeroSection";
-import { Nav } from "./Nav";
+import { Nav } from "./Nav"; // Assuming Nav handles navigation display
+// Remove imports for HeroSection, BlogPost, getAllPosts
 
-// Assuming you have a CSS file imported, e.g., App.css, index.css, or Header.css
-// If not, create one (e.g., Header.css) and import it:
-// import './Header.css'; // Adjust the path if necessary
-
+// Header can be Server or Client, depending ONLY on Nav's requirements now.
+// If Nav is Client, Header can still work fine here.
 export const Header = () => {
-    return (
-        <header className="min-h-screen">
-            <Nav />
-            <HeroSection />
+    // No data fetching here
+    // No featuredPosts prop
 
-            
-            
+    return (
+        // Removed min-h-screen, as that likely belongs to the overall page structure or Hero
+        // Adjust styling as needed - maybe just position Nav?
+        <header className="relative z-50"> {/* Example: Ensure it's above other content */}
+            <Nav />
         </header>
     );
 };
-
-// Make sure HeroSection and Nav components are correctly imported/defined elsewhere
-// export default Header; // If this is your main export

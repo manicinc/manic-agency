@@ -7,7 +7,7 @@ import Avatar04 from "@/images/avatar-04.jpg";
 import Avatar05 from "@/images/avatar-05.jpg";
 import Avatar06 from "@/images/avatar-06.jpg";
 
-export default function HeroHome() {
+export function Hero() {
   return (
     <section className="relative">
       <PageIllustration />

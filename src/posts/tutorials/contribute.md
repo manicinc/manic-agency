@@ -1,5 +1,5 @@
 ---
-title: "Publishing on Manic.agency: A Contributor's Guide"
+title: "⟨/⟩ Contribute to the Synthetic Publishing Platform"
 date: "2025-04-10"
 excerpt: "Learn how to contribute your experimental ideas and digital explorations to our synthetic publishing platform."
 author: "Manic Agency"
@@ -8,31 +8,36 @@ tags: ["contribution", "guide", "markdown", "writing", "open source"]
 image: "/assets/blog/contribute-banner.jpg"
 ---
 
-# ⟨/⟩ Contributing to Manic.agency 
-
 > *"The digital frontier isn't found. It's synthesized."*
 
-The [Manic.agency](https://manic.agency) platform is an experimental publishing space for technical explorations, digital art theories, and synthetic interfaces. No traditional CMS—just Markdown, code, and contributions from like-minded digital explorers across the network.
+## 🌐 About Manic.agency
 
-We cover experimental UI/UX, AI systems, creative coding, synthetic media, speculative technology, and the strange spaces between established disciplines.
+Manic.agency is an **experimental publishing platform** that transcends traditional content management systems. We are a digital space dedicated to exploring:
+
+- Experimental UI/UX
+- AI Systems
+- Creative Coding
+- Synthetic Media
+- Speculative Technology
+- Interdisciplinary digital explorations
 
 ## 📡 Contribution Protocol
 
-We accept article contributions via **pull request**. Your content can range from fully-formed articles to experimental concepts, research snippets, or technical demonstrations.
-
 ### Submission Process
 
-1. Fork the repository
-2. Create your content file in `src/posts/[category]/your-article-slug.md`
-3. Add any supporting images to `public/assets/blog/[your-article-slug]/`
-4. Open a pull request
-5. Engage with any feedback
+1. **Fork the Repository**
+2. **Create Content File**
+   - Location: `src/posts/[category]/your-article-slug.md`
+3. **Add Supporting Images**
+   - Location: `public/assets/blog/[your-article-slug]/`
+4. **Open a Pull Request**
+5. **Engage with Feedback**
 
 ## 📊 Markdown & Metadata Structure
 
-Each contribution requires structured metadata and content formatting.
-
 ### Required Metadata
+
+Every contribution must include a comprehensive YAML frontmatter:
 
 ```yaml
 ---
@@ -44,12 +49,9 @@ category: "experiments"
 tags: ["neural-interfaces", "synthetic-media", "speculative-tech"]
 image: "/assets/blog/your-article-slug/featured-image.jpg"
 ---
-
 ```
 
 ### Extended Metadata Options
-
-The system supports additional parameters for enhanced presentation:
 
 ```yaml
 authorBio: "Brief context about your relevant background and work."
@@ -59,81 +61,46 @@ bgColor: "#0a0b13"  # Custom background color in HEX format
 textColor: "#7f5af0"  # Custom text color in HEX format
 ```
 
-## 🧠 Content Formatting Guide
+## 🧠 Advanced Content Formatting
 
-### Advanced Image Formatting
+### Image Controls
 
-Our system supports extended image controls through a specialized syntax:
-
-#### Basic Image with Size Control
-
-```markdown
-![Image description|size=small](/path/to/image.jpg)
-```
-
-Size options include:
-- `small` - Compact, roughly 1/4 width (300px max)
-- `medium` - Standard, roughly 1/2 width (500px max)
-- `large` - Expanded, roughly 3/4 width (800px max)
-- `full` - Full-width display
-
-#### Image Alignment
-
-```markdown
-![Circuit diagram|size=medium|align=right](/path/to/circuit.jpg)
-```
-
-Alignment options:
-- `left` - Text wraps around the right side
-- `center` - Default centered display
-- `right` - Text wraps around the left side
-
-#### Visual Effects
-
-```markdown
-![Neural network visualization|effect=glow](/path/to/network.jpg)
-```
-
-Effect options:
-- `shadow` - Subtle drop shadow
-- `border` - Defined border with accent color
-- `glow` - Ethereal glow using accent color
-- `glitch` - Interactive glitch effect on hover
-
-#### Border Styles
-
-```
-![Image description|border=gradient](/path/to/image.jpg)
-```
-
-- `simple` - Simple border
-- `gradient` - Gradient border using accent colors
-- `glow` - Glowing border effect
-- `inset` - Inset shadow effect
-- `dashed` - Dashed border
-- `none` - No border (default)
-
-#### Zoomable by Default
-
-```markdown
-![Image description|zoomable=false](/path/to/image.jpg)
-```
-
-#### Image with Caption
-
-```markdown
-![|caption=Synthetic interface prototype from our 2024 experiments](/path/to/interface.jpg)
-```
-
-#### Combined Parameters
+#### Comprehensive Image Formatting
 
 ```markdown
 ![Circuit board close-up|size=medium|align=left|effect=glow|caption=Experimental neural processing unit](/path/to/circuit.jpg)
 ```
 
-### Image Grid Layouts
+##### Size Options
+- `small`: Compact (300px max)
+- `medium`: Standard (500px max)
+- `large`: Expanded (800px max)
+- `full`: Full-width display
 
-For multi-image displays:
+##### Alignment Options
+- `left`: Text wraps right
+- `center`: Centered display
+- `right`: Text wraps left
+
+##### Visual Effects
+- `shadow`: Subtle drop shadow
+- `border`: Defined border
+- `glow`: Ethereal accent glow
+- `glitch`: Interactive hover effect
+
+##### Border Styles
+- `simple`: Basic border
+- `gradient`: Accent gradient border
+- `glow`: Glowing border
+- `inset`: Inset shadow
+- `dashed`: Dashed border
+- `none`: No border (default)
+
+#### Additional Image Controls
+- Zoomable toggle
+- Custom captions
+
+### Image Grid Layouts
 
 ```markdown
 <ImageGrid columns=3>
@@ -143,19 +110,18 @@ For multi-image displays:
 </ImageGrid>
 ```
 
-### Code Blocks with Syntax Highlighting
+### Code Blocks
+
+Supports syntax highlighting across multiple languages:
 
 ```javascript
-// Neural pattern generator
 function generatePattern(complexity, seed) {
   const base = seed || Math.random();
-  return Array(complexity).fill(0).map((_, i) => {
-    return {
-      weight: base * (i / complexity) * Math.sin(i),
-      activation: i % 2 ? 'sigmoid' : 'relu',
-      connections: Math.floor(complexity / (i + 1))
-    };
-  });
+  return Array(complexity).fill(0).map((_, i) => ({
+    weight: base * (i / complexity) * Math.sin(i),
+    activation: i % 2 ? 'sigmoid' : 'relu',
+    connections: Math.floor(complexity / (i + 1))
+  }));
 }
 ```
 
@@ -163,19 +129,19 @@ function generatePattern(complexity, seed) {
 
 ```markdown
 :::note
-Important implementation details should be noted here.
+Important implementation details.
 :::
 
 :::warning
-Experimental features may produce unpredictable results.
+Experimental features alert.
 :::
 
 :::tip
-Optimize rendering by pre-processing node connections.
+Optimization suggestions.
 :::
 
 :::alert
-Critical security considerations for neural access points.
+Critical considerations.
 :::
 ```
 
@@ -212,27 +178,52 @@ $$
       └── digital-consciousness-parameters.md
 ```
 
-## 🔧 Real-World Examples
+## 🧪 Technical Rendering Capabilities
 
-### Effective Image Sizing
+Our platform supports:
+- Syntax highlighting
+- Responsive image layouts
+- Dynamic image sizing
+- Mathematical formula rendering (KaTeX)
+- Interactive client components
+- Custom callout blocks
+- JavaScript code execution (sandbox)
+- Graph/chart generation
+
+## 🔮 Feature Roadmap
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| ✅ Advanced image controls | Implemented | Sizing, alignment, effects |
+| ✅ Code syntax highlighting | Implemented | Multiple language support |
+| ✅ Image grids | Implemented | Responsive layouts |
+| ✅ Custom callouts | Implemented | Informative blocks |
+| ✅ Table formatting | Implemented | Responsive data tables |
+| ✅ Math formula rendering | In testing | KaTeX integration |
+| 🔄 Interactive code blocks | In development | Editable examples |
+| 🔄 SVG diagram generation | In development | Code-to-diagram rendering |
+| 📝 Data visualization | Planned | Chart generation from tables |
+| 📝 Timeline components | Planned | Interactive concept timelines |
+
+## 🔬 Real-World Contribution Examples
+
+### Image Sizing Example
 
 ```markdown
 # Neural Pathways in Synthetic Systems
 
-Text introduction to the concept...
-
 ![Basic neural structure|size=small|align=right](/assets/neural-basic.jpg)
 
-When examining synthetic neural structures, we observe emergent pathway formation without explicit programming. These pathways demonstrate characteristics similar to biological systems while maintaining their unique synthetic properties.
+When examining synthetic neural structures, we observe emergent pathway formation...
 
 ## Advanced Connections
 
-![Connection topology map|size=large](/assets/connection-topology.jpg)
+![Connection topology|size=large](/assets/connection-topology.jpg)
 
-The topology of advanced connections reveals complex decision matrices that evolve based on input patterns...
+The topology reveals complex decision matrices...
 ```
 
-### Using Image Grid for Comparisons
+### Image Grid Comparison
 
 ```markdown
 ## System Evolution Across Iterations
@@ -243,52 +234,27 @@ The topology of advanced connections reveals complex decision matrices that evol
   ![Version 3.0](/assets/v3-interface.jpg)
 </ImageGrid>
 
-The progression of the interface demonstrates our shifting understanding of synthetic-human interaction patterns...
+The progression demonstrates our evolving understanding...
 ```
 
-### Mathematical Analysis Example
+### Mathematical Analysis
 
 ```markdown
 ## Activation Function Optimization
 
-The normalized activation pattern can be expressed as:
+The normalized activation pattern:
 
 $$
 A(x) = \max(0, x) + \alpha \min(0, x)
 $$
 
-Where $\alpha$ represents the leakage coefficient, typically set between 0.1 and 0.3 for optimal signal propagation without information loss.
+Where $\alpha$ represents the leakage coefficient...
 ```
-
-## 🧪 Technical Implementation Details
-
-The rendering system supports:
-
-- **Syntax highlighting** for multiple languages
-- **Responsive image layouts** with dynamic sizing
-- **Mathematical formula rendering** using KaTeX
-- **Interactive elements** via client components
-- **Custom callouts** for various information types
-- **Code execution** for JavaScript examples (sandbox environment)
-- **Graph/chart generation** from code or data
-
-## 🔮 Feature Roadmap
-
-| Feature | Status | Description |
-|---------|--------|-------------|
-| ✅ Advanced image controls | Implemented | Size, alignment, effects, captions |
-| ✅ Code syntax highlighting | Implemented | Multiple language support |
-| ✅ Image grids | Implemented | Responsive multi-image layouts |
-| ✅ Custom callouts | Implemented | Note, warning, tip, alert blocks |
-| ✅ Table formatting | Implemented | Responsive data tables |
-| ✅ Math formula rendering | In testing | KaTeX integration |
-| 🔄 Interactive code blocks | In development | Editable & executable examples |
-| 🔄 SVG diagram generation | In development | Code-to-diagram rendering |
-| 📝 Data visualization | Planned | Chart generation from markdown tables |
-| 📝 Timeline components | Planned | Interactive project/concept timelines |
 
 ## 🕳️ Transmission Protocol
 
-This is an experimental platform operating across normal disciplinary boundaries. We're building the tools, systems, and theories we wish existed. Your anomalous contributions are welcome.
+We're an experimental platform operating beyond traditional disciplinary boundaries. We build the tools, systems, and theories we wish existed.
 
-Pull requests transmit data across the void. 📡
+**Your anomalous contributions are welcome.** 📡
+
+*Synthesize the unexpected.*

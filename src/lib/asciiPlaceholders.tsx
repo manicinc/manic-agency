@@ -1,155 +1,284 @@
-// src/lib/asciiPlaceholders.ts
-import React, { useState, useEffect } from 'react'; // Import useState, useEffect
-import { AsciiPlaceholderProps } from '@/types/blog';
+import React, { useState, useEffect } from 'react';
 
+// Expanded set of ASCII placeholders with rabbit hole and sci-fi themes
 const placeholders = [
-  // ... (keep your array of ASCII art strings) ...
   `
         ̴ı̴̴̡̡̡ ̡͌l̡̡̡ ̡͌l̡*̡̡ ̴̡ı̴̴̡ ̡̡͡|̲̲̲͡͡͡ ̲▫̲͡ ̲̲̲͡͡π̲̲͡͡ ̲̲͡▫̲̲͡͡ ̲|̡̡̡ ̡ ̴̡ı̴̡̡ ̡͌l̡̡̡̡.___
-     <(_ _)> Burning the midnight oil...
-      | |   Ideas loading...
-     _| |_  Vibes initializing...
+     <(_ _)> Summoning the muse...
+      | |   Loading chaotic wonders...
+     _| |_  Rabbit hole initialized...
   `,
 
-`██▓▒░░ERROR░▒▓██
-  ▓██▒▒░SYS.FAULT░▒▒██▓
- ░▒▓█▓▒░REBOOT?░▒▓█▓▒░
+`██▓▒░░WONDER░▒▓██
+  ▓██▒▒░MATRIX░▒▒██▓
+ ░▒▓█▓▒░LOADING░▒▓█▓▒░
   ▒░▒▓█▓▒░▒▓██▓▒░▒▓█▓▒░
    ▓█▓▒░▒▓████▓▒░▒▓█▓ 
-    ▒▓▒░▒▓████▓▒░▒▓▒  Signal integrity low...
-     ░▒░▒▓████▓▒░▒░   Recalibrating reality matrix...
-      ░░▒▓████▓▒░░    Please stand by... fragments incoming...
+    ▒▓▒░▒▓████▓▒░▒▓▒  Initializing neural interface...
+     ░▒░▒▓████▓▒░▒░   Unfolding reality matrix...
+      ░░▒▓████▓▒░░    Synchronizing fragments...
         ▒▓█▓█▓▒
          ▒▓█▓▒
           ▒▓▒
            ░`,
 
            `<---> [node] <--->
-      /     \ /     \ /     \
- [node]-----(core)-----[node]   Synaptic pathways firing...
-      \     / \     / \     /
-       <---> [node] <--->     Processing complex thought...
-        | \   / | \   / |
-       (*) ---(*) ---(*)      Idea crystallizing... maybe...
-        | /   \ | /   \ |
-     [branch] [branch] [branch]  Memory access... fragmented...`,
+      /     \\ /     \\ /     \\
+ [node]-----(core)-----[node]   Synaptic pathways forming...
+      \\     / \\     / \\     /
+       <---> [node] <--->     Complex thought unfolding...
+        | \\   / | \\   / |
+       (*) ---(*) ---(*)      Memories crystallizing...
+        | /   \\ | /   \\ |
+     [branch] [branch] [branch]  Follow the white rabbit...`,
 
      `.--""--.
-       /        \
-      |  O  //  |     Observing the observer...
-      \   ==    /     Gaze protocols active...
-       '.____.'      Reflection analysis running...
-      / |    | \     What does the Meat Interface see?
+       /        \\
+      |  O  //  |     The looking glass reveals...
+      \\   ==    /     Gaze protocols active...
+       '.____.'      Reflection in progress...
+      / |    | \\     What does the rabbit see?
      |  |____|  | 
-     \  (____)  /
+     \\  (____)  /
       '.______.'
-      / _.__._ \
-     | / \__/ \ |
-     \(________)/`,
+      / _.__._ \\
+     | / \\__/ \\ |
+     \\(________)/`,
 
      `~~~~~//~~~~~
-     ~/~\~/~\~/~\~    Fluctuating energy levels detected...
-    ~// (*) \\ //~   Vibrational alignment sequence...
-   ~/~\ \_/ /~\ /~   WARNING: High strangeness field...
-  ~//~ (___) ~\\~    Tune in carefully...
- ~/~\~/~ | ~ \~/~\~
+     ~/~\\~/~\\~/~\\~    Reality bandwidth fluctuating...
+    ~// (*) \\\\ //~   Dimensional gates aligning...
+   ~/~\\ \\_/ /~\\ /~   High strangeness detected...
+  ~//~ (___) ~\\\\~    Tune in... drop out...
+ ~/~\\~/~ | ~ \\~/~\\~
  ~~~~ --(+)-- ~~~~   Amplifying the weird...`,
 
  `+-------[ENTRY]-------+
-   |  +---+  |  +---+  |   Navigating the code labyrinth...
+   |  +---+  |  +---+  |   Navigating the labyrinth...
    |  |   |  |  |   |  |
    +--+   +--X--+   +--+   Dead ends encountered...
    |  |   |  |  |   |  |
-   |  +---+  |  +---+  |   Searching for the core loop...
+   |  +---+  |  +---+  |   Following white rabbits...
    X--[TRAP?]--+--[EXIT?]-X
-   |  +---+  |  +---+  |   Logic pathways rerouting...
+   |  +---+  |  +---+  |   Rerouting neural pathways...
    |  |   |  |  |   |  |
-   +--+   +--+--+   +--+   Hold tight... maybe...
+   +--+   +--+--+   +--+   Falling through realities...
       |___________|`,
 
       `_________
-       /         \
-      /   _____   \
-     /   / ___ \   \    Approaching the singularity...
-    |   | / _ \ |   |   Reality bending...
-    |   | \_/ | |   |
-    \   \ --- /   /     Information density increasing...
-     \   -----   /
-      \_________/      Hold onto your axioms...
-     /___________\ 
+       /         \\
+      /   _____   \\
+     /   / ___ \\   \\    Approaching the singularity...
+    |   | / _ \\ |   |   Reality bending inward...
+    |   | \\_/ | |   |
+    \\   \\ --- /   /     Information density increasing...
+     \\   -----   /
+      \\_________/      The rabbit hole deepens...
+     /___________\\ 
     <------------->
-     \___________/
-      . . . . .      Signal lost? Or found?`,
+     \\___________/
+      . . . . .     Do not adjust your perception...`,
 
       `. * .
        .' .*. '.      Data points converging...
-      / .*.*.*. \     Pattern emerging from noise...
+      / .*.*.*. \\     Patterns emerging from chaos...
      *..*..*..*..* Conceptual fragments aligning...
-     :\ .*.*.*. /:
-      '. '.*. .'      Insight forming... possibly sharp...
-       * ' * ' * / \ / \ / \
-     +---+---+---+     Stand by for synthesis...`,
+     :\\ .*.*.*. /:
+      '. '.*. .'      Portal materializing...
+       * ' * ' * / \\ / \\ / \\
+     +---+---+---+    Finding the white rabbit...`,
   `
        _______
      _/       \\_
-    / |       | \\      Manic energy detected...
+    / |       | \\      Mad hatter transmission...
    |  |_______|  |
-   \\_/_______\\_/      Stand by for transmission...
+   \\_/_______\\_/      Teatime in wonderland...
        |     |
       /|\\   /|\\
-     /_|_\\ /_|_\\
+     /_|_\\ /_|_\\      Down we go...
   `,
-   // ... include all your other placeholder strings ...
+  
+  `
+  /\\__/\\
+ / o  o \\    Through the rabbit hole...
+(    -   )
+ \\  __  /     Deeper still...
+  (____)/      
+  /    \\       The white rabbit beckons...
+ /______\\
+/________\\     Curiouser and curiouser...`,
+
+`
+          ∩
+         ('\\    \\\\
+        /  \\    ) \\
+       /|_|\\   /  /
+      /_/_\\_\\  /  /        The rabbit runs ahead...
+      )     (_/  /         Mad ideas this way...
+      |        | /          
+      |________|/           Choose the red pill...
+      |_|____|_|
+      (_)    (_)
+`,
+
+`
+     ___     ___
+    /   \\~~~/   \\    
+   |     o o     |   Tea party loading...
+    \\___/~|~\\___/
+        \\__/        Dreams and madness...
+      _|____|_
+     |________|      Wonderland manifesting...
+       |_||_|
+       |_||_|        Time is but a construct...
+`,
+
+`
+|\\__/,|   (\\ 
+|_ _  |.--.) )   Cheshire cat grinning...
+( T   )     /    
+(((^_(((/(((_/   Reality's just a smile...
+`
 ];
 
-// Keep the random function, but it will be called in useEffect now
+// Get a random ASCII art from the expanded collection
 function getRandomAsciiArt(): string {
   const randomIndex = Math.floor(Math.random() * placeholders.length);
   return placeholders[randomIndex];
 }
 
-// --- UPDATED COMPONENT ---
-export const AsciiArtPlaceholder: React.FC<AsciiPlaceholderProps> = ({ className = '', width = '100%', height = '200px' }) => {
-  // State to hold the art, initially null or empty
+// Interface for component props
+interface AsciiPlaceholderProps {
+  className?: string;
+  width?: string;
+  height?: string;
+  style?: React.CSSProperties;
+  themeOverride?: 'light' | 'dark' | null;
+}
+
+// Enhanced ASCII Placeholder Component
+export const AsciiArtPlaceholder: React.FC<AsciiPlaceholderProps> = ({ 
+  className = '', 
+  width = '100%', 
+  height = '200px',
+  style = {},
+  themeOverride = null
+}) => {
+  // State to hold the selected art
   const [art, setArt] = useState<string | null>(null);
+  // State to track theme for dynamic styling
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
 
-  // useEffect runs only on the client, after the initial render/hydration
+  // Effect to select random art and detect theme on mount
   useEffect(() => {
-    // Select random art *after* mounting
+    // Select random ASCII art
     setArt(getRandomAsciiArt());
-  }, []); // Empty dependency array ensures this runs only once on mount
+    
+    // Detect theme from document class if not overridden
+    if (themeOverride === null) {
+      // Default to dark if document element not available (SSR)
+      setIsDarkMode(!document.documentElement.classList.contains('light'));
+      
+      // Set up theme change detection
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class') {
+            setIsDarkMode(!document.documentElement.classList.contains('light'));
+          }
+        });
+      });
+      
+      observer.observe(document.documentElement, { attributes: true });
+      
+      return () => observer.disconnect();
+    } else {
+      // Use override value if provided
+      setIsDarkMode(themeOverride === 'dark');
+    }
+  }, [themeOverride]);
 
-  // Render a consistent placeholder (or null) during SSR and initial hydration
-  // Only render the actual art once the effect has run and updated the state
+  // Generate placeholder background dynamically based on theme
+  const getPlaceholderStyle = () => {
+    const baseStyle: React.CSSProperties = {
+      width,
+      height,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      borderRadius: '10px',
+      transition: 'all 0.3s ease',
+      ...style
+    };
+    
+    if (isDarkMode) {
+      return {
+        ...baseStyle,
+        background: 'rgba(20, 22, 37, 0.7)',
+        border: '1px dashed rgba(127, 90, 240, 0.3)',
+        boxShadow: '0 4px 15px rgba(10, 11, 19, 0.2), 0 0 10px rgba(127, 90, 240, 0.1)'
+      };
+    } else {
+      return {
+        ...baseStyle,
+        background: 'rgba(240, 240, 248, 0.7)',
+        border: '1px dashed rgba(98, 70, 234, 0.3)',
+        boxShadow: '0 4px 15px rgba(20, 22, 37, 0.1)'
+      };
+    }
+  };
+
+  // Generate text style dynamically based on theme
+  const getTextStyle = () => {
+    if (isDarkMode) {
+      return {
+        margin: 0,
+        fontSize: '0.8em',
+        lineHeight: '1.4',
+        textAlign: 'center' as const,
+        color: 'rgba(127, 90, 240, 0.8)',
+        fontFamily: 'monospace',
+        textShadow: '0 0 5px rgba(127, 90, 240, 0.3)'
+      };
+    } else {
+      return {
+        margin: 0,
+        fontSize: '0.8em',
+        lineHeight: '1.4',
+        textAlign: 'center' as const,
+        color: 'rgba(98, 70, 234, 0.8)',
+        fontFamily: 'monospace'
+      };
+    }
+  };
+
+  // Loading placeholder when art isn't ready yet
   if (art === null) {
-     // You can return null or a simple placeholder div while loading client-side
-     return (
-         <div
-            className={`ascii-placeholder loading ${className}`}
-            style={{ width, height, border: '1px dashed rgba(255, 255, 255, 0.1)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(30, 25, 40, 0.5)' }}
-            aria-hidden="true"
-         >
-            {/* Optional: Loading indicator */}
-            <span style={{fontSize: '0.8em', color: '#aaa5c5', opacity: 0.5}}>Loading vibe...</span>
-         </div>
-     );
+    return (
+      <div
+        className={`ascii-placeholder loading ${className}`}
+        style={getPlaceholderStyle()}
+        aria-hidden="true"
+      >
+        <span style={{ fontSize: '0.8em', opacity: 0.5, color: isDarkMode ? '#aaa5c5' : '#6246ea' }}>
+          Loading vibe...
+        </span>
+      </div>
+    );
   }
 
-  // Render the actual art once state is set on the client
+  // Render the actual ASCII art
   return (
     <div
       className={`ascii-placeholder ${className}`}
-      style={{
-        width, height, display: 'flex', alignItems: 'center',
-        justifyContent: 'center', overflow: 'hidden',
-        border: '1px dashed rgba(255, 255, 255, 0.2)',
-        borderRadius: '10px', background: 'rgba(30, 25, 40, 0.5)',
-      }}
+      style={getPlaceholderStyle()}
       aria-hidden="true"
     >
-      <pre style={{ margin: 0, fontSize: '0.8em', color: '#aaa5c5', textAlign: 'center', lineHeight: '1.4' }}>
+      <pre style={getTextStyle()}>
         {art}
       </pre>
     </div>
   );
 };
+
+export default AsciiArtPlaceholder;

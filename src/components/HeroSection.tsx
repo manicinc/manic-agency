@@ -1,77 +1,77 @@
+// src/components/HeroSection.tsx
 import React from "react";
 import Link from "next/link";
-import Container from "./Container";
-import FadeInLong from "./FadeIn";
+import { BlogPost } from "@/types/blog"; // Make sure BlogPost type is correct
+import { ArrowRight } from 'lucide-react';
 
-export const HeroSection = () => {
+// Define props for the component
+interface HeroSectionProps {
+  featuredPosts: BlogPost[];
+}
+
+// This can now safely be a Server Component (or even Client if needed, as it doesn't fetch)
+// No "use client" needed unless you add client hooks here later
+export function HeroSection({ featuredPosts }: HeroSectionProps) {
+
+  // Data (`featuredPosts`) is received as a prop
+
   return (
-    <section className="relativev md:pt-32">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
-          {/* Text Content */}
-          <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Bridging <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Reality</span> with the 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"> Digital Future</span>
-            </h1>
-            
-            <p className="text-gray-300 text-lg mb-8 max-w-xl font-bold">
-            We are a group of web developers, digital marketers, machine learning / AI engineers, product designers, game designers, and legal specialists, working at the intersection of reality, mixed reality, web3, and the emerging metaverse.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-            <Link
-  href="#work"
-  className="inline-block px-8 py-3 text-black font-mono text-lg tracking-wider uppercase bg-[#0ff] rounded-md transition duration-300 hover:bg-[#0cc] shadow-[4px_4px_0_#f0f,8px_8px_0_#00f] hover:shadow-[2px_2px_0_#f0f,4px_4px_0_#00f]"
->
-  Explore Our Work
-</Link>
-
-
-
-<Link
-  href="/contact"
-  className="inline-block px-8 py-3 text-white font-mono text-lg tracking-wider uppercase border-2 border-[#0ff] rounded-md transition duration-300 hover:bg-[#0ff]/10 shadow-[2px_2px_0_#f0f,4px_4px_0_#00f]"
->
-  Connect With Us
-</Link>
-
-            </div>
-          </div>
-          
-        </div>
-        
-        {/* Tech Logos/Partnerships */}
-        <div className="mt-16 pt-8">
-          <p className="text-center text-gray-400 text-sm mb-6">Leveraging cutting-edge technologies</p>
-          <div className="flex flex-wrap justify-center gap-8 opacity-60">
-            <div className="w-16 h-8 bg-white/20 rounded flex items-center justify-center">AR/VR</div>
-            <div className="w-16 h-8 bg-white/20 rounded flex items-center justify-center">Web3</div>
-            <div className="w-16 h-8 bg-white/20 rounded flex items-center justify-center">AI/ML</div>
-            <div className="w-16 h-8 bg-white/20 rounded flex items-center justify-center">Cloud</div>
-            <div className="w-16 h-8 bg-white/20 rounded flex items-center justify-center">DevOps</div>
-          </div>
-        </div>
+    <div className="container mx-auto px-4 py-16 md:py-24"> {/* Adjust padding */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+          Featured 
+        </h1>
+        <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+          A brief, engaging subtitle about what you do or offer.
+        </p>
+        {/* Optional: Add main Call-to-Action buttons here if needed */}
       </div>
-      
-    {/* --- New Section Added Below --- */}
-    <div className="py-5 md:py-0">
 
-    <Container>
-        <FadeInLong className="flex items-center gap-x-8 w-full">
-        {/* <FadeIn className="max-w-full"> */}
-          <div className="logoNeon text-1xl w-full">
-            <div className="logoNeonText w-full"> <b><span></span>We&apos;re <span> </span>all<span> m</span>ad here</b></div>
+      {/* Featured Posts Section */}
+      {/* Check if the received array has posts */}
+      {featuredPosts && featuredPosts.length > 0 && (
+        <div>
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-white mb-8">
+            Featured Insights
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Map over the received featuredPosts prop */}
+            {featuredPosts.map((post) => (
+              <div key={post.slug + (post.category || '')} className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col">
+                {post.image && (
+                  <Link href={`/blog/${post.category}/${post.slug}`} className="block mb-4 overflow-hidden rounded">
+                    <img
+                      src={post.image}
+                      alt={post.title || 'Blog post image'} // Use title for alt text
+                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width={400} // Example: Provide dimensions
+                      height={225} // Example: Provide dimensions
+                    />
+                  </Link>
+                )}
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  <Link href={`/blog/${post.category}/${post.slug}`} className="hover:text-accent-primary transition-colors">
+                    {post.title}
+                  </Link>
+                </h3>
+                <p className="text-gray-400 text-sm mb-4 line-clamp-3 flex-grow">
+                  {post.excerpt}
+                </p>
+                <div className="mt-auto">
+                  <Link href={`/blog/${post.category}/${post.slug}`} className="text-accent-primary hover:text-accent-secondary font-semibold inline-flex items-center">
+                    Read More <ArrowRight size={16} className="ml-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-        </FadeInLong>
-        {/* <FadeInStagger faster> */}
-        {/* </FadeInStagger> */}
-      </Container>
+        </div>
+      )}
+      {/* Optionally handle case where featuredPosts is empty */}
+      {(!featuredPosts || featuredPosts.length === 0) && (
+         <p className="text-center text-gray-500">No featured posts available right now.</p>
+      )}
     </div>
-            {/* --- End of New Section --- */}
-
-    </section>
   );
-};
-
-export default HeroSection;
+}

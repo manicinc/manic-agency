@@ -1,4 +1,5 @@
 // src/lib/getAllPosts.ts
+import "server-only"; // <-- KEEP THIS. It's correct for App Router.
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -18,14 +19,15 @@ function getGitLastCommitInfo(filePath: string, format: string): string | null {
   if (!USE_GIT_FALLBACK) return null;
   try {
     const formattedPath = path.normalize(filePath);
+    // Basic escaping for common shell characters (might need refinement depending on paths)
     const escapedPath = formattedPath.replace(/(["$`\\])/g, '\\$1');
-    // Get the latest commit date (ISO 8601 format)
     const command = `git log -1 --follow --format=${format} -- "${escapedPath}"`;
     const output = execSync(command, { timeout: 5000, stdio: 'pipe' }).toString().trim();
     return output || null;
   } catch (error: any) {
+    // Silently ignore 'no such path' errors, warn others
     if (!error.stderr?.toString().includes('fatal: no such path')) {
-       console.warn(`[getGitLastCommitInfo] WARN: Could not get Git info (${format}) for ${filePath}. Error: ${error.message}`);
+        console.warn(`[getGitLastCommitInfo] WARN: Could not get Git info (${format}) for ${filePath}. Error: ${error.message}`);
     }
     return null;
   }
@@ -37,7 +39,7 @@ export function calculateReadingTime(content: string | undefined): number {
   const wordsPerMinute = 200;
   const wordCount = content.split(/\s+/).filter(Boolean).length;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
-  return readingTime > 0 ? readingTime : 1;
+  return readingTime > 0 ? readingTime : 1; // Ensure minimum 1 min
 }
 
 // Main function to get all posts
@@ -46,30 +48,27 @@ export function getAllPosts(): BlogPost[] {
 
   if (!fs.existsSync(POSTS_DIR)) {
     console.error(`[getAllPosts] ERROR: Posts directory not found at ${POSTS_DIR}.`);
+    // Consider returning empty array instead of throwing for some use cases?
     throw new Error(`Posts directory not found: ${POSTS_DIR}`);
   }
 
   let posts: BlogPost[] = [];
   try {
     const categories = fs.readdirSync(POSTS_DIR, { withFileTypes: true });
-    // console.log(`[getAllPosts] Found category dirents: ${categories.map(d => d.name).join(', ')}`);
 
     for (const categoryDirent of categories) {
       if (!categoryDirent.isDirectory()) continue;
 
-      const categoryFromFile = categoryDirent.name; // Use folder name as category
+      const categoryFromFile = categoryDirent.name;
       const categoryPath = path.join(POSTS_DIR, categoryFromFile);
-      // console.log(`[getAllPosts] Processing category: ${categoryFromFile} at ${categoryPath}`);
 
       try {
         const files = fs.readdirSync(categoryPath, { withFileTypes: true });
-        // console.log(`[getAllPosts] Files in ${categoryFromFile}: ${files.map(f => f.name).join(', ')}`);
 
         for (const fileDirent of files) {
           const fileName = fileDirent.name;
           const filePath = path.join(categoryPath, fileName);
 
-          // Skip non-markdown files
           if (!fileDirent.isFile() || !fileName.endsWith('.md')) {
             continue;
           }
@@ -80,41 +79,58 @@ export function getAllPosts(): BlogPost[] {
             const slug = fileName.replace(/\.md$/, "");
 
             // --- Validate REQUIRED Fields ---
-            const title = data.title ?? slug.replace(/-/g, ' '); // Fallback title
-            let date = data.date; // Date from frontmatter
-            if (date instanceof Date) date = date.toISOString().split('T')[0]; // Ensure YYYY-MM-DD string
-            else if (typeof date === 'string') date = date.split('T')[0]; // Ensure YYYY-MM-DD string
-
-            if (!slug || typeof slug !== 'string') { /* console.error... */; continue; }
-            if (!categoryFromFile || typeof categoryFromFile !== 'string') { /* console.error... */; continue; } // Should always be true
-            if (!title || typeof title !== 'string') { /* console.error... */; continue; }
-            if (!date || typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date)) { // Validate YYYY-MM-DD format
-                console.warn(`[getAllPosts] WARN: Invalid or missing 'date' (YYYY-MM-DD) in frontmatter for ${filePath}. Using today as fallback.`);
-                date = new Date().toISOString().split('T')[0]; // Fallback date
+            const title = data.title ?? slug.replace(/-/g, ' ');
+            let date = data.date;
+            if (date instanceof Date) {
+                // Format date to YYYY-MM-DD string if it's a Date object
+                date = date.toISOString().split('T')[0];
+            } else if (typeof date === 'string') {
+                // Ensure YYYY-MM-DD format if it's a string
+                date = date.split('T')[0];
+            } else {
+                // Handle cases where date might be missing or invalid type
+                date = null; // Or set a default/fallback date
             }
+
+            // Validate mandatory fields more strictly
+            if (!slug || typeof slug !== 'string') {
+                console.warn(`[getAllPosts] Skipping ${filePath} due to invalid slug.`);
+                continue;
+            }
+            if (!title || typeof title !== 'string') {
+                console.warn(`[getAllPosts] Skipping ${filePath} due to invalid title.`);
+                 continue;
+            }
+            // Validate date format YYYY-MM-DD after potential formatting/fallback
+             if (!date || typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+                 console.warn(`[getAllPosts] WARN: Invalid or missing 'date' (YYYY-MM-DD) in frontmatter for ${filePath}. Using today as fallback.`);
+                 date = new Date().toISOString().split('T')[0]; // Fallback date
+             }
+
 
             // --- Process Optional Fields ---
             const excerpt = data.excerpt ?? content.slice(0, 150) + "...";
-            let author = data.author ?? getGitLastCommitInfo(filePath, '%an') ?? "Manic Agency"; // Git author fallback
+            let author = data.author ?? getGitLastCommitInfo(filePath, '%an') ?? "Manic Agency";
             const tags = data.tags ?? [];
             const image = data.image ?? null;
-            const authorBio = data.authorBio;
-            const featured = data.tags?.map((t:string) => String(t).toLowerCase()).includes('featured') ?? false; // Check if 'featured' tag exists
-            const modifiedDate = getGitLastCommitInfo(filePath, '%cI'); // Get last commit date ISO string
+            const featured = Array.isArray(tags) && tags.map(t => String(t).toLowerCase()).includes('featured'); // Safer check
+            const modifiedDate = getGitLastCommitInfo(filePath, '%cI'); // ISO 8601 format
 
             posts.push({
               slug: slug,
               category: categoryFromFile,
               title: title,
-              date: date, // Primary date (from frontmatter or fallback)
-              modifiedDate: modifiedDate ?? undefined, // Store if found
+              date: date, // Formatted/validated date
+              modifiedDate: modifiedDate ?? undefined,
               excerpt: excerpt,
-              author: author,
-              tags: Array.isArray(tags) ? tags : [],
-              image: typeof image === 'string' ? image : null, // Ensure image is string or null
-              content: content,
-              featured: featured,
-              ...(authorBio && { authorBio: authorBio }),
+              author: typeof author === 'string' ? author : "Manic Agency", // Ensure author is string
+              tags: Array.isArray(tags) ? tags.map(String) : [], // Ensure tags is string array
+              image: typeof image === 'string' ? image : null,
+              content: content, // Include content if needed downstream, otherwise remove
+              featured: !!featured, // Ensure boolean
+              readingTime: calculateReadingTime(content), // Calculate reading time
+              // Spread optional fields safely
+              ...(data.authorBio && { authorBio: data.authorBio }),
             });
 
           } catch (fileProcessingError) {
@@ -127,14 +143,10 @@ export function getAllPosts(): BlogPost[] {
     } // end category loop
   } catch (topLevelError) {
      console.error(`[getAllPosts] ERROR reading top-level posts directory ${POSTS_DIR}:`, topLevelError);
+     // Depending on use case, maybe return empty array instead of throwing?
      throw new Error(`Failed to read posts directory: ${POSTS_DIR}`);
   }
 
-  // NOTE: Sorting is now done in the page component that uses this data
-
   console.log(`[getAllPosts] Finished. Found and processed ${posts.length} posts.`);
-  // Log data for specific slugs (for debugging)
-  // const specificSlugs = ['contribute', 'logomaker-...', 'ai-sociopaths', 'the-meat-interface'];
-  // posts.forEach(p => { if (p?.slug && specificSlugs.includes(p.slug)) { console.log(`--- Data for ${p.slug} ---`); console.log(JSON.stringify(p, null, 2)); } });
   return posts;
 }

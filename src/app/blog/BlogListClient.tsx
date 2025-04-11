@@ -1,44 +1,45 @@
-// /app/blog/BlogListClient.tsx
-"use client";
-
-import { useState, useEffect, useMemo, useCallback } from "react";
+// Added React.FC for component typing and React.FormEvent/ChangeEvent
+import React, { useState, useEffect, useMemo, useCallback, FC, FormEvent, ChangeEvent } from "react";
 import Link from "next/link";
-import { BlogPost } from "@/types/blog";
-// Import the ASCII placeholder component
 import { AsciiArtPlaceholder } from "@/lib/asciiPlaceholders";
+import { Search, Filter, Tag, Calendar, Clock, X, ArrowUp } from "lucide-react";
 
-interface BlogListClientProps {
-  initialPosts: BlogPost[]; // Expecting sorted posts now
+// Import post props to use for initialPosts
+import { BlogPost } from "@/types/blog";
+
+// Format dates nicely
+// Removed unused FormatDateOptions interface
+
+function formatDate(dateString: string): string {
+  if (!dateString) return '';
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return dateString; // Return original if invalid
+    return new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date);
+  } catch (e) {
+    console.error("Error formatting date:", e); // Log error for debugging
+    return dateString; // Return original on error
+  }
 }
 
-// Helper to format dates nicely
-function formatDate(dateString: string | undefined): string {
-    if (!dateString) return '';
-    try {
-        // Attempt to create a valid Date object
-        const date = new Date(dateString);
-        // Check if the date object is valid
-        if (isNaN(date.getTime())) {
-            return dateString; // Return original string if invalid
-        }
-        return new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date);
-    } catch (e) {
-        return dateString; // Return original string on error
-    }
+// Define Component Props
+interface BlogListProps {
+  initialPosts: BlogPost[];
 }
 
-
-export default function BlogListClient({ initialPosts }: BlogListClientProps) {
+// Use React.FC for component typing
+const BlogList: FC<BlogListProps> = ({ initialPosts }) => {
   // State for posts - initialised with server-sorted data
-  const [posts] = useState<BlogPost[]>(initialPosts);
+  const [posts] = useState(initialPosts); // Type inferred from initialPosts
 
   // State for filters and UI
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  // *** FIX 1: Explicitly type useState to avoid never[] inference ***
   const [activeTags, setActiveTags] = useState<string[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [animationClass, setAnimationClass] = useState('');
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [animationClass, setAnimationClass] = useState<string>('');
+  const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
+  const [newsletterEmail, setNewsletterEmail] = useState<string>('');
 
   // --- Effects ---
 
@@ -51,38 +52,24 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Placeholder for Blog Effects (e.g., cursor, particles JS part)
-  useEffect(() => {
-    console.log("Initialize client-side effects (cursor, particles JS, etc.)");
-    // Example: If you have a function `initMushroomCursor` in a utility file:
-    // import { initMushroomCursor } from '@/lib/effects';
-    // const cleanupCursor = initMushroomCursor('.mushroom-cursor');
-    // return () => { cleanupCursor(); }; // Cleanup function
-
-    // Example: If you have particle generation JS
-    // import { initParticles } from '@/lib/effects';
-    // const cleanupParticles = initParticles('.wonderland-particles');
-    // return () => { cleanupParticles(); };
-
-    // IMPORTANT: Any logic from the old `blogEffects.js` goes here.
-  }, []);
-
-
   // --- Memoized Calculations ---
 
   // Extract unique categories and tags from the posts
   const allCategories = useMemo(() =>
+    // Added type guard `is string` to ensure filter result is string[]
     ['all', ...Array.from(new Set(posts.map(post => post.category).filter((c): c is string => !!c)))]
   , [posts]);
 
   const allTags = useMemo(() =>
-    Array.from(new Set(posts.flatMap(post => post.tags || []))).filter(Boolean)
+    // Added type guard `is string`
+    Array.from(new Set(posts.flatMap(post => post.tags || []))).filter((t): t is string => !!t)
   , [posts]);
 
   // Filter posts based on current state
   const filteredPosts = useMemo(() => posts.filter(post => {
     const lowerSearchTerm = searchTerm.toLowerCase();
     const categoryMatch = activeCategory === 'all' || post.category === activeCategory;
+    // activeTags is now correctly typed as string[]
     const tagsMatch = activeTags.length === 0 ||
       activeTags.every(tag => (post.tags ?? []).includes(tag));
     const searchMatch = !searchTerm ||
@@ -93,67 +80,70 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
     return categoryMatch && tagsMatch && searchMatch;
   }), [posts, activeCategory, activeTags, searchTerm]);
 
-
   // --- Callbacks ---
 
-  // Handle category change with animation
+  // Removed unused HandleCategoryChangeParams interface
+
+  // *** FIX 2: Accept category directly as string, remove object destructuring ***
   const handleCategoryChange = useCallback((category: string) => {
     setAnimationClass('fade-out');
     // Use timeout matching CSS animation duration
     setTimeout(() => {
       setActiveCategory(category);
       setActiveTags([]); // Reset tags when category changes
-      setSearchTerm(''); // Optionally reset search
+      setSearchTerm(''); // Reset search
       setAnimationClass('fade-in');
       window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll up on filter change
     }, 300);
-  }, []);
+  }, []); // Keep empty deps if no external state/props used
 
-  // Toggle tag selection
+  // Removed unused ToggleTagParams interface
+
+  // *** FIX 3: Accept tag directly as string, remove object destructuring ***
   const toggleTag = useCallback((tag: string) => {
-     setAnimationClass('fade-out'); // Optional: Animate tag filtering too
-     setTimeout(() => {
-        setActiveTags(prev =>
-          prev.includes(tag)
-            ? prev.filter(t => t !== tag)
-            : [...prev, tag]
-        );
-        setAnimationClass('fade-in');
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll up on filter change
-     }, 300);
-  }, []);
+    setAnimationClass('fade-out');
+    setTimeout(() => {
+      // 'prev' is now correctly inferred as string[]
+      setActiveTags(prev =>
+        prev.includes(tag)
+          ? prev.filter(t => t !== tag)
+          : [...prev, tag]
+      );
+      setAnimationClass('fade-in');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 300);
+  }, []); // Keep empty deps if no external state/props used
 
   // Scroll to top
   const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-   // Newsletter submission handler (Placeholder)
-   const handleNewsletterSubmit = useCallback((e: React.FormEvent) => {
-      e.preventDefault();
-      console.log("Subscribing with email:", newsletterEmail);
-      alert(`Subscription feature not implemented yet for ${newsletterEmail}.`);
-      // TODO: Add actual API call logic here to subscribe the user
-      setNewsletterEmail(''); // Clear input
-   }, [newsletterEmail]);
+  // Newsletter submission handler
+  // *** FIX 4: Add type for event object ***
+  const handleNewsletterSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Subscribing with email:", newsletterEmail);
+    alert(`Subscription feature not implemented yet for ${newsletterEmail}.`);
+    setNewsletterEmail('');
+  }, [newsletterEmail]); // Keep dependency
 
-   // Reset all filters
-   const resetFilters = useCallback(() => {
-      setAnimationClass('fade-out');
-      setTimeout(() => {
-        setActiveCategory('all');
-        setActiveTags([]);
-        setSearchTerm('');
-        setAnimationClass('fade-in');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 300);
-   }, []);
+  // Reset all filters
+  const resetFilters = useCallback(() => {
+    setAnimationClass('fade-out');
+    setTimeout(() => {
+      setActiveCategory('all');
+      setActiveTags([]);
+      setSearchTerm('');
+      setAnimationClass('fade-in');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 300);
+  }, []); // Keep empty deps
 
-
-  // --- Render JSX ---
+  // --- Render ---
   return (
-    <>
-      {/* Header Section with Filters and Search */}
+    <div className="blog-container">
+      {/* Header Section with Title and Description */}
       <div className="blog-header">
         <h1 className="blog-title">Writings of the Mad</h1>
         <p className="blog-meta">
@@ -166,30 +156,36 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
             type="text"
             placeholder="Search the rabbit hole..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+             // Optionally add explicit type to event
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
             className="blog-search-input"
             aria-label="Search blog posts"
           />
+          <Search className="search-icon text-accent-primary" size={18} />
           {searchTerm && (
             <button
               type="button"
               className="blog-search-clear"
               onClick={() => setSearchTerm('')}
               aria-label="Clear search"
-            > × </button>
+            >
+              <X size={18} />
+            </button>
           )}
         </div>
 
         {/* Category Filters */}
-        {allCategories.length > 1 && ( // Only show if there are categories other than 'all'
+        {allCategories.length > 1 && (
           <div className="blog-categories-filter">
             {allCategories.map(category => (
               <button
                 type="button"
                 key={category}
                 className={`blog-category-filter ${activeCategory === category ? 'active' : ''}`}
+                // No change needed here, already passes string
                 onClick={() => handleCategoryChange(category)}
               >
+                <Filter size={12} className="mr-1" />
                 {category.toUpperCase()}
               </button>
             ))}
@@ -204,105 +200,113 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                 type="button"
                 key={tag}
                 className={`blog-tag-filter ${activeTags.includes(tag) ? 'active' : ''}`}
+                // No change needed here, already passes string
                 onClick={() => toggleTag(tag)}
               >
-                #{tag}
+                <Tag size={12} className="mr-1" />
+                {tag}
               </button>
             ))}
           </div>
         )}
       </div>
 
-        {/* Blog Post Grid or Empty State */}
+      {/* Blog Posts Grid or Empty State */}
       {filteredPosts.length > 0 ? (
         <div className={`blog-grid ${animationClass}`}>
           {filteredPosts.map((post) => (
-            <article key={post.slug + post.category} className="blog-card">
-              {/* --- UPDATED: Image or ASCII Placeholder --- */}
-              <div className="blog-card-image"> {/* Container helps maintain layout */}
+            <article key={`${post.category || 'uncategorized'}-${post.slug}`} className="blog-card">
+               {/* Image or ASCII Placeholder */}
+               <div className="blog-card-image">
                  {post.image ? (
                    <Link href={`/blog/${post.category}/${post.slug}`} aria-label={`Read more about ${post.title}`}>
+                     {/* Consider Next/Image */}
                      <img
-                        src={post.image}
-                        alt="" // Decorative
-                        loading="lazy"
-                        width="400" // Example width
-                        height="250" // Example height matching aspect ratio
+                       src={post.image}
+                       alt="" // Add descriptive alt text
+                       loading="lazy"
+                       width={400} // Example width
+                       height={250} // Example height
                      />
                    </Link>
                  ) : (
-                   // Render ASCII placeholder if no image
-                   <AsciiArtPlaceholder className="blog-card-ascii-placeholder" /> // Add specific class if needed
+                   <Link href={`/blog/${post.category}/${post.slug}`} aria-label={`Read more about ${post.title}`}>
+                     <AsciiArtPlaceholder className="blog-card-ascii-placeholder" />
+                   </Link>
                  )}
-              </div>
-              {/* --- END IMAGE/PLACEHOLDER --- */}
+               </div>
 
-              {/* --- UPDATED: Date Display --- */}
-              <div className="blog-date">
-                 <span title={`Published: ${post.date}`}> {/* Tooltip for exact date */}
-                    <svg aria-hidden="true" focusable="false" /* Calendar Icon */>...</svg>
-                    <time dateTime={post.date}>
-                       {formatDate(post.date)}
-                    </time>
+               {/* Date Display */}
+               <div className="blog-date">
+                 <span title={`Published: ${post.date}`}>
+                   <Calendar size={14} className="mr-1" />
+                   <time dateTime={post.date ? new Date(post.date).toISOString() : undefined}>
+                      {post.date ? formatDate(post.date) : 'Date unavailable'}
+                   </time>
                  </span>
-                 {/* Optionally display modified date if different from published date */}
-                 {post.modifiedDate && post.modifiedDate.split('T')[0] !== post.date && (
-                    <span className="modified-date" title={`Last Updated: ${post.modifiedDate}`} style={{marginLeft: '10px', opacity: 0.7, fontSize: '0.9em'}}>
+                 {post.modifiedDate && post.modifiedDate !== post.date && (
+                    <span className="modified-date" title={`Last Updated: ${formatDate(post.modifiedDate)}`}>
                       (Updated: {formatDate(post.modifiedDate)})
                     </span>
                  )}
                  {post.readingTime && (
-                   <span className="reading-time-small">
-                      <svg aria-hidden="true" focusable="false" /* Clock Icon */>...</svg>
+                    <span className="reading-time-small">
+                      <Clock size={14} className="mr-1" />
                       {post.readingTime} min read
-                   </span>
+                    </span>
                  )}
-              </div>
-              {/* --- END DATE DISPLAY --- */}
+               </div>
 
-              {post.category && (
+               {/* Category Badge */}
+               {post.category && (
                  <div className="blog-category">
                    <button
                      type="button"
-                     className="category-name" // Use consistent class
+                     className="category-name"
+                     // Ensure category exists before passing, use non-null assertion '!' if certain
                      onClick={() => handleCategoryChange(post.category!)}
                      aria-label={`Filter by category: ${post.category}`}
                    >
                      {post.category.toUpperCase()}
                    </button>
                  </div>
-              )}
+               )}
 
-              <h2 className="blog-entry-title">
-                <Link href={`/blog/${post.category}/${post.slug}`} className="blog-link">
-                  {post.title}
-                </Link>
-              </h2>
+               {/* Title */}
+               <h2 className="blog-entry-title">
+                  <Link href={`/blog/${post.category}/${post.slug}`} className="blog-link">
+                    {post.title || 'Untitled Post'}
+                  </Link>
+               </h2>
 
-              <p className="blog-excerpt">{post.excerpt}</p>
+               {/* Excerpt */}
+               <p className="blog-excerpt">{post.excerpt || 'No excerpt available.'}</p>
 
-              {post.tags && post.tags.length > 0 && (
-                <div className="blog-tags">
-                  {post.tags.map((tag) => (
-                    <button
-                      type="button"
-                      key={tag}
-                      className={`blog-tag ${activeTags.includes(tag) ? 'active' : ''}`}
-                      onClick={() => toggleTag(tag)}
-                      aria-label={`Filter by tag: ${tag}`}
-                    >
-                      #{tag}
-                    </button>
-                  ))}
-                </div>
-              )}
+               {/* Tags */}
+               {post.tags && post.tags.length > 0 && (
+                 <div className="blog-tags">
+                   {post.tags.map((tag) => (
+                     <button
+                       type="button"
+                       key={tag}
+                       className={`blog-tag ${activeTags.includes(tag) ? 'active' : ''}`}
+                        // No change needed here, already passes string
+                       onClick={() => toggleTag(tag)}
+                       aria-label={`Filter by tag: ${tag}`}
+                     >
+                       #{tag}
+                     </button>
+                   ))}
+                 </div>
+               )}
 
-              <div className="readmore-container">
-                <Link href={`/blog/${post.category}/${post.slug}`} className="readmore-link">
-                  Read More →
-                </Link>
-              </div>
-            </article>
+               {/* Read More Link */}
+               <div className="readmore-container">
+                  <Link href={`/blog/${post.category}/${post.slug}`} className="readmore-link">
+                    Read More →
+                  </Link>
+               </div>
+             </article>
           ))}
         </div>
       ) : (
@@ -321,38 +325,41 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
         </div>
       )}
 
-       {/* Newsletter Section */}
-       <div className="blog-feature-section">
-          <div className="feature-card">
-            <h2 className="feature-title">Stay In Wonderland</h2>
-            <p className="feature-description">
-              Don&apos;t miss a trip down the rabbit hole. Get notified when new writings appear.
-            </p>
-            <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="newsletter-input"
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                required
-                aria-label="Email address for newsletter"
-              />
-              <button type="submit" className="newsletter-button">Subscribe</button>
-            </form>
-          </div>
-       </div>
+      {/* Newsletter Section */}
+      <div className="blog-feature-section">
+        <div className="feature-card">
+          <h2 className="feature-title">Stay In Wonderland</h2>
+          <p className="feature-description">
+            Don&apos;t miss a trip down the rabbit hole. Get notified when new writings appear.
+          </p>
+          <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="newsletter-input"
+              value={newsletterEmail}
+               // Optionally add explicit type to event
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setNewsletterEmail(e.target.value)}
+              required
+              aria-label="Email address for newsletter"
+            />
+            <button type="submit" className="newsletter-button">Subscribe</button>
+          </form>
+        </div>
+      </div>
 
-       {/* Back to Top Button */}
-       <button
-         type="button"
-         className={`back-to-top ${showBackToTop ? 'visible' : ''}`}
-         onClick={scrollToTop}
-         aria-label="Back to top"
-         title="Back to top" // Tooltip
-       >
-         <svg aria-hidden="true" focusable="false" /* Arrow Up Icon */>...</svg>
-       </button>
-    </>
+      {/* Back to Top Button */}
+      <button
+        type="button"
+        className={`back-to-top ${showBackToTop ? 'visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        title="Back to top"
+      >
+        <ArrowUp size={20} />
+      </button>
+    </div>
   );
-}
+};
+
+export default BlogList;

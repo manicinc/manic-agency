@@ -1,7 +1,65 @@
-/* Dark Mode Transition Effects */
+/* Updated Dark Mode Styles for Manic.agency
+ * Enhanced with better transitions and visual effects
+ */
 
-/* Theme transition effect */
-.theme-transitioning * {
+/* Core Variables for Dark/Light Mode */
+:root {
+    /* Dark Mode Theme (Default) */
+    --bg-primary: #0a0b13;
+    --bg-secondary: #141625;
+    --bg-tertiary: #1d2038;
+    --bg-primary-rgb: 10, 11, 19;
+    --bg-secondary-rgb: 20, 22, 37;
+    --bg-tertiary-rgb: 29, 32, 56;
+    
+    --text-primary: #fffffe;
+    --text-secondary: #94a1b2;
+    --text-muted: #72757e;
+    
+    --accent-primary: #7f5af0;
+    --accent-secondary: #2cb67d;
+    --accent-highlight: #e53170;
+    --accent-alert: #ff8906;
+    --accent-primary-rgb: 127, 90, 240;
+    --accent-highlight-rgb: 229, 49, 112;
+    
+    --shadow-color: rgba(10, 11, 19, 0.6);
+    --glow-color: rgba(127, 90, 240, 0.4);
+    
+    /* Brand colors */
+    --brand-teal: #40e0d0;
+    --brand-blue: #7579ff;
+    --brand-cyan: #0ff;
+    --brand-pink: #f0f;
+    --brand-blue-dark: #00f;
+  }
+  
+  /* Light Mode Theme */
+  .light {
+    --bg-primary: #fffffe;
+    --bg-secondary: #f0f0f8;
+    --bg-tertiary: #e0e2f0;
+    --bg-primary-rgb: 255, 255, 254;
+    --bg-secondary-rgb: 240, 240, 248;
+    --bg-tertiary-rgb: 224, 226, 240;
+    
+    --text-primary: #141625;
+    --text-secondary: #2e324a;
+    --text-muted: #72757e;
+    
+    --accent-primary: #6246ea;
+    --accent-secondary: #2cb67d;
+    --accent-highlight: #e53170;
+    --accent-alert: #ff8906;
+    --accent-primary-rgb: 98, 70, 234;
+    --accent-highlight-rgb: 229, 49, 112;
+    
+    --shadow-color: rgba(20, 22, 37, 0.15);
+    --glow-color: rgba(98, 70, 234, 0.25);
+  }
+  
+  /* Theme transition effect */
+  .theme-transitioning * {
     transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease !important;
   }
   
@@ -10,7 +68,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background: rgba(10, 11, 19, 0.7);
+    background: rgba(var(--bg-primary-rgb), 0.7);
     z-index: 999;
     backdrop-filter: blur(5px);
     animation: distortionWave 2s ease-in-out;
@@ -53,7 +111,7 @@
     background: linear-gradient(
       to bottom,
       transparent 50%,
-      rgba(10, 11, 19, 0.05) 51%
+      rgba(var(--accent-primary-rgb), 0.05) 51%
     );
     background-size: 100% 4px;
     z-index: 1001;
@@ -81,7 +139,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 8px; /* Changed from 50% to match button shape */
     box-shadow: 0 0 15px var(--accent-primary);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -154,4 +212,202 @@
     0% { stroke-dashoffset: 90; }
     50% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: -90; }
+  }
+  
+  /* Enhanced Vortex Animation for Theme Toggle */
+  .digital-transition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  .digital-transition svg {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 10px var(--accent-primary));
+    animation: digital 2s linear infinite;
+  }
+  
+  @keyframes digital {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.05) rotate(90deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+    75% { transform: scale(1.05) rotate(270deg); }
+    100% { transform: scale(1) rotate(360deg); }
+  }
+  
+  /* Enhanced Rabbit Hole Effect for Theme Toggle Button */
+  .theme-toggle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      to right,
+      var(--accent-primary),
+      var(--accent-highlight),
+      var(--accent-primary)
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.7;
+    animation: borderPulse 4s linear infinite;
+  }
+  
+  @keyframes borderPulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  
+  /* Enhanced Glow Effects for Interactive Elements */
+  .dark .glow-on-hover:hover {
+    box-shadow: 0 0 15px var(--accent-primary);
+  }
+  
+  .light .glow-on-hover:hover {
+    box-shadow: 0 0 10px var(--accent-primary);
+  }
+  
+  /* Enhanced scrollbar styling for dark mode */
+  .dark *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .dark *::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+  }
+  
+  .dark *::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    border: 2px solid var(--bg-secondary);
+  }
+  
+  .dark *::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+  }
+  
+  /* Light mode scrollbar */
+  .light *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .light *::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+  }
+  
+  .light *::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 4px;
+    border: 2px solid var(--bg-tertiary);
+  }
+  
+  .light *::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+  }
+  
+  /* Enhanced focus styles */
+  :focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Selection styles */
+  ::selection {
+    background-color: var(--accent-primary);
+    color: white;
+  }
+  
+  /* Mode-specific transition effects */
+  .dark.theme-transitioning::before {
+    background-color: rgba(10, 11, 19, 0.7);
+  }
+  
+  .light.theme-transitioning::before {
+    background-color: rgba(255, 255, 254, 0.7);
+  }
+  
+  /* Adapting to your brand styling */
+  .dark .your-brand-gradient {
+    background: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
+  }
+  
+  .light .your-brand-gradient {
+    background: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
+  }
+  
+  /* Dark mode specific component styles */
+  .dark .blog-card {
+    background: rgba(20, 22, 37, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(127, 90, 240, 0.2);
+    box-shadow: 0 10px 25px rgba(10, 11, 19, 0.3), 0 0 15px rgba(127, 90, 240, 0.05);
+  }
+  
+  .dark .blog-card:hover {
+    box-shadow: 0 15px 35px rgba(10, 11, 19, 0.4), 0 0 25px rgba(127, 90, 240, 0.15);
+  }
+  
+  .light .blog-card {
+    background: rgba(240, 240, 248, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(98, 70, 234, 0.1);
+    box-shadow: 0 5px 15px rgba(20, 22, 37, 0.1);
+  }
+  
+  .light .blog-card:hover {
+    box-shadow: 0 10px 25px rgba(20, 22, 37, 0.15), 0 0 15px rgba(98, 70, 234, 0.1);
+  }
+  
+  /* Special effect for "manic agency" text */
+  .dark .logo-text {
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
+    filter: drop-shadow(0 0 2px rgba(var(--accent-primary-rgb), 0.5));
+  }
+  
+  .light .logo-text {
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
+    filter: drop-shadow(0 0 1px rgba(var(--accent-primary-rgb), 0.3));
+  }
+  
+  /* Improved modal/dialog styling for dark mode */
+  .dark .modal-backdrop {
+    background-color: rgba(10, 11, 19, 0.8);
+    backdrop-filter: blur(8px);
+  }
+  
+  .light .modal-backdrop {
+    background-color: rgba(255, 255, 254, 0.8);
+    backdrop-filter: blur(8px);
+  }
+  
+  .dark .modal-content {
+    background-color: var(--bg-secondary);
+    border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
+    box-shadow: 0 10px 30px rgba(10, 11, 19, 0.4), 0 0 20px rgba(var(--accent-primary-rgb), 0.1);
+  }
+  
+  .light .modal-content {
+    background-color: var(--bg-secondary);
+    border: 1px solid rgba(var(--accent-primary-rgb), 0.1);
+    box-shadow: 0 10px 30px rgba(20, 22, 37, 0.2);
   }

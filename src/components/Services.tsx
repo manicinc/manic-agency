@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import image44 from "@/images/image44.png";

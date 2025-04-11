@@ -1,4 +1,5 @@
 // src/lib/getAllProjects.ts
+import "server-only"; // <-- ADD THIS LINE AT THE TOP
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";

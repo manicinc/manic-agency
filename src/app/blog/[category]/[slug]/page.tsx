@@ -19,6 +19,7 @@ import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 // Data Fetching & Types
 import { getAllPosts, calculateReadingTime } from "@/lib/getAllPosts";
 import { BlogPost, TableOfContentsItem } from "@/types/blog";
+import { ArticleJsonLd } from 'next-seo';
 
 // CSS
 import "@/app/styles/blogs.css";
@@ -114,19 +115,15 @@ type Params = {
 
 // Metadata Generation
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
-  // Await the params object to access its properties
-  const resolvedParams = await params;
-  const { category, slug } = resolvedParams;
-  
+  const { category, slug } = await params;
   const post = await getPostData(category, slug);
-  
+
   if (!post) {
-    return {
-      title: 'Post Not Found',
-      description: 'The requested blog post could not be found.',
-    };
+    return { title: "Post Not Found" };
   }
-  
+
+  const ogImage = post.image || '/default-og-image.png';
+
   return {
     title: post.title,
     description: post.excerpt,
@@ -134,9 +131,15 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      images: [ogImage],
       type: 'article',
       publishedTime: post.date,
-      authors: [post.author ?? 'Manic Agency'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImage],
     },
   };
 }
@@ -177,6 +180,17 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
 
   return (
     <>
+    <head>
+    <ArticleJsonLd
+      type="BlogPosting"
+      url={`https://manic.agency/blog/${post.category}/${post.slug}`}
+      title={post.title}
+      images={[post.image ?? 'https://yourdomain.com/default.jpg']}
+      datePublished={post.date}
+      authorName={post.author}
+      description={post.excerpt || "No description available"}
+    />
+    </head>
       <div className="bg-[#1a1a1e]">
         <Nav />
       </div>

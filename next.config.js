@@ -19,7 +19,7 @@ const nextConfig = {
   
   // Skip TypeScript checking during build
   typescript: {
-    ignoreBuildErrors: true,
+    // ignoreBuildErrors: true,
   },
   
   // Skip ESLint checking during build

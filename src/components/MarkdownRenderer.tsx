@@ -11,6 +11,10 @@ import remarkGfm from 'remark-gfm';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import { Components } from 'react-markdown';
 
+// Import our own components
+import ImageGrid from './ImageRenderer';  // Make sure to create this component
+import { AsciiArtPlaceholder } from '@/lib/asciiPlaceholders';
+
 /**
  * Props for the CustomMarkdownRenderer component
  */
@@ -101,6 +105,63 @@ const ImageWrapper: React.FC<{ src: string; alt: string; [key: string]: any }> =
   const className = `${sizeClass} ${alignClass} ${effectClass} rounded-md`;
   const caption = imageCaption || altText;
   
+  // Check if the image exists, if not use ASCII art placeholder
+  const [imageExists, setImageExists] = React.useState(true);
+  
+  // Check if image exists by attempting to load it
+  React.useEffect(() => {
+    if (!src) {
+      setImageExists(false);
+      return;
+    }
+    
+    const img = new Image();
+    img.onload = () => setImageExists(true);
+    img.onerror = () => setImageExists(false);
+    img.src = src;
+  }, [src]);
+  
+  // If image doesn't exist, render ASCII art placeholder
+  if (!imageExists) {
+    return (
+      <div className={`md-image-container ${alignClass}`}>
+        <figure>
+          <AsciiArtPlaceholder className={className} height="250px" />
+          {caption && (
+            <figcaption className="text-center text-sm text-text-muted mt-2">
+              {caption}
+            </figcaption>
+          )}
+        </figure>
+      </div>
+    );
+  }
+  
+  // If zoomable, wrap in a component that handles zooming
+  if (isZoomable) {
+    return (
+      <div className="md-image-container">
+        <figure className={`image-with-caption ${alignClass}`}>
+          <div className="group relative cursor-zoom-in overflow-hidden rounded-md">
+            <img
+              src={src}
+              alt={altText}
+              className={`content-image ${className} transition-transform duration-300 group-hover:scale-105`}
+              loading="lazy"
+              {...props}
+            />
+            <div className="absolute inset-0 bg-bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          </div>
+          {caption && (
+            <figcaption className="text-center text-sm text-text-muted mt-2">
+              {caption}
+            </figcaption>
+          )}
+        </figure>
+      </div>
+    );
+  }
+  
   // Return a properly structured figure with optional caption
   return (
     <div className="md-image-container">
@@ -185,7 +246,7 @@ export const markdownComponents: Components = {
       
       // For inline code
       return (
-        <code className="px-1.5 py-0.5 bg-bg-tertiary text-accent-primary rounded font-mono" {...props}>
+        <code className="px-1.5 py-0.5 bg-bg-tertiary text-accent-primary rounded font-mono text-sm" {...props}>
           {children}
         </code>
       );
@@ -231,9 +292,17 @@ export const markdownComponents: Components = {
           alert: "text-accent-highlight"
         };
         
+        const icons: {[key: string]: string} = {
+          note: "ℹ️",
+          warning: "⚠️",
+          tip: "💡",
+          alert: "🚨"
+        };
+        
         return (
           <div className={`${styles[calloutType]} p-4 rounded-r-md my-6`}>
-            <h4 className={`font-bold ${titleColors[calloutType]} mb-2 capitalize`}>
+            <h4 className={`font-bold ${titleColors[calloutType]} mb-2 capitalize flex items-center`}>
+              <span className="mr-2">{icons[calloutType]}</span>
               {calloutType}
             </h4>
             <div className="text-text-secondary">{contentChildren}</div>
@@ -283,6 +352,74 @@ export const markdownComponents: Components = {
         </td>
       );
     },
+    
+    // Enhanced headings with anchor links and proper styling
+    h1: ({ children, ...props }) => (
+      <h1 
+        className="text-2xl md:text-3xl font-bold mt-8 mb-4 pb-2 border-b border-accent-primary/20 text-accent-primary"
+        {...props}
+      >
+        {children}
+      </h1>
+    ),
+    
+    h2: ({ children, ...props }) => (
+      <h2 
+        className="text-xl md:text-2xl font-bold mt-6 mb-3 text-accent-secondary"
+        {...props}
+      >
+        {children}
+      </h2>
+    ),
+    
+    h3: ({ children, ...props }) => (
+      <h3 
+        className="text-lg md:text-xl font-semibold mt-5 mb-3 text-text-primary"
+        {...props}
+      >
+        {children}
+      </h3>
+    ),
+    
+    h4: ({ children, ...props }) => (
+      <h4 
+        className="text-base md:text-lg font-semibold mt-4 mb-2 text-text-primary"
+        {...props}
+      >
+        {children}
+      </h4>
+    ),
+    
+    // Enhanced link styling
+    a: ({ children, href, ...props }) => (
+      <a 
+        href={href} 
+        className="text-accent-primary hover:text-accent-highlight underline decoration-accent-primary/30 hover:decoration-accent-highlight/50 transition-colors duration-200"
+        target={href?.startsWith('http') ? '_blank' : undefined}
+        rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+        {...props}
+      >
+        {children}
+      </a>
+    ),
+    
+    // Styled horizontal rule
+    hr: () => (
+      <hr className="my-8 h-px border-0 bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent" />
+    ),
+    
+    // Enhanced list styling
+    ul: ({ children, ...props }) => (
+      <ul className="list-disc pl-6 my-4 space-y-2 text-text-secondary" {...props}>
+        {children}
+      </ul>
+    ),
+    
+    ol: ({ children, ...props }) => (
+      <ol className="list-decimal pl-6 my-4 space-y-2 text-text-secondary" {...props}>
+        {children}
+      </ol>
+    ),
 };
 
 /**
@@ -294,7 +431,7 @@ export const markdownComponents: Components = {
  */
 export function CustomMarkdownRenderer({ children, className="" }: CustomReactMarkdownProps) {
     return (
-      <div className={className}>
+      <div className={`blog-content ${className}`}>
         <ReactMarkdown
           components={markdownComponents}
           rehypePlugins={[
@@ -324,6 +461,62 @@ export function CustomMarkdownRenderer({ children, className="" }: CustomReactMa
           /* Apply proper styling to image wrappers */
           .markdown-image-wrapper {
             margin: 1.5rem 0;
+          }
+          
+          /* First paragraph special treatment */
+          .blog-content > p:first-of-type {
+            font-size: 1.1rem;
+            line-height: 1.8;
+          }
+          
+          /* First letter effect */
+          .blog-content > p:first-of-type::first-letter {
+            font-size: 3.5em;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.15em;
+            color: var(--accent-highlight);
+            font-family: var(--font-display, serif);
+          }
+          
+          /* Glitch effect for images with glitch class */
+          .image-glitch::before,
+          .image-glitch::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+          }
+          
+          .image-glitch::before {
+            transform: translateX(-5px);
+            background-color: rgba(229, 49, 112, 0.2);
+            mix-blend-mode: multiply;
+          }
+          
+          .image-glitch::after {
+            transform: translateX(5px);
+            background-color: rgba(127, 90, 240, 0.2);
+            mix-blend-mode: screen;
+          }
+          
+          .image-glitch:hover::before,
+          .image-glitch:hover::after {
+            opacity: 1;
+            animation: glitch 0.3s infinite;
+          }
+          
+          @keyframes glitch {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.5; }
           }
         `}</style>
       </div>

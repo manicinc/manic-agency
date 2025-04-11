@@ -12,6 +12,7 @@ import { Nav } from '@/components/Nav'; // Assuming these are compatible or clie
 import { ProjectDetail } from '@/components/Project/ProjectDetail'; // This component will receive data as props
 import ThemeToggle from '@/components/Theme/ThemeToggle';
 import { notFound } from 'next/navigation'; // Import notFound
+import { ArticleJsonLd } from 'next-seo';
 
 // --- generateStaticParams is CORRECT ---
 // This runs server-side at build time to determine paths
@@ -90,6 +91,17 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   return (
     <>
       {/* Header */}
+      <head>
+    <ArticleJsonLd
+        type="BlogPosting"
+        url={`https://manic.agency/blog/${project.category}/${project.slug}`}
+        title={project.title}
+        images={[project.image ?? 'https://manic.agency/logo.png']}
+        datePublished={project.date}
+        authorName="Manic Agency"
+        description={project.description || "No description available"}
+        />
+      </head>
       <div className="bg-bg-primary sticky top-0 z-40">
         <Nav />
         <div className="absolute top-4 right-4 z-50">

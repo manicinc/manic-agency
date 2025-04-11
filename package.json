@@ -41,6 +41,7 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "remark-unwrap-images": "^4.0.1",
+    "server-only": "^0.0.1",
     "sharp": "^0.33.5",
     "swiper": "^11.2.6",
     "tailwind-merge": "^2.6.0",
