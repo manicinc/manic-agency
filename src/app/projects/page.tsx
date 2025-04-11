@@ -14,9 +14,6 @@ import { getAllProjects, getFeaturedProjects, getProjectCategories } from '@/lib
 // Import the type definition if needed for clarity or prop typing
 import { Project } from '@/types/project';
 
-// --- NO getStaticProps here ---
-// It's not used in the App Router.
-
 
 // The Page component itself is now async
 export default async function ProjectsPage() {

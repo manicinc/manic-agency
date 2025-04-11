@@ -5,224 +5,463 @@
 @import "./blogList.css";
 @import "./imageStyles.css";
 @import "./embla.css";
+@import "./markdownStyles.css";
 /* @import "./glitch.scss"; */
 @import "./main.css";
 /* @import "./tailwind.css"; */
 @tailwind components;
 @tailwind utilities;
 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Mona Sans";
+  font-weight: 200 900;
+  font-display: block;
+  font-style: normal;
+  font-stretch: 75% 125%;
+  src: url("../../fonts//Mona-Sans.var.woff2");
+}
+
+/**
+ * Manic Agency Design System
+ * A brutalist, retro-futuristic aesthetic with Alice in Wonderland inspirations
+ */
+
 :root {
-  --primary-color: #1abc9c;
-  --secondary-color: #e74c3c;
-  --background-color: #f5f5f5;
-  --text-color: #34495e;
-  --font-family: 'Roboto, sans-serif';
-  --muted: 0 0% 96.1%;             /* Likely background/component color */
-  --muted-foreground: 0 0% 45.1%; /* << Likely the TEXT color for muted elements */
+  /* === Core Colors === */
+  --color-abyss: #0a0b13;            /* Deep background */
+  --color-deepspace: #141625;        /* Secondary background */
+  --color-substrate: #1d2038;        /* Tertiary background */
+  
+  /* Vibrant accents */
+  --color-signal: #7f5af0;           /* Primary accent (purple) */
+  --color-pulse: #2cb67d;            /* Secondary accent (green) */
+  --color-biohazard: #ff8906;        /* Alert/warning accent (orange) */
+  --color-disruption: #e53170;       /* Highlight accent (pink) */
+  --color-static: #72757e;           /* Muted accent */
+  
+  /* Text colors */
+  --color-transmission: #fffffe;     /* Primary text */
+  --color-interference: #94a1b2;     /* Secondary text */
+  --color-noise: #72757e;            /* Tertiary text */
+  
+  /* === Typography === */
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-display: 'Mona Sans', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  
+  /* === Dark Mode Theme (Default) === */
+  --bg-primary: var(--color-abyss);
+  --bg-secondary: var(--color-deepspace);
+  --bg-tertiary: var(--color-substrate);
+  
+  --text-primary: var(--color-transmission);
+  --text-secondary: var(--color-interference);
+  --text-muted: var(--color-noise);
+  
+  --accent-primary: var(--color-signal);
+  --accent-secondary: var(--color-pulse);
+  --accent-highlight: var(--color-disruption);
+  --accent-alert: var(--color-biohazard);
+  
+  /* Functional variables */
+  --shadow-color: rgba(10, 11, 19, 0.6);
+  --glow-color: rgba(127, 90, 240, 0.4);
+  --rabbit-fill: rgba(200, 200, 220, 0.15);
+  --rabbit-stroke: rgba(220, 220, 240, 0.3);
+  
+  /* Brand colors */
+  --brand-teal: #40e0d0;
+  --brand-blue: #7579ff;
+  --brand-cyan: #0ff;
+  --brand-pink: #f0f;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
-
-@keyframes glitch {
-  0% {
-    text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9;
-  }
-  20% {
-    text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9;
-  }
-  40% {
-    text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9;
-  }
-  60% {
-    text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9;
-  }
-  80% {
-    text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9;
-  }
-  100% {
-    text-shadow: none;
-  }
+/* === Light Mode Theme === */
+.light {
+  --bg-primary: #fffffe;
+  --bg-secondary: #f0f0f8;
+  --bg-tertiary: #e0e2f0;
+  
+  --text-primary: #141625;
+  --text-secondary: #2e324a;
+  --text-muted: #72757e;
+  
+  --accent-primary: #6246ea;
+  --accent-secondary: #2cb67d;
+  --accent-highlight: #e53170;
+  --accent-alert: #ff8906;
+  
+  --shadow-color: rgba(20, 22, 37, 0.15);
+  --glow-color: rgba(98, 70, 234, 0.25);
+  --rabbit-fill: rgba(60, 60, 90, 0.5);
+  --rabbit-stroke: rgba(30, 30, 60, 0.7);
 }
 
-.glitch {
-  animation: glitch 1.5s infinite;
-}
-
-
-html{
+/* === Base Styles === */
+html, body {
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   scroll-behavior: smooth;
 }
 
+/* === Typography === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
 
-.logoNeon {
-  text-align: center;
-  margin: auto;
-  scale: .4;
-  padding-top: 0px;
-  margin-top: 0px;
-  height: 280px;
-  vertical-align: center;
-  /* width: 65%; */
-  /* height: 250px;
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-highlight);
+}
+
+/* === Component Styles === */
+
+/* Buttons */
+.btn-synthetic {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-synthetic::before {
+  content: '';
   position: absolute;
-  /* top: 0;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--accent-primary), 
+    var(--accent-highlight)
+  );
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-synthetic:hover {
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+.btn-synthetic:hover::before {
   left: 0;
-  right: 0;
-  bottom: 0; */
-  user-select: none;
 }
 
-.logoNeonText {
-     margin-left: -180px;
-      text-align: center;
-    width: 150% !important;
+.btn-synthetic-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.logoNeon b{
-  width: 100% !important;
-  letter-spacing: 6px;
-  font: 700 9.0em "Courier New";
-  color: #fee;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #89d1eb, 0 0 0.5em #2e889f, 0 0 0.1em #28bbff, 0 10px 3px #000;
-}
-.logoNeon b span{
-  animation: blink linear infinite 5s;
-}
-.logoNeon b span:nth-of-type(2){
-  animation: blink linear infinite 11s;
-}
-@keyframes blink {
-  78% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  79%{
-     color: #333;
-  }
-  80% {
-    
-    text-shadow: none;
-  }
-  81% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  82% {
-    color: #333;
-    text-shadow: none;
-  }
-  83% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  92% {
-    color: #333;
-    text-shadow: none;
-  }
-  92.5% {
-    color: inherit;
-    text-shadow: inherit;
-  }
+.btn-synthetic-secondary:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent-highlight);
+  color: var(--accent-primary);
+  box-shadow: 0 0 10px var(--glow-color);
 }
 
-
-@media (max-width: 992px) {
-
-  .logoNeonText {
-      margin-top: -180px;
-      margin-left: -110px;
- }
-
-
+.btn-synthetic-outline {
+  background-color: transparent;
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-/* Style for the container (optional, mainly for spacing/alignment if needed) */
-.mad-quote-section {
-  /* No background is needed as divs are transparent by default */
-  /* text-center and py-* classes are handled by Tailwind/utility classes if used,
-     otherwise, define them here: */
-  /* text-align: center; */
-  /* padding-top: 4rem; */    /* Example: roughly py-16 */
-  /* padding-bottom: 4rem; */ /* Example: roughly py-16 */
+.btn-synthetic-outline:hover {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px var(--glow-color);
 }
 
-/* Style for the glowing, bold text */
-.mad-quote-text {
-  font-weight: bold;
-  /* Choose a color that contrasts well with your expected background */
-  color: #E0E0E0; /* Light gray/off-white, adjust as needed */
-  font-size: 1.75rem; /* Example size, adjust as needed */
-  line-height: 1.5; /* Improve readability */
-
-  /* --- The Glow Effect --- */
-  /* Uses text-shadow. Multiple layers create a smoother glow. */
-  /* Format: offset-x offset-y blur-radius color */
-  text-shadow:
-    0 0 5px rgba(255, 255, 255, 0.7), /* Inner soft white glow */
-    0 0 10px rgba(255, 255, 255, 0.6), /* Medium soft white glow */
-    0 0 15px rgba(255, 255, 255, 0.4), /* Outer wider white glow */
-    0 0 20px rgba(168, 85, 247, 0.6), /* Subtle violet/purple hint (Tailwind purple-500) */
-    0 0 25px rgba(168, 85, 247, 0.5), /* Wider violet/purple hint */
-    0 0 30px rgba(168, 85, 247, 0.3); /* Faintest violet/purple hint */
-
-  /* Optional: Add a subtle animation or transition for extra flair */
-  transition: text-shadow 0.3s ease-in-out;
+/* Cards */
+.card-synthetic {
+  background-color: var(--bg-tertiary);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  border: 1px solid rgba(127, 90, 240, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
 }
 
-/* Optional: Enhance glow slightly on hover */
-.mad-quote-text:hover {
-  text-shadow:
-    0 0 6px rgba(255, 255, 255, 0.8),
-    0 0 12px rgba(255, 255, 255, 0.7),
-    0 0 18px rgba(255, 255, 255, 0.5),
-    0 0 24px rgba(168, 85, 247, 0.7),
-    0 0 30px rgba(168, 85, 247, 0.6),
-    0 0 35px rgba(168, 85, 247, 0.4);
+.card-synthetic:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px var(--shadow-color), 
+              0 0 15px rgba(127, 90, 240, 0.2);
 }
 
-/* --- Responsive Font Size (Optional) --- */
-@media (min-width: 640px) { /* sm breakpoint */
-  .mad-quote-text {
-    font-size: 2rem;
-  }
+/* Badge */
+.badge-synthetic {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
 }
 
-@media (min-width: 1024px) { /* lg breakpoint */
-  .mad-quote-text {
-    font-size: 2.25rem;
-  }
+.badge-synthetic:hover {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  transform: translateY(-2px);
 }
 
+/* Form elements */
+input, textarea, select {
+  background-color: var(--bg-tertiary);
+  border: 1px solid rgba(127, 90, 240, 0.2);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
 
-@keyframes glitch-btn {
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(127, 90, 240, 0.2);
+}
+
+/* === Utility Classes === */
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(90deg, 
+    var(--accent-primary), 
+    var(--accent-highlight)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Border glow */
+.border-glow {
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* Glow effect */
+.glow-effect {
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(var(--bg-secondary), 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 90, 240, 0.2);
+  border-radius: 0.75rem;
+}
+
+/* === Animations === */
+
+/* Glitch text effect */
+@keyframes glitch {
   0% {
-    transform: translate(0);
-    opacity: 1;
+    text-shadow: 0.05em 0 0 rgba(229, 49, 112, 0.75),
+                -0.025em -0.05em 0 rgba(44, 182, 125, 0.75),
+                0.025em 0.05em 0 rgba(127, 90, 240, 0.75);
   }
-  20% {
-    transform: translate(-2px, 2px);
-    opacity: 0.8;
+  14% {
+    text-shadow: 0.05em 0 0 rgba(229, 49, 112, 0.75),
+                -0.05em -0.025em 0 rgba(44, 182, 125, 0.75),
+                -0.025em 0.05em 0 rgba(127, 90, 240, 0.75);
   }
-  40% {
-    transform: translate(2px, -2px);
-    opacity: 1;
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(229, 49, 112, 0.75),
+                0.025em 0.025em 0 rgba(44, 182, 125, 0.75),
+                -0.05em -0.05em 0 rgba(127, 90, 240, 0.75);
   }
-  60% {
-    transform: translate(-1px, 1px);
-    opacity: 0.9;
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(229, 49, 112, 0.75),
+                0.025em 0.025em 0 rgba(44, 182, 125, 0.75),
+                -0.05em -0.05em 0 rgba(127, 90, 240, 0.75);
   }
-  80% {
-    transform: translate(1px, -1px);
-    opacity: 1;
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(229, 49, 112, 0.75),
+                0.05em 0 0 rgba(44, 182, 125, 0.75),
+                0 -0.05em 0 rgba(127, 90, 240, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(229, 49, 112, 0.75),
+                0.05em 0 0 rgba(44, 182, 125, 0.75),
+                0 -0.05em 0 rgba(127, 90, 240, 0.75);
   }
   100% {
-    transform: translate(0);
-    opacity: 1;
+    text-shadow: -0.025em 0 0 rgba(229, 49, 112, 0.75),
+                -0.025em -0.025em 0 rgba(44, 182, 125, 0.75),
+                -0.025em -0.05em 0 rgba(127, 90, 240, 0.75);
   }
 }
 
-@layer utilities {
-  .animate-glitch {
-    animation: glitch-btn 300ms infinite;
+.text-glitch {
+  animation: glitch 3s infinite;
+}
+
+.text-glitch:hover {
+  animation: glitch 1.5s infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hover underline animation */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-highlight));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* === Media Queries === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
   }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  .btn-synthetic, .btn-synthetic-secondary, .btn-synthetic-outline {
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* === Enhanced Scrollbar === */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  border: 2px solid var(--bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+  border: 2px solid var(--bg-tertiary);
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* === Selection Styling === */
+::selection {
+  background-color: var(--accent-primary);
+  color: white;
 }

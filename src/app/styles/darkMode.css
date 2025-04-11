@@ -1,413 +1,244 @@
-/* Updated Dark Mode Styles for Manic.agency
- * Enhanced with better transitions and visual effects
+/* Manic Agency - Dark/Light Mode System
+ * A clean implementation with consistent variables and transitions
  */
 
-/* Core Variables for Dark/Light Mode */
-:root {
-    /* Dark Mode Theme (Default) */
-    --bg-primary: #0a0b13;
-    --bg-secondary: #141625;
-    --bg-tertiary: #1d2038;
-    --bg-primary-rgb: 10, 11, 19;
-    --bg-secondary-rgb: 20, 22, 37;
-    --bg-tertiary-rgb: 29, 32, 56;
-    
-    --text-primary: #fffffe;
-    --text-secondary: #94a1b2;
-    --text-muted: #72757e;
-    
-    --accent-primary: #7f5af0;
-    --accent-secondary: #2cb67d;
-    --accent-highlight: #e53170;
-    --accent-alert: #ff8906;
-    --accent-primary-rgb: 127, 90, 240;
-    --accent-highlight-rgb: 229, 49, 112;
-    
-    --shadow-color: rgba(10, 11, 19, 0.6);
-    --glow-color: rgba(127, 90, 240, 0.4);
-    
-    /* Brand colors */
-    --brand-teal: #40e0d0;
-    --brand-blue: #7579ff;
-    --brand-cyan: #0ff;
-    --brand-pink: #f0f;
-    --brand-blue-dark: #00f;
-  }
+ :root {
+  /* Primary Colors - Dark Theme (Default) */
+  --bg-primary: #0a0b13;          /* Deep space background */
+  --bg-secondary: #141625;        /* Secondary background */
+  --bg-tertiary: #1d2038;         /* Tertiary background */
   
-  /* Light Mode Theme */
-  .light {
-    --bg-primary: #fffffe;
-    --bg-secondary: #f0f0f8;
-    --bg-tertiary: #e0e2f0;
-    --bg-primary-rgb: 255, 255, 254;
-    --bg-secondary-rgb: 240, 240, 248;
-    --bg-tertiary-rgb: 224, 226, 240;
-    
-    --text-primary: #141625;
-    --text-secondary: #2e324a;
-    --text-muted: #72757e;
-    
-    --accent-primary: #6246ea;
-    --accent-secondary: #2cb67d;
-    --accent-highlight: #e53170;
-    --accent-alert: #ff8906;
-    --accent-primary-rgb: 98, 70, 234;
-    --accent-highlight-rgb: 229, 49, 112;
-    
-    --shadow-color: rgba(20, 22, 37, 0.15);
-    --glow-color: rgba(98, 70, 234, 0.25);
-  }
+  --text-primary: #fffffe;        /* Primary text */
+  --text-secondary: #94a1b2;      /* Secondary text */
+  --text-muted: #72757e;          /* Muted text */
   
-  /* Theme transition effect */
-  .theme-transitioning * {
-    transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease !important;
-  }
+  --accent-primary: #7f5af0;      /* Primary accent - purple */
+  --accent-secondary: #2cb67d;    /* Secondary accent - green */
+  --accent-highlight: #e53170;    /* Highlight accent - pink */
+  --accent-alert: #ff8906;        /* Alert accent - orange */
   
-  /* Digital interference overlay during theme transition */
-  body.theme-transitioning::before {
-    content: '';
+  /* Functional variables */
+  --shadow-color: rgba(10, 11, 19, 0.6);
+  --glow-color: rgba(127, 90, 240, 0.4);
+  --rabbit-fill: rgba(200, 200, 220, 0.15);
+  --rabbit-stroke: rgba(220, 220, 240, 0.3);
+  
+  /* Brand colors */
+  --brand-teal: #40e0d0;
+  --brand-blue: #7579ff;
+  --brand-cyan: #0ff;
+  --brand-pink: #f0f;
+}
+
+/* Light Mode Theme */
+.light {
+  --bg-primary: #fffffe;
+  --bg-secondary: #f0f0f8;
+  --bg-tertiary: #e0e2f0;
+  
+  --text-primary: #141625;
+  --text-secondary: #2e324a;
+  --text-muted: #72757e;
+  
+  --accent-primary: #6246ea;
+  --accent-secondary: #2cb67d;
+  --accent-highlight: #e53170;
+  --accent-alert: #ff8906;
+  
+  /* Functional variables */
+  --shadow-color: rgba(20, 22, 37, 0.15);
+  --glow-color: rgba(98, 70, 234, 0.25);
+  --rabbit-fill: rgba(60, 60, 90, 0.5);
+  --rabbit-stroke: rgba(30, 30, 60, 0.7);
+}
+
+/* Apply transitions to all elements when theme changes */
+.theme-transitioning * {
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+/* Dark Mode Blog Cards */
+.dark .blog-card {
+  background: rgba(20, 22, 37, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 90, 240, 0.2);
+  box-shadow: 0 10px 25px rgba(10, 11, 19, 0.3), 0 0 15px rgba(127, 90, 240, 0.05);
+}
+
+.dark .blog-card:hover {
+  box-shadow: 0 15px 35px rgba(10, 11, 19, 0.4), 0 0 25px rgba(127, 90, 240, 0.15);
+}
+
+/* Light Mode Blog Cards */
+.light .blog-card {
+  background: rgba(240, 240, 248, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(98, 70, 234, 0.1);
+  box-shadow: 0 5px 15px rgba(20, 22, 37, 0.1);
+}
+
+.light .blog-card:hover {
+  box-shadow: 0 10px 25px rgba(20, 22, 37, 0.15), 0 0 15px rgba(98, 70, 234, 0.1);
+}
+
+/* Blog Container Background */
+.blog-container {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Fix for blog header color in dark mode */
+.dark .blog-title {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px rgba(127, 90, 240, 0.4), 0 0 20px rgba(127, 90, 240, 0.2);
+}
+
+.light .blog-title {
+  color: var(--accent-primary);
+  text-shadow: 0 0 8px rgba(98, 70, 234, 0.3), 0 0 15px rgba(98, 70, 234, 0.1);
+}
+
+/* Blog Content Text Colors */
+.dark .blog-content h1, 
+.dark .blog-content h2, 
+.dark .blog-content h3 {
+  color: var(--text-primary);
+}
+
+.dark .blog-content p {
+  color: var(--text-secondary);
+}
+
+/* Fix for Back to Top Button */
+.back-to-top {
+  background: rgba(var(--accent-primary), 0.1);
+  border: 1px solid rgba(var(--accent-primary), 0.3);
+  color: var(--accent-primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Fix navigation styles for dark/light mode */
+.dark .nav-container {
+  background: rgba(10, 11, 19, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.light .nav-container {
+  background: rgba(255, 255, 254, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Table of Contents Fixes */
+.toc-container {
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(127, 90, 240, 0.2);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 1024px) {
+  .toc-container {
     position: fixed;
-    inset: 0;
-    background: rgba(var(--bg-primary-rgb), 0.7);
-    z-index: 999;
-    backdrop-filter: blur(5px);
-    animation: distortionWave 2s ease-in-out;
+    top: 120px;
+    left: 20px;
+    width: 280px;
+    max-width: 20vw;
   }
   
-  @keyframes distortionWave {
-    0%, 100% { opacity: 0; }
-    25%, 75% { opacity: 0.8; }
-    50% { opacity: 0.95; }
+  .blog-post-container {
+    margin-left: calc(20vw + 40px);
   }
-  
-  /* Digital noise pattern during transition */
-  body.theme-transitioning::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 1000;
-    animation: staticNoise 2s linear;
-  }
-  
-  @keyframes staticNoise {
-    0%, 100% { opacity: 0; }
-    25%, 75% { opacity: 0.08; }
-    50% { opacity: 0.12; }
-  }
-  
-  /* Digital scan line effect */
-  .scanlines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(var(--accent-primary-rgb), 0.05) 51%
-    );
-    background-size: 100% 4px;
-    z-index: 1001;
-    pointer-events: none;
-    opacity: 0;
-    animation: scanlines 2s ease-in-out;
-  }
-  
-  @keyframes scanlines {
-    0%, 100% { opacity: 0; }
-    25%, 75% { opacity: 0.5; }
-    50% { opacity: 0.7; }
-  }
-  
-  /* Theme toggle visual effect */
-  .theme-toggle {
-    position: relative;
-    transition: all 0.3s ease;
-  }
-  
-  .theme-toggle:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px; /* Changed from 50% to match button shape */
-    box-shadow: 0 0 15px var(--accent-primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .theme-toggle:hover:after {
-    opacity: 1;
-  }
-  
-  /* Add glitch effect to important text during transition */
-  .theme-transitioning .glitch-on-transition {
-    animation: microGlitch 2s linear;
-  }
-  
-  @keyframes microGlitch {
-    0%, 100% { transform: translate(0); }
-    10% { transform: translate(-2px, 2px); }
-    20% { transform: translate(2px, -2px); }
-    30% { transform: translate(-1px, -1px); }
-    40% { transform: translate(1px, 1px); }
-    50% { transform: translate(0); }
-    60% { transform: translate(-2px, -2px); }
-    70% { transform: translate(2px, 2px); }
-    80% { transform: translate(-1px, 1px); }
-    90% { transform: translate(1px, -1px); }
-  }
-  
-  /* Color shift during transition */
-  .theme-transitioning .color-shift {
-    animation: colorShift 2s ease-in-out;
-  }
-  
-  @keyframes colorShift {
-    0%, 100% { filter: hue-rotate(0deg); }
-    50% { filter: hue-rotate(45deg); }
-  }
-  
-  /* Circuit animation for theme toggle */
-  .circuit-path {
-    stroke-dasharray: 60;
-    stroke-dashoffset: 60;
-    animation: circuit 2s infinite linear;
-  }
-  
-  @keyframes circuit {
-    0% { stroke-dashoffset: 60; }
-    50% { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: -60; }
-  }
-  
-  .circuit-circle {
-    stroke-dasharray: 283;
-    stroke-dashoffset: 283;
-    animation: drawCircle 2s infinite;
-  }
-  
-  .circuit-line {
-    stroke-dasharray: 90;
-    stroke-dashoffset: 90;
-    animation: drawLine 2s infinite;
-  }
-  
-  @keyframes drawCircle {
-    0% { stroke-dashoffset: 283; }
-    50% { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: -283; }
-  }
-  
-  @keyframes drawLine {
-    0% { stroke-dashoffset: 90; }
-    50% { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: -90; }
-  }
-  
-  /* Enhanced Vortex Animation for Theme Toggle */
-  .digital-transition {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-  }
-  
-  .digital-transition svg {
-    width: 100px;
-    height: 100px;
-    filter: drop-shadow(0 0 10px var(--accent-primary));
-    animation: digital 2s linear infinite;
-  }
-  
-  @keyframes digital {
-    0% { transform: scale(1) rotate(0deg); }
-    25% { transform: scale(1.05) rotate(90deg); }
-    50% { transform: scale(1.1) rotate(180deg); }
-    75% { transform: scale(1.05) rotate(270deg); }
-    100% { transform: scale(1) rotate(360deg); }
-  }
-  
-  /* Enhanced Rabbit Hole Effect for Theme Toggle Button */
-  .theme-toggle::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      to right,
-      var(--accent-primary),
-      var(--accent-highlight),
-      var(--accent-primary)
-    );
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.7;
-    animation: borderPulse 4s linear infinite;
-  }
-  
-  @keyframes borderPulse {
-    0% { opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { opacity: 0.5; }
-  }
-  
-  /* Enhanced Glow Effects for Interactive Elements */
-  .dark .glow-on-hover:hover {
-    box-shadow: 0 0 15px var(--accent-primary);
-  }
-  
-  .light .glow-on-hover:hover {
-    box-shadow: 0 0 10px var(--accent-primary);
-  }
-  
-  /* Enhanced scrollbar styling for dark mode */
-  .dark *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  
-  .dark *::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-    border-radius: 4px;
-  }
-  
-  .dark *::-webkit-scrollbar-thumb {
-    background: var(--bg-tertiary);
-    border-radius: 4px;
-    border: 2px solid var(--bg-secondary);
-  }
-  
-  .dark *::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-primary);
-  }
-  
-  /* Light mode scrollbar */
-  .light *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  
-  .light *::-webkit-scrollbar-track {
-    background: var(--bg-tertiary);
-    border-radius: 4px;
-  }
-  
-  .light *::-webkit-scrollbar-thumb {
-    background: var(--text-muted);
-    border-radius: 4px;
-    border: 2px solid var(--bg-tertiary);
-  }
-  
-  .light *::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-primary);
-  }
-  
-  /* Enhanced focus styles */
-  :focus {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
-  }
-  
-  /* Selection styles */
-  ::selection {
-    background-color: var(--accent-primary);
-    color: white;
-  }
-  
-  /* Mode-specific transition effects */
-  .dark.theme-transitioning::before {
-    background-color: rgba(10, 11, 19, 0.7);
-  }
-  
-  .light.theme-transitioning::before {
-    background-color: rgba(255, 255, 254, 0.7);
-  }
-  
-  /* Adapting to your brand styling */
-  .dark .your-brand-gradient {
-    background: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
-  }
-  
-  .light .your-brand-gradient {
-    background: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
-  }
-  
-  /* Dark mode specific component styles */
-  .dark .blog-card {
-    background: rgba(20, 22, 37, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(127, 90, 240, 0.2);
-    box-shadow: 0 10px 25px rgba(10, 11, 19, 0.3), 0 0 15px rgba(127, 90, 240, 0.05);
-  }
-  
-  .dark .blog-card:hover {
-    box-shadow: 0 15px 35px rgba(10, 11, 19, 0.4), 0 0 25px rgba(127, 90, 240, 0.15);
-  }
-  
-  .light .blog-card {
-    background: rgba(240, 240, 248, 0.7);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(98, 70, 234, 0.1);
-    box-shadow: 0 5px 15px rgba(20, 22, 37, 0.1);
-  }
-  
-  .light .blog-card:hover {
-    box-shadow: 0 10px 25px rgba(20, 22, 37, 0.15), 0 0 15px rgba(98, 70, 234, 0.1);
-  }
-  
-  /* Special effect for "manic agency" text */
-  .dark .logo-text {
-    color: transparent;
-    background-clip: text;
-    background-image: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
-    filter: drop-shadow(0 0 2px rgba(var(--accent-primary-rgb), 0.5));
-  }
-  
-  .light .logo-text {
-    color: transparent;
-    background-clip: text;
-    background-image: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
-    filter: drop-shadow(0 0 1px rgba(var(--accent-primary-rgb), 0.3));
-  }
-  
-  /* Improved modal/dialog styling for dark mode */
-  .dark .modal-backdrop {
-    background-color: rgba(10, 11, 19, 0.8);
-    backdrop-filter: blur(8px);
-  }
-  
-  .light .modal-backdrop {
-    background-color: rgba(255, 255, 254, 0.8);
-    backdrop-filter: blur(8px);
-  }
-  
-  .dark .modal-content {
-    background-color: var(--bg-secondary);
-    border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
-    box-shadow: 0 10px 30px rgba(10, 11, 19, 0.4), 0 0 20px rgba(var(--accent-primary-rgb), 0.1);
-  }
-  
-  .light .modal-content {
-    background-color: var(--bg-secondary);
-    border: 1px solid rgba(var(--accent-primary-rgb), 0.1);
-    box-shadow: 0 10px 30px rgba(20, 22, 37, 0.2);
-  }
+}
+
+/* Enhanced scrollbar for both modes */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  border: 2px solid var(--bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+  border: 2px solid var(--bg-tertiary);
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Add proper transition for logo */
+.logo-text {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to right, var(--brand-teal), var(--brand-blue));
+  transition: filter 0.3s ease;
+}
+
+.dark .logo-text {
+  filter: drop-shadow(0 0 2px rgba(127, 90, 240, 0.5));
+}
+
+.light .logo-text {
+  filter: drop-shadow(0 0 1px rgba(98, 70, 234, 0.3));
+}
+
+/* Fix reading progress indicator */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-highlight));
+  z-index: 1000;
+  transition: width 0.2s ease;
+}

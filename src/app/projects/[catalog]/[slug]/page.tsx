@@ -32,8 +32,6 @@ export async function generateStaticParams() {
   }
 }
 
-// --- REMOVE getStaticProps entirely ---
-
 
 // Define the props type, including `params` for dynamic segments
 interface ProjectDetailPageProps {

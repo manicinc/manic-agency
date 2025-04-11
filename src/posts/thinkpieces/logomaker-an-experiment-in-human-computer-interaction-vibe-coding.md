@@ -9,10 +9,11 @@ tags: ["featured", "llms", "vibe coding"]
 
 **GitHub link: [https://github.com/manicinc/logomaker](https://github.com/manicinc/logomaker)**
 
-***Note: Each LLM tested (GPT-4o, GPT-4.5, GPT–o1, Claude Sonnet 3.7, Gemini 2.5 Pro) was done using the default settings.*** (No extended thinking / deep research, no 200$ Pro subscription, or web search experimental plugins, or memories). I used the basic plan and default options for each (all set at 20$ a month currently). Everything was written / tested in VS Code (specifically not Cursor) with Copilot enabled and used to solve single line bugs for convenience.
+***Note: Each LLM tested (GPT-4o, GPT-4.5, GPT–o1, Claude Sonnet 3.7, Gemini 2.5 Pro) was done using the default settings.*** (No extended thinking / deep research, or web search experimental plugins, or memories). I used the basic plan and default options for each, all set at 20$ a month currently. Everything was written / tested in VS Code (specifically not Cursor) with Copilot enabled and used to solve single line bugs (only) for convenience.
 
 This is only called an experiment in title, as it is incredibly anecdotal. 
-__________________________________________________________________
+
+________________________________________________
 
 At the time of writing this, I'll have been in the software field for the upper half of but still quite far away decade of time. Comes an unpleasant shock to realize this declaration's necessary to introduce the post, because there are non-junior engineers (as in, mid-level, as in, working for multiple years now) who **just** might have gotten away with never handwriting a class or file, function, or even line of code without the aid of generative AI.
  
@@ -249,7 +250,7 @@ So anyway, we took the original lines of code we were given by Aider (what you s
 
 ![Hello darkness my old friend](/assets/blog/logomaker-claude-horror-chat-history.png)
 
-![](sound-of-silence-arrested-development)
+![](/assets/blog/sound-of-silence-arrested-development.jpg)
 
 This is only the conversations list on Anthropic's Claude's UI (since this is the nicest looking and one with the most organized search). We used OpenAI's ChatGPT and Google Gemini's Pro paid plans, not just to test and compare, but because we had to. This thing still wasn't done bug-free after 10 days!
 

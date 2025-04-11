@@ -12,7 +12,7 @@ export const Header = () => {
     return (
         // Removed min-h-screen, as that likely belongs to the overall page structure or Hero
         // Adjust styling as needed - maybe just position Nav?
-        <header className="relative z-50"> {/* Example: Ensure it's above other content */}
+        <header className="relative z-50 sticky-header"> {/* Example: Ensure it's above other content */}
             <Nav />
         </header>
     );

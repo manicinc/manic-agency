@@ -489,8 +489,8 @@ export default function Page() {
                         className={`group relative bg-bg-secondary rounded-lg overflow-hidden border border-accent-primary/20 hover:border-accent-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent-primary/10 ${repo.archived ? 'opacity-70 hover:opacity-90' : ''} cursor-pointer`} // Added cursor-pointer
                         onClick={() => openRepoModal(repo)}
                         role="button" // Semantics for clickable div
-                        tabIndex={0} // Make it focusable
-                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') openRepoModal(repo); }} // Keyboard accessibility
+                        // Make it focusable
+                        onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') openRepoModal(repo); }} // Keyboard accessibility
                         >
                         {/* Repository card content... (remains the same) */}
                          <div className="p-6 h-full flex flex-col">
@@ -644,12 +644,12 @@ export default function Page() {
 
               {/* Modal content */}
               <motion.div
-                  className="relative w-full max-w-3xl p-6 md:p-8 bg-bg-secondary border border-accent-primary/20 rounded-lg shadow-xl max-h-[90vh] overflow-y-auto" // Added max-height and scroll
+                  // Added max-height and scroll
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
                   transition={{ duration: 0.2, delay: 0.05 }}
-                  onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                  onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()} // Prevent closing when clicking inside modal
                   role="dialog"
                   aria-modal="true"
                   aria-labelledby="repo-modal-title"
