@@ -16,9 +16,6 @@ import { getAllPosts, calculateReadingTime } from "@/lib/getAllPosts";
 import { BlogPost, TableOfContentsItem } from "@/types/blog";
 import BlogInteractiveClient from '@/app/blog/BlogInteractiveClient';
 
-// Import styles
-import "@/app/styles"; // Use our new consolidated styles
-
 // Constants
 const POSTS_DIR = path.join(process.cwd(), "src", "posts");
 
